@@ -383,8 +383,7 @@ What will happen if i do not convert username and operatorcode to small letter b
 
 ## F - Special request on launch game / 开启游戏的特殊接口请求
 
-> Example 例子:
-
+> Example 例子:  
 > <API_URL>/launchGames.aspx?operatorcode=d8kr&providercode=IG&username=dv69000XXX&password=kJiCDDX7&type=LK&lang=ko-KR&gameid=2&signature=1281A073C04822BB5838DD861EC15C40
 
 **Product code 供应商代号: IG**
