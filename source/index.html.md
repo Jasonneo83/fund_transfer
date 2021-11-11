@@ -67,14 +67,14 @@ meta:
 
 Product code 供应商代号: PG
 
-Fields 参数 | Type 资料型态 | Required 必要 | Description 参数说明
+Fields 参数 | Type 资料型态 | Req 必要 | Description 参数说明
 ------------|--------------|---------------|--------------------
 versionkey | String 字串 | N 否 | For pgsoft, there are two type<br/>PGSoft支持两种类型<br/>- C_ + {versionkey} (cash/现金)<br/>- T_ + {versionkey} (tournament/红利)
 
 
 ## B - Callback related / 回调网址解说
 
-> Code sample代码样本:
+> Code sample 代码样本:
 
 ```plaintext
 # get the data in query parameter from AIO接收并解析集成系统传送的数据串
@@ -104,29 +104,28 @@ context.Response.Write(resp);
 一般支持手机应用APP的供应商会需要预设此回调。**
 
 Function Class接口: Not Applicable  
-Request请求类型 : GET  
-Response回传格式 : text/html; charset=utf-8
+Request 请求类型 : GET  
+Response 回传格式 : text/html; charset=utf-8
 
-Example范例:  
-Request请求:  
+Example 范例:  
+Request 请求:  
 **AIO will send data to the callback url (your side), process it.  
 集成系统将发送验证请求至贵司的回调网址，贵司系统接收后需要进行必要的处理。**
 
 Callback request sample 回调请求例子：  
 <code>http://apiclient_path/ch3ckM3mb3r.ashx?username=jordan&password=123456&provider=1S</code>
 
-Response回传:  
+Response 回传:  
 After process, return the result to AIO. 处理并核实完成后，请响应以下内容至集成系统。  
 <code>“false”</code>
 
 <aside class="notice">
-Important note重要备注:<br/>
-please remember to provide this callback url to AIO team, for further integration purpose<br/>
+Please remember to provide this callback url to AIO team, for further integration purpose<br/>
 请提供回调网址给集成系统团队，以便进一步的对接进行使用
 </aside>
 Eg: <code>http://apiclient_path/ch3ckM3mb3r.ashx</code>
 
-**Remark备注:**  
+**Remark 备注:**  
 Currently the below provider are advised to prepare this method.  
 若有申请以下供应商的游戏平台，请按照步骤并开发这个程序
 
@@ -169,7 +168,7 @@ p_win | Double小数点 | Y是 | Jackpot payout 彩池派彩金额
 status |Int 整数字 |Y是 |Status of this record 注单状态<br/>1 (valid bet record 有效注单)<br/>0 (running/ongoing match 赛事进行中)<br/>-1 (invalid bet record 无效注单 e.g. voided 作废, canceled 取消)
 
 
-Example | 范例
+Example 范例
 
 Player bet banker with amount=5, at the same time bet player with amount=5. Turnover will be 0  
 当玩家以投注金额=5同时在庄与闲进行下注，{turnover有效投注金额}将会是0. 
