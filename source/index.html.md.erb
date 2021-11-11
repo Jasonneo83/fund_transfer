@@ -67,17 +67,16 @@ meta:
 
 ## E - QnA / 常问疑问
 
-
 ### Question 1
 
-**From API Document, createMember only require {username} and without {password} But others API like getBalance and changePassword required to pass in the {password} value. May I know how do I set the initial {password}?**
+From API Document, createMember only require {username} and without {password} But others API like getBalance and changePassword required to pass in the {password} value. May I know how do I set the initial {password}?
 
 ### Answer 1
 
 When createMember,
 
-* it only create member account on AIO system.
-* member account will not created on game provider side.
+* It only create member account on AIO system.
+* Member account will not created on game provider side.
 
 When you request any API with {providercode} and {username},
 
@@ -105,6 +104,101 @@ API 文件中, createMember 只需要提供 {username} , 不需要密码{passwor
 * 如该 {providercode} 会员已经存在, 您的API请求将正常返回.
 * AIO 系统不会保存您的 {password}, 请妥善保存您的 {password}.
 * 每个会员中的{providercode} , 可以使用不同的 {password}.
+
+### Question 2
+
+What is the difference between repullBettingHistoryApiClient and fetchbykey?
+
+### Answer 2
+
+repullBettingHistoryApiClient    
+* pro1: EXACT data from provider (apiclient can self-customize the data according to their own.
+
+* con1: datetime's timezone in api request and api response is dependent on provider
+* con2: since bet data is dependent on provider, apiclient need to do extra coding to handle every provider differently.
+
+fetchbykey
+
+* pro1: integrate code once, able to get all providercode's bet data
+* pro2: standardized bet data across all providercode's bet record (which mean all bet data will be in GMT +0)
+* pro3: does not need to handle timezone in api request (since it is using key).
+
+* con1: possibly some bet details in a bet record is removed/ignored by AIO, which deem to be useless.
+* con2: possibly missing bet record due to network between AIO and provider is unstable (AIO will repull data from provider again every 12 hour to resolve this).
+
+
+### 疑问 2
+
+repullBettingHistoryApiClient 和 fetchbykey 有什么区别
+
+### 答案 2
+
+repullBettingHistoryApiClient
+
+* pro1: 来自提供商的确切数据 (apiclient 可以根据自己的需要自定义数据.
+
+* con1: api 请求和 api 响应中的 datetime 时区取决于提供者
+* con2: 由于下注数据取决于提供商，因此 apiclient 需要做额外的编码才能以不同方式处理每个提供商.
+
+fetchbykey
+* pro1: 一次集成代码，能够获取所有 providercode 的下注数据
+* pro2: 所有提供商代码的赌注记录中的标准化赌注数据（这意味着所有赌注数据将在 GMT +0 中）
+* pro3: 不需要在api请求中处理时区（因为它使用的是键.
+
+* con1: AIO 可能删除/忽略了投注记录中的某些投注详细信息，这被认为是无用的.
+* con2: 由于 AIO 和提供商之间的网络不稳定，可能会丢失投注记录（AIO 将每12小时重新刷新提供商的数据以解决此问题）.
+
+
+### Question 3
+Any suggestion on password?
+
+### Answer 3
+
+* at least one big letter.
+* at least one small letter.
+* do not have continuous such as（123 ，234，456).
+* larger than 6 character.
+
+Example:
+
+* password = Qwer124
+
+if did not utilize this suggestion, you might facing password issue if you took PU,KS.
+
+### 疑问 3
+密码格式推荐
+
+### 答案 3
+
+* 至少一个大写.
+* 至少一个小写.
+* 然后不要有连续的数目比如（123 ，234，456).
+* 大于6个字.
+
+例子:
+
+* password = Qwer124
+
+若选择不根据要求，可能在KS,PU 会发生密码api问题.
+
+
+### Question 4
+
+What will happen if i do not convert username and operatorcode to small letter before sending API request to GSC ?
+
+### Answer 4
+
+* GSC system will convert username and operatorcode to small letter.
+* Please remember that some of the API is using username and operatorcode to create signature. MD5 is case sensitive.
+
+### 疑问 4
+
+若没把operatorcode和username转换成小写就 发送API请求给GSC，会发生什么事。
+
+### 答案 4 
+
+* GSC 会自行转换去小写。
+* username 和 operatorcode 是会用于 制作签名。 MD5 是区分大小写 
 
 
 ## F - Special request on launch game / 开启游戏的特殊接口请求
