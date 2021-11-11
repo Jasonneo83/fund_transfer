@@ -64,10 +64,11 @@ meta:
 ## C - Standardized betting history attribute / 固定式投注历史记录回传参数
 
 <aside class="notice">
-Attributes are fixed and will not change according to provider code 回传参数内容将保持不变
+Attributes are fixed and will not change according to provider code
+回传参数内容将保持不变
 </aside>
 
-Fields 参数 | Type 资料型态 | REQUIRED 必要	| Description 参数说明
+Fields 参数 | Type 资料型态 | Required 必要	| Description 参数说明
 ------------|--------------|--------------|---------------------
 id | Int 整数字 	| Y是 | AIO Bet id (unique) AIO 注单号 (唯一值)
 ref_no | Int 整数字 | Y是 | Provider Bet id 供应商注单号
@@ -88,7 +89,7 @@ p_win | Double小数点 | Y是 | Jackpot payout 彩池派彩金额
 status |Int 整数字 |Y是 |Status of this record 注单状态<br/>1 (valid bet record 有效注单)<br/>0 (running/ongoing match 赛事进行中)<br/>-1 (invalid bet record 无效注单 e.g. voided 作废, canceled 取消)
 
 
-Example 1 范例 1.
+Example | 范例
 
 Player bet banker with amount=5, at the same time bet player with amount=5. Turnover will be 0
 当玩家以投注金额=5同时在庄与闲进行下注，{turnover有效投注金额}将会是0. 
@@ -96,7 +97,8 @@ Player bet banker with amount=5, at the same time bet player with amount=5. Turn
 ## D - Dynamic betting history attribute / 变动式投注历史记录回传参数
 
 <aside class="notice">
-Attributes are NOT fixed and WILL change according to provider code. 回传参数内容将依据供应商的需求随时更改。
+Attributes are NOT fixed and WILL change according to provider code.
+回传参数内容将依据供应商的需求随时更改。
 </aside>
 
 Please refer to respective document.
@@ -261,7 +263,7 @@ What will happen if i do not convert username and operatorcode to small letter b
 
 **Product code 供应商代号: IG**
 
-Fields 参数 | Type 资料型态 | REQUIRED 必要 | Description 参数说明
+Fields 参数 | Type 资料型态 | Required 必要 | Description 参数说明
 ------------|--------------|---------------|--------------------
 gameid | String 字串 ||1 - HK 香港彩<br/>2 - SSC 时时彩 
 
