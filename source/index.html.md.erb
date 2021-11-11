@@ -57,17 +57,57 @@ meta:
 
 # Appendix 附件
 
-## A - Special request on bet history / A - 投注记录的特殊接口请求
+## A - Special request on bet history / 投注记录的特殊接口请求
 
-## B - Callback related / B - 回调网址解说
+## B - Callback related / 回调网址解说
 
-## C - Standardized betting history attribute / C - 固定式投注历史记录回传参数
+## C - Standardized betting history attribute / 固定式投注历史记录回传参数
 
-## D - Dynamic betting history attribute / D - 变动式投注历史记录回传参数
+## D - Dynamic betting history attribute / 变动式投注历史记录回传参数
 
-## E - QnA / E - 常问疑问
+## E - QnA / 常问疑问
 
-## F - Special request on launch game / F - 开启游戏的特殊接口请求
+
+### Question 1
+
+**From API Document, createMember only require {username} and without {password} But others API like getBalance and changePassword required to pass in the {password} value. May I know how do I set the initial {password}?**
+
+### Answer 1
+
+When createMember,
+
+* it only create member account on AIO system.
+* member account will not created on game provider side.
+
+When you request any API with {providercode} and {username},
+
+* API example : getBalance, makeTransfer, launchGames, changePassword and others
+* If member not exists on related {providercode}, member account will auto created and {password} will be stored in provider side and your API request will return like usual.
+* If member exists on related {providercode}, your API request will return like usual.
+* AIO system not store your member {password}, please store your member {password} carefully.
+* Each member will have different {password} for different {providercode}.
+
+### 疑问 1
+
+API 文件中, createMember 只需要提供 {username} , 不需要密码{password}. 但其他API，如 getBalance 和 changePassword 需要提供 {password} . 请问需要如何设置 {password} ?
+
+### 答案 1
+
+当 createMember 时,
+
+* createMember 只在 AIO 系统中创建会员.
+* 游戏供应商 {providercode} 不会创建会员.
+
+当您请求任何需要 {providercode} 和 {username} 的 API ,
+
+* API 样本: getBalance, makeTransfer, launchGames, changePassword 或其他
+* 如该 {providercode} 会员不存在, 会员将会自动创建， {password} 密码将保存在供应商服务器, 您的API请求将正常返回.
+* 如该 {providercode} 会员已经存在, 您的API请求将正常返回.
+* AIO 系统不会保存您的 {password}, 请妥善保存您的 {password}.
+* 每个会员中的{providercode} , 可以使用不同的 {password}.
+
+
+## F - Special request on launch game / 开启游戏的特殊接口请求
 
 > Example 例子:
 
@@ -75,7 +115,7 @@ meta:
 <API_URL>/launchGames.aspx?operatorcode=d8kr&providercode=IG&username=dv69000XXX&password=kJiCDDX7&type=LK&lang=ko-KR&gameid=2&signature=1281A073C04822BB5838DD861EC15C40
 ```
 
-Product code 供应商代号: IG
+**Product code 供应商代号: IG**
 
 Fields 参数 | Type 资料型态 | REQUIRED 必要 | Description 参数说明
 ------------|--------------|---------------|--------------------
