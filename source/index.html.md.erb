@@ -105,13 +105,16 @@ API 文件中, createMember 只需要提供 {username} , 不需要密码{passwor
 * AIO 系统不会保存您的 {password}, 请妥善保存您的 {password}.
 * 每个会员中的{providercode} , 可以使用不同的 {password}.
 
+<hr class="solid">
+
 ### Question 2
 
 What is the difference between repullBettingHistoryApiClient and fetchbykey?
 
 ### Answer 2
 
-repullBettingHistoryApiClient    
+repullBettingHistoryApiClient
+
 * pro1: EXACT data from provider (apiclient can self-customize the data according to their own.
 
 * con1: datetime's timezone in api request and api response is dependent on provider
@@ -141,6 +144,7 @@ repullBettingHistoryApiClient
 * con2: 由于下注数据取决于提供商，因此 apiclient 需要做额外的编码才能以不同方式处理每个提供商.
 
 fetchbykey
+
 * pro1: 一次集成代码，能够获取所有 providercode 的下注数据
 * pro2: 所有提供商代码的赌注记录中的标准化赌注数据（这意味着所有赌注数据将在 GMT +0 中）
 * pro3: 不需要在api请求中处理时区（因为它使用的是键.
@@ -148,6 +152,7 @@ fetchbykey
 * con1: AIO 可能删除/忽略了投注记录中的某些投注详细信息，这被认为是无用的.
 * con2: 由于 AIO 和提供商之间的网络不稳定，可能会丢失投注记录（AIO 将每12小时重新刷新提供商的数据以解决此问题）.
 
+<hr class="solid">
 
 ### Question 3
 Any suggestion on password?
@@ -181,6 +186,7 @@ if did not utilize this suggestion, you might facing password issue if you took 
 
 若选择不根据要求，可能在KS,PU 会发生密码api问题.
 
+<hr class="solid">
 
 ### Question 4
 
