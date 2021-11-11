@@ -59,12 +59,13 @@ meta:
 
 ## A - Special request on bet history / 投注记录的特殊接口请求
 
-Product code 供应商代号: PG
-
 > Example 例子:
+
 ```plaintext
 <LOG_URL>/repullBettingHistoryApiClient.ashx?providercode=PG&keyOrdate=key&versionkey=C_0&operatorcode=DEMO
 ```
+
+Product code 供应商代号: PG
 
 Fields 参数 | Type 资料型态 | Required 必要 | Description 参数说明
 ------------|--------------|---------------|--------------------
@@ -72,33 +73,6 @@ versionkey | String 字串 | N 否 | For pgsoft, there are two type<br/>PGSoft�
 
 
 ## B - Callback related / 回调网址解说
-
-**AIO will send request to below file, your side will need to process the data and send a response to AIO.  
-集成系统将发送请求至以下文档，贵方需自行核实，处理该数据内容，并回传一个(成功/失败)响应给集成系统。**
-
-**Normally only Provider code that have/use APP will need this. 一般支持手机应用APP的供应商会需要预设此回调。**
-
-Function Class接口: Not Applicable
-Request请求类型 : GET
-Response回传格式 : text/html; charset=utf-8
-
-Example范例:
-Request请求:
-**AIO will send data to the callback url (your side), process it. 集成系统将发送验证请求至贵司的回调网址，贵司系统接收后需要进行必要的处理。**
-
-Callback request sample 回调请求例子：
-<code>http://apiclient_path/ch3ckM3mb3r.ashx?username=jordan&password=123456&provider=1S</code>
-
-Response回传:
-After process, return the result to AIO. 处理并核实完成后，请响应以下内容至集成系统。
-<code>“false”</code>
-
-<aside class="notice">
-Important note重要备注:<br/>
-please remember to provide this callback url to AIO team, for further integration purpose 请提供回调网址给集成系统团队，以便进一步的对接进行使用<br/>
-</aside>
-Eg: <code>http://apiclient_path/ch3ckM3mb3r.ashx</code>
-
 
 > Code sample代码样本:
 
@@ -122,6 +96,33 @@ Else
 #return message to AIO回传至集成系统的响应内容
 context.Response.Write(resp);
 ```
+
+**AIO will send request to below file, your side will need to process the data and send a response to AIO.  
+集成系统将发送请求至以下文档，贵方需自行核实，处理该数据内容，并回传一个(成功/失败)响应给集成系统。**
+
+**Normally only Provider code that have/use APP will need this. 一般支持手机应用APP的供应商会需要预设此回调。**
+
+Function Class接口: Not Applicable  
+Request请求类型 : GET  
+Response回传格式 : text/html; charset=utf-8
+
+Example范例:  
+Request请求:  
+**AIO will send data to the callback url (your side), process it. 集成系统将发送验证请求至贵司的回调网址，贵司系统接收后需要进行必要的处理。**
+
+Callback request sample 回调请求例子：  
+<code>http://apiclient_path/ch3ckM3mb3r.ashx?username=jordan&password=123456&provider=1S</code>
+
+Response回传:  
+After process, return the result to AIO. 处理并核实完成后，请响应以下内容至集成系统。  
+<code>“false”</code>
+
+<aside class="notice">
+Important note重要备注:<br/>
+please remember to provide this callback url to AIO team, for further integration purpose<br/>
+请提供回调网址给集成系统团队，以便进一步的对接进行使用
+</aside>
+Eg: <code>http://apiclient_path/ch3ckM3mb3r.ashx</code>
 
 **Remark备注:**  
 Currently the below provider are advised to prepare this method.  
