@@ -63,7 +63,51 @@ meta:
 
 ## C - Standardized betting history attribute / 固定式投注历史记录回传参数
 
+<aside class="notice">
+Attributes are fixed and will not change according to provider code 回传参数内容将保持不变
+</aside>
+
+Fields 参数 | Type 资料型态 | REQUIRED 必要	| Description 参数说明
+------------|--------------|--------------|---------------------
+id | Int 整数字 	| Y是 | AIO Bet id (unique) AIO 注单号 (唯一值)
+ref_no | Int 整数字 | Y是 | Provider Bet id 供应商注单号
+site | String字串 | Y是 | Provider code 供应商代号
+product | String字串 | Y是 | Game type code 游戏类型代号
+member | String字串 | Y是 | Username 玩家帐号
+gameid | String字串 | Y是 | Game id 游戏代号
+start_time | String字串 | Y是 | bet time (the moment player submit/place the bet) GMT/UTC +0 下注时间(玩家实际的投注时间)，依据 GMT/UTC +0 时区
+end_time | String字串 | Y是 | settlement time GMT/UTC +0 结算时间，依据 GMT/UTC +0 时区
+match_time | String字串 | Y是 | match start time GMT/UTC +0 开赛时间，依据 GMT/UTC +0 时区
+bet_detail | String字串 | Y是 | Bet details 投注明细
+turnover | Double小数点 | Y是 | Valid bet amount 有效投注金额
+bet | Double小数点 | Y是 | Bet amount 投注金额
+payout | Double小数点 | Y是 | Payout 派彩金额
+commission | Double小数点 |Y是 | Commission 佣金
+p_share | Double小数点 | Y是 | Jackpot bet amount 彩池投注金额
+p_win | Double小数点 | Y是 | Jackpot payout 彩池派彩金额 
+status |Int 整数字 |Y是 |Status of this record 注单状态<br/>1 (valid bet record 有效注单)<br/>0 (running/ongoing match 赛事进行中)<br/>-1 (invalid bet record 无效注单 e.g. voided 作废, canceled 取消)
+
+
+Example 1 范例 1.
+
+Player bet banker with amount=5, at the same time bet player with amount=5. Turnover will be 0
+当玩家以投注金额=5同时在庄与闲进行下注，{turnover有效投注金额}将会是0. 
+
 ## D - Dynamic betting history attribute / 变动式投注历史记录回传参数
+
+<aside class="notice">
+Attributes are NOT fixed and WILL change according to provider code. 回传参数内容将依据供应商的需求随时更改。
+</aside>
+
+Please refer to respective document.
+For example:
+provider code: WM , world match
+Please refer to WM-PRODUCT WORLD MATCH.docx
+
+请参阅个别供应商的对接文档。
+例如：
+供应商代号：WM代表world match平台
+请参阅WM-PRODUCT WORLD MATCH.docx文档 
 
 ## E - QnA / 常问疑问
 
