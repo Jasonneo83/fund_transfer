@@ -90,17 +90,16 @@ type | String 字串 | N 否 | For Big Gaming, there are four type<br/>Big Gamin
 > <LOG_URL>/repullBettingHistoryApiClient.ashx?providercode=IG&from=2019-08-22T14%3A09%3A19&to=2019-08-22T14%3A19%3A19&operatorcode=igcn&keyOrdate=date&type=SC&etc=ewoJImdhbWVub2lkIjogIjEiLAoJImJlZ2luaWQiOiAiMCIsCiJyZXBvcnRkYXRlaWQiOiIwIgp9&Signature=D197C1EDD962D6942B7CF43D3CC0828B
 
 ```csharp
-
-# Remark 备注:
-# How to generate value for etc 如何制作etc参数?
-# Answer 答案:
-# extra_parameter_HK (in json):
+#Remark 备注:
+#How to generate value for etc 如何制作etc参数?
+#Answer 答案:
+#extra_parameter_HK (in json):
 {
 "gamenoid":"1",
 "beginid":"0",
 }
 
-# extra_parameter_SC (in json):
+#extra_parameter_SC (in json):
 {
 "gamenoid":"1",
 "beginid":"0",
@@ -123,23 +122,23 @@ etc | String 字串 | |
 > Code sample 代码样本:
 
 ```csharp
-# get the data in query parameter from AIO接收并解析集成系统传送的数据串
+#get the data in query parameter from AIO 接收并解析集成系统传送的数据串
 string username = context.Request.QueryString["username"];
 string password = context.Request.QueryString["password"];
 string provider = context.Request.QueryString["provider"];
 string resp = “false”;
 
-# process and check the data from AIO核实与处理
-# check the member exist检查玩家帐号是否存在
-# check the password is correct检查玩家登入密码是否正确
-# checking C检查项目C
-# checking D检查项目D
+#process and check the data from AIO 核实与处理
+#check the member exist 检查玩家帐号是否存在
+#check the password is correct 检查玩家登入密码是否正确
+#checking C 检查项目C
+#checking D 检查项目D
 If(valid)
 { resp = “true”;}
 Else
 { resp = “false”;}
 
-# return message to AIO回传至集成系统的响应内容
+#return message to AIO回传至集成系统的响应内容
 context.Response.Write(resp);
 ```
 
@@ -381,6 +380,7 @@ What will happen if i do not convert username and operatorcode to small letter b
 ## F - Special request on launch game / 开启游戏的特殊接口请求
 
 > Example 例子:
+
 > <API_URL>/launchGames.aspx?operatorcode=d8kr&providercode=IG&username=dv69000XXX&password=kJiCDDX7&type=LK&lang=ko-KR&gameid=2&signature=1281A073C04822BB5838DD861EC15C40
 
 **Product code 供应商代号: IG**
