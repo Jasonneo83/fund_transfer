@@ -2,7 +2,7 @@
 title: Fund Transfer API
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - c#
+  - csharp
 
 includes:
 
@@ -73,7 +73,7 @@ versionkey | String 字串 | N 否 | For pgsoft, there are two type<br/>PGSoft�
 
 > Code sample 代码样本:
 
-```c#
+```csharp
 # get the data in query parameter from AIO接收并解析集成系统传送的数据串
 string username = context.Request.QueryString["username"];
 string password = context.Request.QueryString["password"];
