@@ -59,6 +59,18 @@ meta:
 
 ## A - Special request on bet history / 投注记录的特殊接口请求
 
+Product code 供应商代号: PG
+
+> Example 例子:
+```plaintext
+<LOG_URL>/repullBettingHistoryApiClient.ashx?providercode=PG&keyOrdate=key&versionkey=C_0&operatorcode=DEMO
+```
+
+Fields 参数 | Type 资料型态 | Required 必要 | Description 参数说明
+------------|--------------|---------------|--------------------
+versionkey | String 字串 | N 否 | For pgsoft, there are two type<br/>PGSoft支持两种类型<br/>- C_ + {versionkey} (cash/现金)<br/>- T_ + {versionkey} (tournament/红利)
+
+
 ## B - Callback related / 回调网址解说
 
 **AIO will send request to below file, your side will need to process the data and send a response to AIO.  
