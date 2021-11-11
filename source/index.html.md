@@ -2,7 +2,7 @@
 title: Fund Transfer API
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - plaintext
+  - c#
 
 includes:
 
@@ -60,10 +60,7 @@ meta:
 ## A - Special request on bet history / 投注记录的特殊接口请求
 
 > Example 例子:
-
-```plaintext
-<LOG_URL>/repullBettingHistoryApiClient.ashx?providercode=PG&keyOrdate=key&versionkey=C_0&operatorcode=DEMO
-```
+> <LOG_URL>/repullBettingHistoryApiClient.ashx?providercode=PG&keyOrdate=key&versionkey=C_0&operatorcode=DEMO
 
 Product code 供应商代号: PG
 
@@ -76,7 +73,7 @@ versionkey | String 字串 | N 否 | For pgsoft, there are two type<br/>PGSoft�
 
 > Code sample 代码样本:
 
-```plaintext
+```c#
 # get the data in query parameter from AIO接收并解析集成系统传送的数据串
 string username = context.Request.QueryString["username"];
 string password = context.Request.QueryString["password"];
@@ -335,10 +332,7 @@ What will happen if i do not convert username and operatorcode to small letter b
 ## F - Special request on launch game / 开启游戏的特殊接口请求
 
 > Example 例子:
-
-```plaintext
-<API_URL>/launchGames.aspx?operatorcode=d8kr&providercode=IG&username=dv69000XXX&password=kJiCDDX7&type=LK&lang=ko-KR&gameid=2&signature=1281A073C04822BB5838DD861EC15C40
-```
+> <API_URL>/launchGames.aspx?operatorcode=d8kr&providercode=IG&username=dv69000XXX&password=kJiCDDX7&type=LK&lang=ko-KR&gameid=2&signature=1281A073C04822BB5838DD861EC15C40
 
 **Product code 供应商代号: IG**
 
