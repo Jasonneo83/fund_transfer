@@ -68,6 +68,8 @@ Fields 参数 | Type 资料型态 | Req 必要 | Description 参数说明
 ------------|--------------|---------------|--------------------
 versionkey | String 字串 | N 否 | For pgsoft, there are two type<br/>PGSoft支持两种类型<br/>- C_ + {versionkey} (cash/现金)<br/>- T_ + {versionkey} (tournament/红利)
 
+<hr class="solid">
+
 **Product code 供应商代号: FG**
 
 > Example 例子:  
@@ -77,6 +79,8 @@ Fields 参数 | Type 资料型态 | Req 必要 | Description 参数说明
 ------------|--------------|---------------|--------------------
 type | String 字串 | N 否 | For fungaming, there are four type<br/>Fun Gaming支持四种类型<br/>- fish<br/>- fruit<br/>- poker<br/>- slot 
 
+<hr class="solid">
+
 **Product code 供应商代号: BI**
 
 > Example 例子:  
@@ -85,6 +89,8 @@ type | String 字串 | N 否 | For fungaming, there are four type<br/>Fun Gaming
 Fields 参数 | Type 资料型态 | Req 必要 | Description 参数说明
 ------------|--------------|---------------|--------------------
 type | String 字串 | N 否 | For Big Gaming, there are four type<br/>Big Gaming 支持四种类型<br/>- FH<br/>- LK<br/>- LC<br/>- SL 
+
+<hr class="solid">
 
 **Product code 供应商代号: IG**
 
