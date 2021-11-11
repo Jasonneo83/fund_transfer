@@ -62,12 +62,61 @@ meta:
 > Example 例子:
 > <LOG_URL>/repullBettingHistoryApiClient.ashx?providercode=PG&keyOrdate=key&versionkey=C_0&operatorcode=DEMO
 
-Product code 供应商代号: PG
+**Product code 供应商代号: PG**
 
 Fields 参数 | Type 资料型态 | Req 必要 | Description 参数说明
 ------------|--------------|---------------|--------------------
 versionkey | String 字串 | N 否 | For pgsoft, there are two type<br/>PGSoft支持两种类型<br/>- C_ + {versionkey} (cash/现金)<br/>- T_ + {versionkey} (tournament/红利)
 
+> Example 例子:
+> <LOG_URL>/repullBettingHistoryApiClient.ashx?providercode=FG&keyOrdate=key&type=fish&versionkey=vhbgjk26456&operatorcode=DEMO
+
+**Product code 供应商代号: FG**
+
+Fields 参数 | Type 资料型态 | Req 必要 | Description 参数说明
+------------|--------------|---------------|--------------------
+type | String 字串 | N 否 | For fungaming, there are four type<br/>Fun Gaming支持四种类型<br/>- fish<br/>- fruit<br/>- poker<br/>- slot 
+
+> Example 例子:
+> <LOG_URL>/repullBettingHistoryApiClient.ashx?providercode=BI&keyOrdate=key&type=FH&versionkey=154565646&operatorcode=DEMO
+
+**Product code 供应商代号: BI**
+
+Fields 参数 | Type 资料型态 | Req 必要 | Description 参数说明
+------------|--------------|---------------|--------------------
+type | String 字串 | N 否 | For Big Gaming, there are four type<br/>Big Gaming 支持四种类型<br/>- FH<br/>- LK<br/>- LC<br/>- SL 
+
+> Example 例子:
+> <LOG_URL>/repullBettingHistoryApiClient.ashx?providercode=IG&from=2019-08-22T14%3A09%3A19&to=2019-08-22T14%3A19%3A19&operatorcode=igcn&keyOrdate=date&type=SC&etc=ewoJImdhbWVub2lkIjogIjEiLAoJImJlZ2luaWQiOiAiMCIsCiJyZXBvcnRkYXRlaWQiOiIwIgp9&Signature=D197C1EDD962D6942B7CF43D3CC0828B
+
+```csharp
+
+# Remark 备注:
+# How to generate value for etc 如何制作etc参数?
+# Answer 答案:
+# extra_parameter_HK (in json):
+{
+"gamenoid":"1",
+"beginid":"0",
+}
+
+# extra_parameter_SC (in json):
+{
+"gamenoid":"1",
+"beginid":"0",
+"reportdateid":"0"
+}
+
+urlencode(base64encode(extra_parameter))
+```
+
+
+**Product code 供应商代号: IG**
+
+Fields 参数 | Type 资料型态 | Req 必要 | Description 参数说明
+------------|--------------|---------------|--------------------
+type | String 字串 | N 否 | For IG Lotto, there are two type<br/>IG Lotto 支持两种类型<br/>- SC 时时彩<br/>- HK 香港彩 
+etc | String 字串 | | 
 
 ## B - Callback related / 回调网址解说
 
