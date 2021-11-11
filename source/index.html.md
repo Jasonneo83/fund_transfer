@@ -77,23 +77,23 @@ versionkey | String 字串 | N 否 | For pgsoft, there are two type<br/>PGSoft�
 > Code sample代码样本:
 
 ```plaintext
-#get the data in query parameter from AIO接收并解析集成系统传送的数据串
+# get the data in query parameter from AIO接收并解析集成系统传送的数据串
 string username = context.Request.QueryString["username"];
 string password = context.Request.QueryString["password"];
 string provider = context.Request.QueryString["provider"];
 string resp = “false”;
 
-#process and check the data from AIO核实与处理
-#check the member exist检查玩家帐号是否存在
-#check the password is correct检查玩家登入密码是否正确
-#checking C检查项目C
-#checking D检查项目D
+# process and check the data from AIO核实与处理
+# check the member exist检查玩家帐号是否存在
+# check the password is correct检查玩家登入密码是否正确
+# checking C检查项目C
+# checking D检查项目D
 If(valid)
 { resp = “true”;}
 Else
 { resp = “false”;}
 
-#return message to AIO回传至集成系统的响应内容
+# return message to AIO回传至集成系统的响应内容
 context.Response.Write(resp);
 ```
 
