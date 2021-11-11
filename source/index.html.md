@@ -59,32 +59,34 @@ meta:
 
 ## A - Special request on bet history / 投注记录的特殊接口请求
 
+**Product code 供应商代号: PG**
+
 > Example 例子:  
 > (LOG_URL)/repullBettingHistoryApiClient.ashx?providercode=PG&keyOrdate=key&versionkey=C_0&operatorcode=DEMO
-
-**Product code 供应商代号: PG**
 
 Fields 参数 | Type 资料型态 | Req 必要 | Description 参数说明
 ------------|--------------|---------------|--------------------
 versionkey | String 字串 | N 否 | For pgsoft, there are two type<br/>PGSoft支持两种类型<br/>- C_ + {versionkey} (cash/现金)<br/>- T_ + {versionkey} (tournament/红利)
 
+**Product code 供应商代号: FG**
+
 > Example 例子:  
 > (LOG_URL)/repullBettingHistoryApiClient.ashx?providercode=FG&keyOrdate=key&type=fish&versionkey=vhbgjk26456&operatorcode=DEMO
-
-**Product code 供应商代号: FG**
 
 Fields 参数 | Type 资料型态 | Req 必要 | Description 参数说明
 ------------|--------------|---------------|--------------------
 type | String 字串 | N 否 | For fungaming, there are four type<br/>Fun Gaming支持四种类型<br/>- fish<br/>- fruit<br/>- poker<br/>- slot 
 
+**Product code 供应商代号: BI**
+
 > Example 例子:  
 > (LOG_URL)/repullBettingHistoryApiClient.ashx?providercode=BI&keyOrdate=key&type=FH&versionkey=154565646&operatorcode=DEMO
-
-**Product code 供应商代号: BI**
 
 Fields 参数 | Type 资料型态 | Req 必要 | Description 参数说明
 ------------|--------------|---------------|--------------------
 type | String 字串 | N 否 | For Big Gaming, there are four type<br/>Big Gaming 支持四种类型<br/>- FH<br/>- LK<br/>- LC<br/>- SL 
+
+**Product code 供应商代号: IG**
 
 > Example 例子:  
 > (LOG_URL)/repullBettingHistoryApiClient.ashx?providercode=IG&from=2019-08-22T14%3A09%3A19&to=2019-08-22T14%3A19%3A19&operatorcode=igcn&keyOrdate=date&type=SC&etc=ewoJImdhbWVub2lkIjogIjEiLAoJImJlZ2luaWQiOiAiMCIsCiJyZXBvcnRkYXRlaWQiOiIwIgp9&Signature=D197C1EDD962D6942B7CF43D3CC0828B
@@ -108,8 +110,6 @@ type | String 字串 | N 否 | For Big Gaming, there are four type<br/>Big Gamin
 
 urlencode(base64encode(extra_parameter))
 ```
-
-**Product code 供应商代号: IG**
 
 Fields 参数 | Type 资料型态 | Req 必要 | Description 参数说明
 ------------|--------------|---------------|--------------------
