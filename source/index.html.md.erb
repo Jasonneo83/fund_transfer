@@ -27,6 +27,38 @@ meta:
 
 ## Launch DEMO Games 启动试玩游戏接口
 
+ | | 
+-|-|-
+Function Class 接口: | `launchDGames.ashx`
+Request 请求类型: | `GET`
+Response 回传格式: | `application/json`
+
+**Input Data Type 请求资料型态**
+
+> Example 范例:  
+> `(API_URL)/launchDGames.ashx?providercode=xxx&type=xxx`
+
+Fields 参数 |	Type 资料型态 | Req 必要 | Description 参数说明
+------------|--------------|----------|---------------------
+providercode |String 字串 |Y 是 |Provider code 供应商号
+type |String 字串 |Y 是 |Please refer to Game Type Code Below<br/>请参考附录{游戏类型}列表
+gameid |String 字串 |N 否 |Game ID<br/>游戏代号<br/><br/>Ignore this field/0 will go to game lobby<br/>可以忽略此参数，预设为‘0’即可直接进入相关游戏厅
+lang |String 字串 |N 否 |ISO 639-1, default language en-US<br/>ISO 639-1, 默认语言为en-US
+html5 |String 字串 |N 否 |html5=1, for html5(mobile friendly)<br/>html5=1, 使用html5(手机优化页面)
+
+**Response Data Type 回传资料型态**
+
+Fields 参数  |	Type 资料型态 	| Description 参数说明
+------------|--------------|---------------------
+errCode |String 字串 |Error Code 报错码
+gameUrl |String 字串 |Launch Game Url 游戏链接
+errMsg |String 字串 |Error Message 报错内容
+
+**Remark 备注:  
+Currently only 3 providercode support demo game. 获取游戏测试链接目前只支持以下3个供应商 WF, GT, IB. **
+
+
+
 ## Update Player Password 更新玩家密码接口
 
  | | 
@@ -163,7 +195,7 @@ errMsg |String 字串 |Error Message 报错内容
 
  | | 
 -|-|-
-Function Class 接口: | `checkTransaction.aspx`
+Function Class 接口: | `checkTransaction.ashx`
 Request 请求类型: | `GET`
 Response 回传格式: | `application/json`
 
