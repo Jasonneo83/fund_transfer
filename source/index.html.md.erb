@@ -23,6 +23,42 @@ meta:
 
 ## Make Transfer 资金转账接口
 
+ | | 
+-|-|-
+Function Class 接口: | `makeTransfer.aspx`
+Request 请求类型: | `GET`
+Response 回传格式: | `application/json`
+
+**Input Data Type 请求资料型态**
+
+> Example 范例:  
+> `(API_URL)/makeTransfer.aspx?operatorcode=xxx&providercode=xxx&username=xxx&password=xxx&referenceid=xxx&type=xxx&amount=xxx&signature=xxx`
+
+Fields 参数 |	Type 资料型态 | Req 必要 | Description 参数说明
+------------|--------------|----------|---------------------
+operatorcode |String 字串 |Y 是 |Operator code 代理号
+providercode |String 字串 |Y 是 |Provider code 供应商号
+username |String 字串 |Y 是 |Player user name 会员账号<br/><br/>Min Length : 3 character 最短长度：3位<br/>Max Length : 12 character 最大长度：12位
+password |String 字串 |Y 是 |User password 账号密码<br/><br/>Max Length : 12 character 最大长度：12位
+referenceid |String 字串 |Y 是 |Reference ID 转账单据号<br/><br/>Max Length : 20 character 最大长度：20位
+type |String 字串 |Y 是 |1 withdraw 提出<br/>0 deposit 存入
+amount |Double小数点 |Y 是 |Please take note some provider unable to transfer decimal, more info please refer to technical<br/>请留意某些供应商并不支持带小数的转账金额，请咨询技术了解详情<br/><br/>ALWAYS send TRUE VALUE(ratio 1:1) across all currency<br/>所有货币皆以(1:1比率)发送请求
+signature |String 字串 |Y 是 |MD5 encryption string MD5 加密字符串
+
+**Response Data Type 回传资料型态**
+
+Fields 参数  |	Type 资料型态 	| Description 参数说明
+------------|--------------|---------------------
+errCode |String 字串 |Error Code 报错码
+balance |Double 小数点 |Player Balance 所查询游戏账号余额
+errMsg |String 字串 |Error Message 报错内容
+
+**Signature Formula 加密字符串:  
+<span class='red'>Signature = MD5(amount + operatorcode + password + providercode + referenceid + type + username + secret_key), then convert to uppercase 加密后转大写. </span>**
+
+
+
+
 ## Launch Games 启动游戏接口
 
  | | 
