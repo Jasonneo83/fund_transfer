@@ -58,6 +58,7 @@ Response 回传格式: | `application/json`
 > Example 范例:  
 > a) <keyOrdate=date> mode模式  
 > (LOG_URL)/repullBettingHistoryApiClient.ashx?providercode=WM&keyOrdate=date&from=2019-05-16T11:00:00&to=2019-05-16T22:00:00&operatorcode=dcmm&signature=6749F170C968A7B76681C0B6EEDA8052  
+
 > b) <keyOrdate=key> mode模式  
 > `(LOG_URL)/repullBettingHistoryApiClient.ashx?providercode=MP&keyOrdate=key&versionkey=0&operatorcode=dcmm&signature=6749F170C968A7B76681C0B6EEDA8052`
 
@@ -66,8 +67,8 @@ Fields 参数 |	Type 资料型态 | Req 必要 | Description 参数说明
 providercode |String 字串 |Y 是 |Provider code 供应商代号
 from |String 字串 |N 否 |Start from 开始时间<br/><br/>Format: "yyyy-MM-ddTHH:mm:ss"<br/>时间格式："yyyy-MM-ddTHH:mm:ss"<br/><br/>Use when {keyOrdate}=date only<br/>当 {keyOrdate}=date 才会生效
 to |String 字串 |N 否 |End from 结束时间<br/><br/>Format: "yyyy-MM-ddTHH:mm:ss"<br/>时间格式："yyyy-MM-ddTHH:mm:ss"<br/><br/>Use when {keyOrdate}=date only<br/>当 {keyOrdate}=date 才会生效
-versionkey |String 字串 |N 否 |Version key 版本号<br/><br/>Use when {keyOrdate}= key only<br/>当 {keyOrdate}= key 才会生效<br/>*for provider code PG, refer <a href='#a-special-request-on-bet-history'>Appendix A</a><br/>*当供应商为PG时，请参阅 <a href='#a-special-request-on-bet-history'>附件A</a>
-type |String 字串 |Y 是 |*for provider code BI,FG, refer <a href='#a-special-request-on-bet-history'>Appendix A</a><br/>*当供应商为BI,FG,IG时，请参阅 <a href='#a-special-request-on-bet-history'>附件A</a>
+versionkey |String 字串 |N 否 |Version key 版本号<br/><br/>Use when {keyOrdate}= key only<br/>当 {keyOrdate}= key 才会生效<br/>*for provider code PG, refer <a  class='red' href='#a-special-request-on-bet-history'>Appendix A</a><br/>*当供应商为PG时，请参阅 <a class='red' href='#a-special-request-on-bet-history'>附件A</a>
+type |String 字串 |Y 是 |*for provider code BI,FG, refer <a class='red' href='#a-special-request-on-bet-history'>Appendix A</a><br/>*当供应商为BI,FG,IG时，请参阅 <a class='red' href='#a-special-request-on-bet-history'>附件A</a>
 operatorcode |String 字串 |Y 是 |Operator code 代理号
 keyOrdate |String 字串 |Y 是 |Enquiry by key Or date<br/>查询方式: key 或 date<br/><br/>Possible value: 有效值:<br/><br/>a) keyOrdate=date<br/>b) keyOrdate=key
 signature |String 字串 |Y 是 |MD5 encryption string MD5 加密字符串
@@ -77,7 +78,7 @@ signature |String 字串 |Y 是 |MD5 encryption string MD5 加密字符串
 Fields 参数  |	Type 资料型态 	| Description 参数说明
 ------------|--------------|---------------------
 errCode |String 字串 |Error Code 报错码
-record |String 字串 |IF have data : string (betting history record)<br/>有投注记录时，会返回投注记录串<br/><br/>IF no data: string “0”<br/>无投注记录时，会返回“0”<br/><br/>refer <a href='#d-dynamic-betting-history-attribute'>Appendix D</a> for attribute<br/>详细的回传参数说明请参阅 <a href='#d-dynamic-betting-history-attribute'>Appendix附件D</a>
+record |String 字串 |IF have data : string (betting history record)<br/>有投注记录时，会返回投注记录串<br/><br/>IF no data: string “0”<br/>无投注记录时，会返回“0”<br/><br/>refer <a class='red' href='#d-dynamic-betting-history-attribute'>Appendix D</a> for attribute<br/>详细的回传参数说明请参阅 <a class='red' href='#d-dynamic-betting-history-attribute'>Appendix附件D</a>
 errMsg |String 字串 |Error Message 报错内容
 
 **Signature Formula 加密字符串:  
