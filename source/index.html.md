@@ -59,6 +59,7 @@ meta:
 <tr>
 <td>Response 回传格式: </td><td><code>application/json</code></td>
 </tr>
+</table>
 
 **Input Data Type 请求资料型态**
 
