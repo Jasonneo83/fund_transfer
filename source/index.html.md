@@ -57,7 +57,7 @@ Response 回传格式: | `application/json`
 
 > Example 范例:  
 > a) <keyOrdate=date> mode模式  
-> (LOG_URL)/repullBettingHistoryApiClient.ashx?providercode=WM&keyOrdate=date&from=2019-05-16T11:00:00&to=2019-05-16T22:00:00&operatorcode=dcmm&signature=6749F170C968A7B76681C0B6EEDA8052  
+> `(LOG_URL)/repullBettingHistoryApiClient.ashx?providercode=WM&keyOrdate=date&from=2019-05-16T11:00:00&to=2019-05-16T22:00:00&operatorcode=dcmm&signature=6749F170C968A7B76681C0B6EEDA8052`
 
 > b) <keyOrdate=key> mode模式  
 > `(LOG_URL)/repullBettingHistoryApiClient.ashx?providercode=MP&keyOrdate=key&versionkey=0&operatorcode=dcmm&signature=6749F170C968A7B76681C0B6EEDA8052`
@@ -100,7 +100,7 @@ Response 回传格式: | `application/json`
 **Input Data Type 请求资料型态**
 
 > Example 范例:  
-> (API_URL)/getGameList.ashx?operatorcode=dcmm&providercode=GP&lang=en&html=0&reformatjson=yes&signature=F92ED5A3066B4AB6BFF54970D135D1AE
+> `(API_URL)/getGameList.ashx?operatorcode=dcmm&providercode=GP&lang=en&html=0&reformatjson=yes&signature=F92ED5A3066B4AB6BFF54970D135D1AE`
 
 Fields 参数 |	Type 资料型态 | Req 必要 | Description 参数说明
 ------------|--------------|----------|---------------------
@@ -424,7 +424,7 @@ Error Code 报错码 | Description 报错说明
 **Product code 供应商代号: PG**
 
 > Example 例子:  
-> (LOG_URL)/repullBettingHistoryApiClient.ashx?providercode=PG&keyOrdate=key&versionkey=C_0&operatorcode=DEMO
+> `(LOG_URL)/repullBettingHistoryApiClient.ashx?providercode=PG&keyOrdate=key&versionkey=C_0&operatorcode=DEMO`
 
 Fields 参数 | Type 资料型态 | Req 必要 | Description 参数说明
 ------------|--------------|---------------|--------------------
@@ -435,7 +435,7 @@ versionkey | String 字串 | N 否 | For pgsoft, there are two type<br/>PGSoft�
 **Product code 供应商代号: FG**
 
 > Example 例子:  
-> (LOG_URL)/repullBettingHistoryApiClient.ashx?providercode=FG&keyOrdate=key&type=fish&versionkey=vhbgjk26456&operatorcode=DEMO
+> `(LOG_URL)/repullBettingHistoryApiClient.ashx?providercode=FG&keyOrdate=key&type=fish&versionkey=vhbgjk26456&operatorcode=DEMO`
 
 Fields 参数 | Type 资料型态 | Req 必要 | Description 参数说明
 ------------|--------------|---------------|--------------------
@@ -446,7 +446,7 @@ type | String 字串 | N 否 | For fungaming, there are four type<br/>Fun Gaming
 **Product code 供应商代号: BI**
 
 > Example 例子:  
-> (LOG_URL)/repullBettingHistoryApiClient.ashx?providercode=BI&keyOrdate=key&type=FH&versionkey=154565646&operatorcode=DEMO
+> `(LOG_URL)/repullBettingHistoryApiClient.ashx?providercode=BI&keyOrdate=key&type=FH&versionkey=154565646&operatorcode=DEMO`
 
 Fields 参数 | Type 资料型态 | Req 必要 | Description 参数说明
 ------------|--------------|---------------|--------------------
@@ -457,7 +457,7 @@ type | String 字串 | N 否 | For Big Gaming, there are four type<br/>Big Gamin
 **Product code 供应商代号: IG**
 
 > Example 例子:  
-> (LOG_URL)/repullBettingHistoryApiClient.ashx?providercode=IG&from=2019-08-22T14%3A09%3A19&to=2019-08-22T14%3A19%3A19&operatorcode=igcn&keyOrdate=date&type=SC&etc=ewoJImdhbWVub2lkIjogIjEiLAoJImJlZ2luaWQiOiAiMCIsCiJyZXBvcnRkYXRlaWQiOiIwIgp9&Signature=D197C1EDD962D6942B7CF43D3CC0828B
+> `(LOG_URL)/repullBettingHistoryApiClient.ashx?providercode=IG&from=2019-08-22T14%3A09%3A19&to=2019-08-22T14%3A19%3A19&operatorcode=igcn&keyOrdate=date&type=SC&etc=ewoJImdhbWVub2lkIjogIjEiLAoJImJlZ2luaWQiOiAiMCIsCiJyZXBvcnRkYXRlaWQiOiIwIgp9&Signature=D197C1EDD962D6942B7CF43D3CC0828B`
 
 ```csharp
 //Remark 备注:
@@ -750,7 +750,7 @@ What will happen if i do not convert username and operatorcode to small letter b
 **Product code 供应商代号: IG**
 
 > Example 例子:  
-> (API_URL)/launchGames.aspx?operatorcode=d8kr&providercode=IG&username=dv69000XXX&password=kJiCDDX7&type=LK&lang=ko-KR&gameid=2&signature=1281A073C04822BB5838DD861EC15C40
+> `(API_URL)/launchGames.aspx?operatorcode=d8kr&providercode=IG&username=dv69000XXX&password=kJiCDDX7&type=LK&lang=ko-KR&gameid=2&signature=1281A073C04822BB5838DD861EC15C40`
 
 Fields 参数 | Type 资料型态 | Required 必要 | Description 参数说明
 ------------|--------------|---------------|--------------------
