@@ -31,6 +31,35 @@ meta:
 
 ## Check Agent Credit (KIOSK BALANCE) 查询代理余额接口 (集成系统余额)
 
+ | | 
+-|-|-
+Function Class 接口: | `checkAgentCredit.aspx`
+Request 请求类型: | `GET`
+Response 回传格式: | `application/json`
+
+**Input Data Type 请求资料型态**
+
+> Example 范例:  
+> `(API_URL)/checkAgentCredit.aspx?operatorcode=xxx&signature=xxx`
+
+Fields 参数 |	Type 资料型态 | Req 必要 | Description 参数说明
+------------|--------------|----------|---------------------
+operatorcode |String 字串 |Y 是 |Operator code 代理号
+signature |String 字串 |Y 是 |MD5 encryption string MD5 加密字符串
+
+
+**Response Data Type 回传资料型态**
+
+Fields 参数  |	Type 资料型态 	| Description 参数说明
+------------|--------------|---------------------
+errCode |String 字串 |Error Code 报错码
+data |Double 小数点 |KIOSK BALANCE集成系统最新代理余额
+errMsg |String 字串 |Error Message 报错内容
+
+**Signature Formula 加密字符串:  
+<span class='red'>Signature = MD5(operatorcode + secret_key), then convert to uppercase 加密后转大写. </span>**
+
+
 ## Check Product Username 查询玩家游戏平台帐号接口
 
  | | 
