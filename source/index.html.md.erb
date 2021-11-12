@@ -25,6 +25,42 @@ meta:
 
 ## Launch Games 启动游戏接口
 
+ | | 
+-|-|-
+Function Class 接口: | `launchGames.aspx`
+Request 请求类型: | `GET`
+Response 回传格式: | `application/json`
+
+**Input Data Type 请求资料型态**
+
+> Example 范例:  
+> `(API_URL)/launchGames.aspx?operatorcode=xxx&providercode=xxx&username=xxx&password=xxx&type=xxx&gameid=xxx&lang=xxx&html5=xxx&signature=xxx`
+
+Fields 参数 |	Type 资料型态 | Req 必要 | Description 参数说明
+------------|--------------|----------|---------------------
+operatorcode |String 字串 |Y 是 |Operator code 代理号
+providercode |String 字串 |Y 是 |Provider code 供应商号
+username<br/><span class='red'>*Use lowercase<br/>*小写</span> |String 字串 |Y 是 |Player user name 会员账号<br/><br/>Min Length : 3 character 最短长度：3位<br/>Max Length : 12 character 最大长度：12位
+password |String 字串 |Y 是 |User password 账号密码<br/><br/>Max Length : 12 character 最大长度：12位
+type |String 字串 |Y 是 |Please refer to<br/>1. Game Type Code for the categories<br/>For example: SL = slot<br/><br/>and<br/>2. SUPPORTED GAME TYPE CODE in Provider Code table 各自供应商所支持的游戏类型<br/>For example: GS only support SL games
+gameid |String 字串 |N 否 |Game ID<br/>游戏代号<br/><br/>Ignore this field/0 will go to game lobby<br/>可以忽略此参数，预设为‘0’即可直接进入相关游戏厅
+lang |String 字串 |N 否 |ISO 639-1, default language en-US<br/>ISO 639-1, 默认语言为en-US
+html5 |String 字串 |N 否 |html5=0, for flash(not mobile friendly)<br/>html5=1, for html5(mobile friendly)<br/>html5=0, 使用flash;<br/>html5=1, 使用html5(手机优化页面)
+signature |String 字串 |Y 是 |MD5 encryption string MD5 加密字符串
+
+**Response Data Type 回传资料型态**
+
+Fields 参数  |	Type 资料型态 	| Description 参数说明
+------------|--------------|---------------------
+errCode |String 字串 |Error Code 报错码
+gameUrl |String 字串 |Launch Game Url 游戏链接
+errMsg |String 字串 |Error Message 报错内容
+
+**Signature Formula 加密字符串:  
+<span class='red'>Signature = MD5(operatorcode + password + providercode + type + username + secret_key), then convert to uppercase 加密后转大写. </span>**
+
+
+
 ## Launch DEMO Games 启动试玩游戏接口
 
  | | 
