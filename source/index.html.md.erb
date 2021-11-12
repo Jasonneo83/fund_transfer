@@ -37,6 +37,85 @@ meta:
 
 ## Check TransactionStatus(beta)
 
+ | | 
+-|-|-
+Function Class 接口: | `checkTransaction.aspx`
+Request 请求类型: | `GET`
+Response 回传格式: | `application/json`
+
+**Input Data Type 请求资料型态**
+
+> Example 范例:  
+> `(LOG_URL)/checkTransaction.ashx?operatorcode=xxxxreferenceid=10842293&signature=5603493CC36D59064E432B83BBDEC4F7`
+
+Fields 参数 |	Type 资料型态 | Req 必要 | Description 参数说明
+------------|--------------|----------|---------------------
+operatorcode |String 字串 |Y 是 |Operator code 代理号
+referenceid |String 字串 |Y 是 |Referenceid used at makeTransfer 资金转账接口所用的referenceid
+signature |String 字串 |Y 是 |MD5 encryption string MD5 加密字符串
+
+**Response Data Type 回传资料型态**
+
+Fields 参数  |	Type 资料型态 	| Description 参数说明
+------------|--------------|---------------------
+errCode |String 字串 |Error Code of this API request(for full Error Code please refer at Appendix) 报错码<br/>gameUrl |String 字串 |<br/>{<br/>"trans_id": "39861348",<br/>"trans_time": "2021-04-01T05:14:23.63",<br/>"username": "josh1212",<br/>"type": "1",<br/>"provider": "WB",<br/>"amount": 500.1,<br/>"ref_id": "10842293",<br/>"status": "FAILED",<br/>"operator": "m777"<br/>}
+
+<table>
+
+<tr>
+<td>trans_id</td>
+<td>GSC generated transID</td>
+</tr>
+
+<tr>
+<td>trans_time</td>
+<td>Time of this transaction, GMT+0</td>
+</tr>
+
+<tr>
+<td>username</td>
+<td>Playername of this transaction</td>
+</tr>
+
+<tr>
+<td>type</td>
+<td>Transaction type<br/>0 = deposit<br/>1= withdrawal</td>
+</tr>
+
+<tr>
+<td>provider</td>
+<td>Provider of this transaction</td>
+</tr>
+
+<tr>
+<td>amount</td>
+<td>Amount of this transaction</td>
+</tr>
+
+<tr>
+<td>ref_id</td>
+<td>Operator’s ReferenceID used at maketransfer.API</td>
+</tr>
+
+<tr>
+<td>status</td>
+<td>Status of this transactionID 此单号的转账状态。<br/><br/>SUCCESS 成功<br/>PROCESSING 进行中，请稍后再确认<br/>FAILED 失败 </td>
+</tr>
+
+<tr>
+<td>operator</td>
+<td>GSC opcode, operatorcode of this transaction</td>
+</tr>
+
+</table>
+
+errMsg |String 字串 |Error Message 报错内容
+
+**Signature Formula 加密字符串:  
+<span class='red'>Signature = MD5(operatorcode + secret_key), then convert to uppercase 加密后转大写. </span>**
+
+**Supported product code（目前支持的产品）: WB, AG, CF, SU, PG**
+
 ## Get Betting History Start From 2021-01-01 (GMT+0) 捞取投注历史记录接口(fetchbykey以版本号捞取) 2021-01-01 (GMT+0) 开始 *standardized/固定
 
  | | 
