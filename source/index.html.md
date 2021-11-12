@@ -55,6 +55,14 @@ meta:
 
 # Service URL 接口链接
 
+For API related API ONLY (DO NOT USE this when getting bet report)调用端:  
+(API_URL)
+
+For Report/betting history related 捞取投历史记录端:  
+(LOG_URL)
+
+
+
 # Appendix 附件
 
 ## A - Special request on bet history / 投注记录的特殊接口请求
