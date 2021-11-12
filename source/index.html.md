@@ -82,11 +82,11 @@ record |String 字串 |IF have data : string (betting history record)<br/>有投
 errMsg |String 字串 |Error Message 报错内容
 
 **Signature Formula 加密字符串:  
-`<span class='red'>Signature = MD5(providercode + operatorcode + keyOrDate + secret_key), then convert to uppercase 加密后转大写. </span>`**
+<span class='red'>`Signature = MD5(providercode + operatorcode + keyOrDate + secret_key), then convert to uppercase 加密后转大写. `</span>**
 
 **Remark 1 备注 1:  
-`<span class='red'>As of 15 August 2019, only this provider code CANNOT use this function: DG , WF , UF
-即2019年8月15日起，仅这几个供应商不支持调用此接口：DG , WF , UF。</span>`**
+<span class='red'>`As of 15 August 2019, only this provider code CANNOT use this function: DG , WF , UF
+即2019年8月15日起，仅这几个供应商不支持调用此接口：DG , WF , UF。`</span>**
 
 
 ## Get Game List 获取游戏列表
