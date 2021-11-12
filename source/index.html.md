@@ -47,8 +47,8 @@ meta:
 
 ## Get Betting History 获取投注历史记录接口(datetime或versionkey) *dynamic/变动
 
- | 
--|-
+ | | 
+-|-|-
 Function Class 接口: | `repullBettingHistoryApiClient.ashx`
 Request 请求类型: | `GET`
 Response 回传格式: | `application/json`
@@ -65,8 +65,8 @@ Response 回传格式: | `application/json`
 Fields 参数 |	Type 资料型态 | Req 必要 | Description 参数说明
 ------------|--------------|----------|---------------------
 providercode |String 字串 |Y 是 |Provider code 供应商代号
-from |String 字串 |N 否 |Start from 开始时间<br/><br/>Format: "yyyy-MM-ddTHH:mm:ss"<br/>时间格式："yyyy-MM-ddTHH:mm:ss"<br/><br/>Use when {keyOrdate}=date only<br/>当 {keyOrdate}=date 才会生效
-to |String 字串 |N 否 |End from 结束时间<br/><br/>Format: "yyyy-MM-ddTHH:mm:ss"<br/>时间格式："yyyy-MM-ddTHH:mm:ss"<br/><br/>Use when {keyOrdate}=date only<br/>当 {keyOrdate}=date 才会生效
+from |String 字串 |N 否 |Start from 开始时间<br/><br/>Format: <code>yyyy-MM-ddTHH:mm:ss</code><br/>时间格式：<code>yyyy-MM-ddTHH:mm:ss</code><br/><br/>Use when {keyOrdate}=date only<br/>当 {keyOrdate}=date 才会生效
+to |String 字串 |N 否 |End from 结束时间<br/><br/>Format: <code>yyyy-MM-ddTHH:mm:ss</code><br/>时间格式：<code>yyyy-MM-ddTHH:mm:ss</code><br/><br/>Use when {keyOrdate}=date only<br/>当 {keyOrdate}=date 才会生效
 versionkey |String 字串 |N 否 |Version key 版本号<br/><br/>Use when {keyOrdate}= key only<br/>当 {keyOrdate}= key 才会生效<br/>*for provider code PG, refer <a  class='red' href='#a-special-request-on-bet-history'>Appendix A</a><br/>*当供应商为PG时，请参阅 <a class='red' href='#a-special-request-on-bet-history'>附件A</a>
 type |String 字串 |Y 是 |*for provider code BI,FG, refer <a class='red' href='#a-special-request-on-bet-history'>Appendix A</a><br/>*当供应商为BI,FG,IG时，请参阅 <a class='red' href='#a-special-request-on-bet-history'>附件A</a>
 operatorcode |String 字串 |Y 是 |Operator code 代理号
