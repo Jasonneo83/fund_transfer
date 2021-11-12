@@ -50,8 +50,8 @@ meta:
 ## Get Game List 获取游戏列表
 
 
- |  
--|-
+ | |
+-|-|-
 Function Class 接口: | `getGameList.aspx`
 Request 请求类型: | `GET`
 Response 回传格式: | `application/json`
@@ -489,8 +489,8 @@ context.Response.Write(resp);
 一般支持手机应用APP的供应商会需要预设此回调。</span>**
 
 Function Class接口: Not Applicable  
-Request 请求类型 : GET  
-Response 回传格式 : text/html; charset=utf-8
+Request 请求类型 : `GET`  
+Response 回传格式 : `text/html; charset=utf-8`
 
 Example 范例:  
 Request 请求:  
@@ -498,17 +498,17 @@ Request 请求:
 集成系统将发送验证请求至贵司的回调网址，贵司系统接收后需要进行必要的处理。<span>**
 
 Callback request sample 回调请求例子：  
-`<span class='red'>http://apiclient_path/ch3ckM3mb3r.ashx?username=jordan&password=123456&provider=1S</span>`
+`http://apiclient_path/ch3ckM3mb3r.ashx?username=jordan&password=123456&provider=1S`
 
 Response 回传:  
-<span class='red'>After process, return the result to AIO. 处理并核实完成后，请响应以下内容至集成系统。</span>  
+**<span class='red'>After process, return the result to AIO. 处理并核实完成后，请响应以下内容至集成系统。</span>**  
 `“false”`
 
 <aside class="notice">
 Please remember to provide this callback url to AIO team, for further integration purpose<br/>
 请提供回调网址给集成系统团队，以便进一步的对接进行使用
 </aside>
-`<span class='red'>http://apiclient_path/ch3ckM3mb3r.ashx</span>`
+`http://apiclient_path/ch3ckM3mb3r.ashx`
 
 **Remark 备注:**  
 Currently the below provider are advised to prepare this method.  
