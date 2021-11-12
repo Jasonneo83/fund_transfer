@@ -151,8 +151,8 @@ context.Response.Write(resp);
 **<span class='red'>AIO will send request to below file, your side will need to process the data and send a <u>response</u> to AIO.  
 集成系统将<u>发送请求</u>至以下文档，贵方需自行核实，处理该数据内容，并回传一个(成功/失败)<u>响应</u>给集成系统。</span>**
 
-**Normally only Provider code that have/use APP will need this.  
-一般支持手机应用APP的供应商会需要预设此回调。**
+**<span class='red'>Normally only Provider code that have/use APP will need this.  
+一般支持手机应用APP的供应商会需要预设此回调。</span>**
 
 Function Class接口: Not Applicable  
 Request 请求类型 : GET  
@@ -160,21 +160,21 @@ Response 回传格式 : text/html; charset=utf-8
 
 Example 范例:  
 Request 请求:  
-**AIO will send data to the callback url (your side), process it.  
-集成系统将发送验证请求至贵司的回调网址，贵司系统接收后需要进行必要的处理。**
+**<span class='red'>AIO will send data to the callback url (your side), process it.  
+集成系统将发送验证请求至贵司的回调网址，贵司系统接收后需要进行必要的处理。<span>**
 
 Callback request sample 回调请求例子：  
-<code>http://apiclient_path/ch3ckM3mb3r.ashx?username=jordan&password=123456&provider=1S</code>
+<code><span class='red'>http://apiclient_path/ch3ckM3mb3r.ashx?username=jordan&password=123456&provider=1S</span></code>
 
 Response 回传:  
-After process, return the result to AIO. 处理并核实完成后，请响应以下内容至集成系统。  
+<span class='red'>After process, return the result to AIO. 处理并核实完成后，请响应以下内容至集成系统。</span>  
 <code>“false”</code>
 
 <aside class="notice">
 Please remember to provide this callback url to AIO team, for further integration purpose<br/>
 请提供回调网址给集成系统团队，以便进一步的对接进行使用
 </aside>
-<code>http://apiclient_path/ch3ckM3mb3r.ashx</code>
+<code><span class='red'>http://apiclient_path/ch3ckM3mb3r.ashx</span></code>
 
 **Remark 备注:**  
 Currently the below provider are advised to prepare this method.  
