@@ -49,17 +49,12 @@ meta:
 
 ## Get Game List 获取游戏列表
 
-<table>
-<tr>
-<td>Function Class 接口: </td><td><code>getGameList.aspx</code></td>
-</tr>
-<tr>
-<td>Request 请求类型: </td><td><code>GET</code></td>
-</tr>
-<tr>
-<td>Response 回传格式: </td><td><code>application/json</code></td>
-</tr>
-</table>
+
+ |  
+-|-
+Function Class 接口: | <code>getGameList.aspx</code>
+Request 请求类型: | <code>GET</code>
+Response 回传格式: | <code>application/json</code>
 
 **Input Data Type 请求资料型态**
 
