@@ -33,6 +33,35 @@ meta:
 
 ## Check Product Username 查询玩家游戏平台帐号接口
 
+ | | 
+-|-|-
+Function Class 接口: | `checkMemberProductUsername.aspx`
+Request 请求类型: | `GET`
+Response 回传格式: | `application/json`
+
+**Input Data Type 请求资料型态**
+
+> Example 范例:  
+> `(API_URL)/checkMemberProductUsername.ashx?operatorcode=xxx&providercode=xxx&username=xxx&signature=xxx`
+
+Fields 参数 |	Type 资料型态 | Req 必要 | Description 参数说明
+------------|--------------|----------|---------------------
+operatorcode |String 字串 |Y 是 |Operator code 代理号
+providercode |String 字串 |Y 是 |Provider code 供应商号
+username |String 字串 |Y 是 |Player user name 会员账号<br/><br/>Min Length : 3 character 最短长度：3位<br/>Max Length : 12 character 最大长度：12位
+signature |String 字串 |Y 是 |MD5 encryption string MD5 加密字符串
+
+**Response Data Type 回传资料型态**
+
+Fields 参数  |	Type 资料型态 	| Description 参数说明
+------------|--------------|---------------------
+errCode |String 字串 |Error Code 报错码
+data |Double 小数点 |Product Username 玩家游戏平台账号
+errMsg |String 字串 |Error Message 报错内容
+
+**Signature Formula 加密字符串:  
+<span class='red'>Signature = MD5(operatorcode + providercode + username + secret_key), then convert to uppercase 加密后转大写. </span>**
+
 ## Launch DeepLink App (beta) 深层链接
 
  | | 
