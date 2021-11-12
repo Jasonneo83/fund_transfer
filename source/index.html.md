@@ -61,7 +61,7 @@ Response 回传格式: | `application/json`
 > Example 范例:  
 > (API_URL)/getGameList.ashx?operatorcode=dcmm&providercode=GP&lang=en&html=0&reformatjson=yes&signature=F92ED5A3066B4AB6BFF54970D135D1AE
 
-Fields 参数 |	Type 资料型态 | MUST 必要 | Description 参数说明
+Fields 参数 |	Type 资料型态 | Req 必要 | Description 参数说明
 ------------|--------------|----------|---------------------
 operatorcode |String 字串 |Y 是 |Operator code 代理号
 providercode |String 字串 |Y 是 |Provider code 供应商代号
