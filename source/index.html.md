@@ -56,19 +56,6 @@ Function Class 接口: | `getGameList.aspx`
 Request 请求类型: | `GET`
 Response 回传格式: | `application/json`
 
-<table>
-<tr>
-<td>Function Class 接口: </td><td><code>getGameList.aspx</code></td>
-</tr>
-<tr>
-<td>Request 请求类型: </td><td><code>GET</code></td>
-</tr>
-<tr>
-<td>Response 回传格式: </td><td><code>application/json</code></td>
-</tr>
-</table>
-
-
 **Input Data Type 请求资料型态**
 
 > Example 范例:  
