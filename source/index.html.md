@@ -49,13 +49,15 @@ meta:
 
 ## Get Game List 获取游戏列表
 
-> Function Class 接口: getGameList.aspx
-> Request 请求类型: GET
-> Response 回传格式: application/json
+**Function Class 接口: getGameList.aspx**
+
+**Request 请求类型: GET**
+
+**Response 回传格式: application/json**
 
 **Input Data Type 请求资料型态**
 
-> Example 范例:
+> Example 范例:  
 > (API_URL)/getGameList.ashx?operatorcode=dcmm&providercode=GP&lang=en&html=0&reformatjson=yes&signature=F92ED5A3066B4AB6BFF54970D135D1AE
 
 Fields 参数 |	Type 资料型态 | MUST 必要 | Description 参数说明
@@ -69,8 +71,8 @@ signature |String 字串 |Y 是 |MD5 encryption string MD5 加密字符串
 
 **Response Data Type 回传资料型态**
 
-> Signature Formula 加密字符串:
-> Signature = MD5(operatorcode + providercode + secret_key), then convert to uppercase 加密后转大写. 
+Signature Formula 加密字符串:  
+**<span class='red'>Signature = MD5(operatorcode + providercode + secret_key), then convert to uppercase 加密后转大写.</span>**
 
 Fields 参数  |	Type 资料型态 	| Description 参数说明
 ------------|--------------|---------------------
