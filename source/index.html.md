@@ -47,7 +47,7 @@ meta:
 
 ## Get Betting History 获取投注历史记录接口(datetime或versionkey) *dynamic/变动
 
-||
+ | | 
 -|-|-
 Function Class 接口: | `repullBettingHistoryApiClient.ashx`
 Request 请求类型: | `GET`
@@ -91,7 +91,7 @@ errMsg |String 字串 |Error Message 报错内容
 
 ## Get Game List 获取游戏列表
 
-||
+ | | 
 -|-|-
 Function Class 接口: | `getGameList.aspx`
 Request 请求类型: | `GET`
