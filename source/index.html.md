@@ -52,9 +52,22 @@ meta:
 
  |  
 -|-
-Function Class 接口: | <code>getGameList.aspx</code>
-Request 请求类型: | <code>GET</code>
-Response 回传格式: | <code>application/json</code>
+Function Class 接口: | `getGameList.aspx`
+Request 请求类型: | `GET`
+Response 回传格式: | `application/json`
+
+<table>
+<tr>
+<td>Function Class 接口: </td><td>`getGameList.aspx`</td>
+</tr>
+<tr>
+<td>Request 请求类型: </td><td>`GET`</td>
+</tr>
+<tr>
+<td>Response 回传格式: </td><td>`application/json`</td>
+</tr>
+</table>
+
 
 **Input Data Type 请求资料型态**
 
@@ -485,17 +498,17 @@ Request 请求:
 集成系统将发送验证请求至贵司的回调网址，贵司系统接收后需要进行必要的处理。<span>**
 
 Callback request sample 回调请求例子：  
-<code><span class='red'>http://apiclient_path/ch3ckM3mb3r.ashx?username=jordan&password=123456&provider=1S</span></code>
+`<span class='red'>http://apiclient_path/ch3ckM3mb3r.ashx?username=jordan&password=123456&provider=1S</span>`
 
 Response 回传:  
 <span class='red'>After process, return the result to AIO. 处理并核实完成后，请响应以下内容至集成系统。</span>  
-<code>“false”</code>
+`“false”`
 
 <aside class="notice">
 Please remember to provide this callback url to AIO team, for further integration purpose<br/>
 请提供回调网址给集成系统团队，以便进一步的对接进行使用
 </aside>
-<code><span class='red'>http://apiclient_path/ch3ckM3mb3r.ashx</span></code>
+`<span class='red'>http://apiclient_path/ch3ckM3mb3r.ashx</span>`
 
 **Remark 备注:**  
 Currently the below provider are advised to prepare this method.  
