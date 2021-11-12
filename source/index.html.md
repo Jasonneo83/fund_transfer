@@ -43,7 +43,44 @@ meta:
 
 ## Mark Betting History Start From 2021-01-01 (GMT+0) 标记投注历史记录接口(mark标记) 2021-01-01 (GMT+0) 开始
 
+ | | 
+-|-|-
+Function Class 接口: | `markbyjson.aspx`
+Request 请求类型: | `POST`
+Response 回传格式: | `application/json`
+
+**Input Data Type 请求资料型态**
+
+> Example 范例:  
+> `(LOG_URL)/markbyjson.aspx`
+
+Fields 参数 |	Type 资料型态 | Req 必要 | Description 参数说明
+------------|--------------|----------|---------------------
+operatorcode |String 字串 |Y 是 |Operator code 代理号
+ticket |String 字串 |Y 是 |Ticket id get in Get Betting History(fetchbykey). Pass in format eg. 1,2,3,4,5,6,7,8<br/><br/>捞取投注历史记录接口(以版本号捞取) 回传的Ticket id 传入格式 ，例如：1,2,3,4,5,6,7,
+signature |String 字串 |Y 是 |MD5 encryption string MD5 加密字符串
+
+**Response Data Type 回传资料型态**
+
+Fields 参数  |	Type 资料型态 	| Description 参数说明
+------------|--------------|---------------------
+errCode |String 字串 |Error Code 报错码
+errMsg |String 字串 |Error Message 报错内容
+
+**Signature Formula 加密字符串:  
+<span class='red'>Signature = MD5(operatorcode + secret_key), then convert to uppercase 加密后转大写.  </span>**
+
+<%= image_tag 'images/markbyjson.png', :alt => 'Mark by JSON' %>
+
 ## Mark Betting History_Archieve 标记投注历史记录接口(mark标记)
+NEO HERE
+ | | 
+-|-|-
+Function Class 接口: | ` markArchieve.ashx`
+Request 请求类型: | `POST`
+Response 回传格式: | `application/json`
+
+**Input Data Type 请求资料型态**
 
 ## Get Betting History 获取投注历史记录接口(datetime或versionkey) *dynamic/变动
 
