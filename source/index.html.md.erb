@@ -39,6 +39,42 @@ meta:
 
 ## Get Betting History Start From 2021-01-01 (GMT+0) 捞取投注历史记录接口(fetchbykey以版本号捞取) 2021-01-01 (GMT+0) 开始 *standardized/固定
 
+ | | 
+-|-|-
+Function Class 接口: | `fetchbykey.aspx`
+Request 请求类型: | `GET`
+Response 回传格式: | `application/json`
+
+**Input Data Type 请求资料型态**
+
+> Example 范例:  
+> `(LOG_URL)/fetchbykey.aspx?operatorcode=xxx&versionkey=0&signature=D653B0F33F893D6F327DD7BB9D8DDAAA`
+
+Fields 参数 |	Type 资料型态 | Req 必要 | Description 参数说明
+------------|--------------|----------|---------------------
+operatorcode |String 字串 |Y 是 |Operator code 代理号
+versionkey |String 字串 |Y 是 |Last {versionkey} from previous request.<br/>从最后的API请求中回传的记录版本号{versionkey}<br/><br/>If first time, use versionkey=0<br/>第一次调用，请使用versionkey=0
+signature |String 字串 |Y 是 |MD5 encryption string MD5 加密字符串
+
+**Response Data Type 回传资料型态**
+
+Fields 参数  |	Type 资料型态 	| Description 参数说明
+------------|--------------|---------------------
+errCode |String 字串 |Error Code 报错码
+result |String 字串 |Json string (betting history record)<br/>Json字符串格式(投注历史记录)<br/><br/>refer Appendix C for attribute<br/>详细的回传参数说明请参阅 Appendix附件C
+errMsg |String 字串 |Error Message 报错内容
+
+**Signature Formula 加密字符串:  
+<span class='red'>Signature = MD5(operatorcode + secret_key), then convert to uppercase 加密后转大写. </span>**
+
+**Remark 1 备注 1:  
+<span class='red'>Per call will get 150 latest betting records, if without mark, same 150 records will be given.
+每次的呼叫将获得150个最新的投注记录，如果没有进行标记，将拿到相同的150个记录。</span>**
+
+**Remark 2 备注 2:  
+<span class='red'>Please UPDATE records for same ID. 请更新相同ID的记录 </span>**
+
+
 ## Get Betting History_Archieve 捞取投注历史记录接口(fetchArchieve以版本号捞取)
 
  | | 
@@ -69,13 +105,8 @@ errMsg |String 字串 |Error Message 报错内容
 **Signature Formula 加密字符串:  
 <span class='red'>Signature = MD5(operatorcode + secret_key), then convert to uppercase 加密后转大写. </span>**
 
-**Remark 1 备注 1:  
+**Remark 备注:  
 <span class='red'>this function is used for grab betdata that is archived. 此接口用来获取备用档案。 </span>**
-
-
-
-
-
 
 
 ## Mark Betting History Start From 2021-01-01 (GMT+0) 标记投注历史记录接口(mark标记) 2021-01-01 (GMT+0) 开始
