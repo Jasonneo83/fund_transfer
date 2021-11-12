@@ -148,8 +148,8 @@ Else
 context.Response.Write(resp);
 ```
 
-**AIO will send request to below file, your side will need to process the data and send a response to AIO.  
-集成系统将发送请求至以下文档，贵方需自行核实，处理该数据内容，并回传一个(成功/失败)响应给集成系统。**
+**<span class='red'>AIO will send request to below file, your side will need to process the data and send a <u>response</u> to AIO.  
+集成系统将<u>发送请求</u>至以下文档，贵方需自行核实，处理该数据内容，并回传一个(成功/失败)<u>响应</u>给集成系统。</span>**
 
 **Normally only Provider code that have/use APP will need this.  
 一般支持手机应用APP的供应商会需要预设此回调。**
@@ -174,7 +174,7 @@ After process, return the result to AIO. 处理并核实完成后，请响应以
 Please remember to provide this callback url to AIO team, for further integration purpose<br/>
 请提供回调网址给集成系统团队，以便进一步的对接进行使用
 </aside>
-Eg: <code>http://apiclient_path/ch3ckM3mb3r.ashx</code>
+<code>http://apiclient_path/ch3ckM3mb3r.ashx</code>
 
 **Remark 备注:**  
 Currently the below provider are advised to prepare this method.  
