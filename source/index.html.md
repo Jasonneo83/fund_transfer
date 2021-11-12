@@ -49,11 +49,16 @@ meta:
 
 ## Get Game List 获取游戏列表
 
-**Function Class 接口: getGameList.aspx**
-
-**Request 请求类型: GET**
-
-**Response 回传格式: application/json**
+<table>
+<tr>
+<td>Function Class 接口: </td><td><code>getGameList.aspx</code></td>
+</tr>
+<tr>
+<td>Request 请求类型: </td><td><code>GET</code></td>
+</tr>
+<tr>
+<td>Response 回传格式: </td><td><code>application/json</code></td>
+</tr>
 
 **Input Data Type 请求资料型态**
 
@@ -71,19 +76,14 @@ signature |String 字串 |Y 是 |MD5 encryption string MD5 加密字符串
 
 **Response Data Type 回传资料型态**
 
-Signature Formula 加密字符串:  
-**<span class='red'>Signature = MD5(operatorcode + providercode + secret_key), then convert to uppercase 加密后转大写.</span>**
-
 Fields 参数  |	Type 资料型态 	| Description 参数说明
 ------------|--------------|---------------------
 errCode |String 字串 |Error Code 报错码
 gamelist |String 字串 |Gamelist 游戏列表
 errMsg |String 字串 |Error Message 报错内容
 
-
-
-
-
+Signature Formula 加密字符串:  
+**<span class='red'>Signature = MD5(operatorcode + providercode + secret_key), then convert to uppercase 加密后转大写.</span>**
 
 # Game Type Code 游戏类型列表
 Code 代号 	| Description 游戏类型说明 
