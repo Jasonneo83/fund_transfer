@@ -48,6 +48,18 @@ meta:
 # Get Game List 获取游戏列表
 
 # Game Type Code 游戏类型列表
+Code 代号 	| Description 游戏类型说明 
+----------|------------------------
+CB |CARD & BOARDGAME 棋牌游戏
+ES |E-GAMES 电子游戏
+SB |SPORTBOOK 体育游戏
+LC |LIVE-CASINO 真人视讯游戏
+SL |SLOTS 老虎机游戏
+LK |LOTTO 彩票游戏
+FH |FISH HUNTER 捕鱼游戏
+PK |POKER 扑克游戏
+MG |MINI GAME 迷你游戏
+OT |OTHERS 其他游戏
 
 # Provider Code 供应商列表
 
