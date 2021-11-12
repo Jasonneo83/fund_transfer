@@ -58,13 +58,13 @@ Response 回传格式: | `application/json`
 
 <table>
 <tr>
-<td>Function Class 接口: </td><td>`getGameList.aspx`</td>
+<td>Function Class 接口: </td><td><code>getGameList.aspx</code></td>
 </tr>
 <tr>
-<td>Request 请求类型: </td><td>`GET`</td>
+<td>Request 请求类型: </td><td><code>GET</code></td>
 </tr>
 <tr>
-<td>Response 回传格式: </td><td>`application/json`</td>
+<td>Response 回传格式: </td><td><code>application/json</code></td>
 </tr>
 </table>
 
