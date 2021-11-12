@@ -50,7 +50,7 @@ meta:
 ## Get Game List 获取游戏列表
 
 
- | |
+||
 -|-|-
 Function Class 接口: | `getGameList.aspx`
 Request 请求类型: | `GET`
@@ -66,7 +66,7 @@ Fields 参数 |	Type 资料型态 | Req 必要 | Description 参数说明
 operatorcode |String 字串 |Y 是 |Operator code 代理号
 providercode |String 字串 |Y 是 |Provider code 供应商代号
 Lang |String 字串 |N 否 |ISO 639-1, default language en-US<br/>ISO 639-1, 默认语言为en-US<br/><br/>*default:en<br/>*attribute not fully established
-html5 |String 字串 |N 否 |html5=1, for html5(mobile friendly)<br/>html5=1, 使用html5(手机优化页面)<br/><br/>*default:all type *attribute not fully established
+html5 |String 字串 |N 否 |html5=1, for html5(mobile friendly)<br/>html5=1, 使用html5(手机优化页面)<br/><br/>*default:all type<br/>*attribute not fully established
 reformatJson |String 字串 |N 否 |yes = GSC standardized gamelist pattern<br/>no= providercode custom gamelist pattern
 signature |String 字串 |Y 是 |MD5 encryption string MD5 加密字符串
 
