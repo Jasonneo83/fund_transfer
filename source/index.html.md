@@ -47,8 +47,8 @@ meta:
 
 ## Get Betting History 获取投注历史记录接口(datetime或versionkey) *dynamic/变动
 
- | | 
--|-|-
+ | 
+-|-
 Function Class 接口: | `repullBettingHistoryApiClient.ashx`
 Request 请求类型: | `GET`
 Response 回传格式: | `application/json`
