@@ -77,7 +77,7 @@ signature |String 字串 |Y 是 |MD5 encryption string MD5 加密字符串
 Fields 参数  |	Type 资料型态 	| Description 参数说明
 ------------|--------------|---------------------
 errCode |String 字串 |Error Code 报错码
-record |String 字串 |IF have data : string (betting history record)<br/>有投注记录时，会返回投注记录串<br/><br/>IF no data: string “0”<br/>无投注记录时，会返回“0”<br/><br/>refer <a href='#a-special-request-on-bet-history'>Appendix D</a> for attribute<br/>详细的回传参数说明请参阅 <a href='#a-special-request-on-bet-history'>Appendix附件D</a>
+record |String 字串 |IF have data : string (betting history record)<br/>有投注记录时，会返回投注记录串<br/><br/>IF no data: string “0”<br/>无投注记录时，会返回“0”<br/><br/>refer <a href='#d-dynamic-betting-history-attribute'>Appendix D</a> for attribute<br/>详细的回传参数说明请参阅 <a href='#d-dynamic-betting-history-attribute'>Appendix附件D</a>
 errMsg |String 字串 |Error Message 报错内容
 
 **Signature Formula 加密字符串:  
