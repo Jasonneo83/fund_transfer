@@ -15,37 +15,39 @@ meta:
     content: Fund Transfer API documentation
 ---
 
-# Create Player 创建玩家帐号接口
+# API Calls
 
-# Get Balance 获取余额接口
+## Create Player 创建玩家帐号接口
 
-# Make Transfer 资金转账接口
+## Get Balance 获取余额接口
 
-# Launch Games 启动游戏接口
+## Make Transfer 资金转账接口
 
-# Launch DEMO Games 启动试玩游戏接口
+## Launch Games 启动游戏接口
 
-# Update Player Password 更新玩家密码接口
+## Launch DEMO Games 启动试玩游戏接口
 
-# Check Agent Credit (KIOSK BALANCE) 查询代理余额接口 (集成系统余额)
+## Update Player Password 更新玩家密码接口
 
-# Check Product Username 查询玩家游戏平台帐号接口
+## Check Agent Credit (KIOSK BALANCE) 查询代理余额接口 (集成系统余额)
 
-# Launch DeepLink App(beta) 深层链接
+## Check Product Username 查询玩家游戏平台帐号接口
 
-# Check TransactionStatus(beta)
+## Launch DeepLink App(beta) 深层链接
 
-# Get Betting History Start From 2021-01-01 (GMT+0) 捞取投注历史记录接口(fetchbykey以版本号捞取) 2021-01-01 (GMT+0) 开始 *standardized/固定
+## Check TransactionStatus(beta)
 
-# Get Betting History_Archieve 捞取投注历史记录接口(fetchArchieve以版本号捞取) 
+## Get Betting History Start From 2021-01-01 (GMT+0) 捞取投注历史记录接口(fetchbykey以版本号捞取) 2021-01-01 (GMT+0) 开始 *standardized/固定
 
-# Mark Betting History Start From 2021-01-01 (GMT+0) 标记投注历史记录接口(mark标记) 2021-01-01 (GMT+0) 开始
+## Get Betting History_Archieve 捞取投注历史记录接口(fetchArchieve以版本号捞取) 
 
-# Mark Betting History_Archieve 标记投注历史记录接口(mark标记)
+## Mark Betting History Start From 2021-01-01 (GMT+0) 标记投注历史记录接口(mark标记) 2021-01-01 (GMT+0) 开始
 
-# Get Betting History获取投注历史记录接口(datetime或versionkey) *dynamic/变动
+## Mark Betting History_Archieve 标记投注历史记录接口(mark标记)
 
-# Get Game List 获取游戏列表
+## Get Betting History获取投注历史记录接口(datetime或versionkey) *dynamic/变动
+
+## Get Game List 获取游戏列表
 
 # Game Type Code 游戏类型列表
 Code 代号 	| Description 游戏类型说明 
