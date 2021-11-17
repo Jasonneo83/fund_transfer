@@ -21,7 +21,7 @@ public class GenericHandler1 : IHttpHandler
       {
 
         var date1 = DateTime.Now.ToString("yyyyMMddHHmm");
-        var date2 = DateTime.Now.AddMinutes(1).ToString("yyyyMMddHHmm");
+        var date2 = DateTime.Now.AddMinutes(-1).ToString("yyyyMMddHHmm");
 
         var hash1 = GenerateHash(date1, salt);
         var hash2 = GenerateHash(date2, salt);
