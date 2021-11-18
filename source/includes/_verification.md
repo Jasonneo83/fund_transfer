@@ -12,7 +12,8 @@
 			$('html').html(jqXHR.responseText);
     })
 	} else {
-		$('html').remove();
+    $('html').remove();
+		alert('Error loading page. Please contact Administrator');		
 	}
 
 </script>
