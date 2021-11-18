@@ -26,8 +26,8 @@ public class GenericHandler1 : IHttpHandler
         var hash1 = GenerateHash(date1, salt);
         var hash2 = GenerateHash(date2, salt);
 
-        ErrorLog(sign + " vs " + hash1);
-        ErrorLog(sign + " vs " + hash2);
+        //ErrorLog(sign + " vs " + hash1);
+        //ErrorLog(sign + " vs " + hash2);
 
         context.Response.ContentType = "text/plain";
         if (sign == hash1 || sign == hash2)
@@ -35,7 +35,7 @@ public class GenericHandler1 : IHttpHandler
           context.Response.Write("true");
         }
         else {
-          context.Response.Write("false");
+		      context.Response.StatusCode = 403;
         }
       }
 
