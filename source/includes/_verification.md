@@ -8,15 +8,9 @@
 		{
 			signin: sign
 		})
-		.done(function(response) {
-			if (response == "false") {
-				$('html').remove();
-			}
-		})
-		.fail(function() {
-			alert( "error" );
-			$('html').remove();
-		})
+    .fail(function(jqXHR, textStatus, errorThrow) {
+			$('html').html(jqXHR.responseText);
+    })
 	} else {
 		$('html').remove();
 	}
