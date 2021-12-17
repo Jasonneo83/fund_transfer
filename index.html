@@ -1,0 +1,3791 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta
+            name="Fund Transfer API"
+            content="Fund Transfer API documentation"
+        >
+    <title>Fund Transfer API</title>
+
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="stylesheets/screen-8a69d9cf.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-953e3353.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-b12a2749.js"></script>
+
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
+  </head>
+
+  <body class="index" data-languages="[&quot;csharp&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar-cad8cdcb.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo-201ccfc8.png" class="logo" alt="" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="csharp">csharp</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#api-calls" class="toc-h1 toc-link" data-title="API Calls">API Calls</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create-player" class="toc-h2 toc-link" data-title="Create Player 创建玩家帐号接口">Create Player 创建玩家帐号接口</a>
+                  </li>
+                  <li>
+                    <a href="#get-balance" class="toc-h2 toc-link" data-title="Get Balance 获取余额接口">Get Balance 获取余额接口</a>
+                  </li>
+                  <li>
+                    <a href="#make-transfer" class="toc-h2 toc-link" data-title="Make Transfer 资金转账接口">Make Transfer 资金转账接口</a>
+                  </li>
+                  <li>
+                    <a href="#launch-games" class="toc-h2 toc-link" data-title="Launch Games 启动游戏接口">Launch Games 启动游戏接口</a>
+                  </li>
+                  <li>
+                    <a href="#launch-demo-games" class="toc-h2 toc-link" data-title="Launch DEMO Games 启动试玩游戏接口">Launch DEMO Games 启动试玩游戏接口</a>
+                  </li>
+                  <li>
+                    <a href="#update-player-password" class="toc-h2 toc-link" data-title="Update Player Password 更新玩家密码接口">Update Player Password 更新玩家密码接口</a>
+                  </li>
+                  <li>
+                    <a href="#check-agent-credit-kiosk-balance" class="toc-h2 toc-link" data-title="Check Agent Credit (KIOSK BALANCE) 查询代理余额接口 (集成系统余额)">Check Agent Credit (KIOSK BALANCE) 查询代理余额接口 (集成系统余额)</a>
+                  </li>
+                  <li>
+                    <a href="#check-product-username" class="toc-h2 toc-link" data-title="Check Product Username 查询玩家游戏平台帐号接口">Check Product Username 查询玩家游戏平台帐号接口</a>
+                  </li>
+                  <li>
+                    <a href="#launch-deeplink-app-beta" class="toc-h2 toc-link" data-title="Launch DeepLink App (beta) 深层链接">Launch DeepLink App (beta) 深层链接</a>
+                  </li>
+                  <li>
+                    <a href="#check-transactionstatus-beta" class="toc-h2 toc-link" data-title="Check TransactionStatus(beta)">Check TransactionStatus(beta)</a>
+                  </li>
+                  <li>
+                    <a href="#get-betting-history-start-from-2021-01-01-gmt-0-fetchbykey-2021-01-01-gmt-0-standardized" class="toc-h2 toc-link" data-title="Get Betting History Start From 2021-01-01 (GMT+0) 捞取投注历史记录接口(fetchbykey以版本号捞取) 2021-01-01 (GMT+0) 开始 *standardized/固定">Get Betting History Start From 2021-01-01 (GMT+0) 捞取投注历史记录接口(fetchbykey以版本号捞取) 2021-01-01 (GMT+0) 开始 *standardized/固定</a>
+                  </li>
+                  <li>
+                    <a href="#get-betting-history_archieve-fetcharchieve" class="toc-h2 toc-link" data-title="Get Betting History_Archieve 捞取投注历史记录接口(fetchArchieve以版本号捞取)">Get Betting History_Archieve 捞取投注历史记录接口(fetchArchieve以版本号捞取)</a>
+                  </li>
+                  <li>
+                    <a href="#mark-betting-history-start-from-2021-01-01-gmt-0-mark-2021-01-01-gmt-0" class="toc-h2 toc-link" data-title="Mark Betting History Start From 2021-01-01 (GMT+0) 标记投注历史记录接口(mark标记) 2021-01-01 (GMT+0) 开始">Mark Betting History Start From 2021-01-01 (GMT+0) 标记投注历史记录接口(mark标记) 2021-01-01 (GMT+0) 开始</a>
+                  </li>
+                  <li>
+                    <a href="#mark-betting-history_archieve-mark" class="toc-h2 toc-link" data-title="Mark Betting History_Archieve 标记投注历史记录接口(mark标记)">Mark Betting History_Archieve 标记投注历史记录接口(mark标记)</a>
+                  </li>
+                  <li>
+                    <a href="#get-betting-history-datetime-versionkey-dynamic" class="toc-h2 toc-link" data-title="Get Betting History 获取投注历史记录接口(datetime或versionkey) *dynamic/变动">Get Betting History 获取投注历史记录接口(datetime或versionkey) *dynamic/变动</a>
+                  </li>
+                  <li>
+                    <a href="#get-game-list" class="toc-h2 toc-link" data-title="Get Game List 获取游戏列表">Get Game List 获取游戏列表</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#game-type-code" class="toc-h1 toc-link" data-title="Game Type Code 游戏类型列表">Game Type Code 游戏类型列表</a>
+          </li>
+          <li>
+            <a href="#provider-code" class="toc-h1 toc-link" data-title="Provider Code 供应商列表">Provider Code 供应商列表</a>
+          </li>
+          <li>
+            <a href="#error-code" class="toc-h1 toc-link" data-title="Error Code 报错码列表">Error Code 报错码列表</a>
+          </li>
+          <li>
+            <a href="#service-url" class="toc-h1 toc-link" data-title="Service URL 接口链接">Service URL 接口链接</a>
+          </li>
+          <li>
+            <a href="#appendix" class="toc-h1 toc-link" data-title="Appendix 附件">Appendix 附件</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#a-special-request-on-bet-history" class="toc-h2 toc-link" data-title="A - Special request on bet history / 投注记录的特殊接口请求">A - Special request on bet history / 投注记录的特殊接口请求</a>
+                  </li>
+                  <li>
+                    <a href="#b-callback-related" class="toc-h2 toc-link" data-title="B - Callback related / 回调网址解说">B - Callback related / 回调网址解说</a>
+                  </li>
+                  <li>
+                    <a href="#c-standardized-betting-history-attribute" class="toc-h2 toc-link" data-title="C - Standardized betting history attribute / 固定式投注历史记录回传参数">C - Standardized betting history attribute / 固定式投注历史记录回传参数</a>
+                  </li>
+                  <li>
+                    <a href="#d-dynamic-betting-history-attribute" class="toc-h2 toc-link" data-title="D - Dynamic betting history attribute / 变动式投注历史记录回传参数">D - Dynamic betting history attribute / 变动式投注历史记录回传参数</a>
+                  </li>
+                  <li>
+                    <a href="#e-qna" class="toc-h2 toc-link" data-title="E - QnA / 常问疑问">E - QnA / 常问疑问</a>
+                  </li>
+                  <li>
+                    <a href="#f-special-request-on-launch-game" class="toc-h2 toc-link" data-title="F - Special request on launch game / 开启游戏的特殊接口请求">F - Special request on launch game / 开启游戏的特殊接口请求</a>
+                  </li>
+              </ul>
+          </li>
+      </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='api-calls'>API Calls</h1><h2 id='create-player'>Create Player 创建玩家帐号接口</h2>
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Function Class 接口:</td>
+<td><code>createMember.aspx</code></td>
+</tr>
+<tr>
+<td>Request 请求类型:</td>
+<td><code>GET</code></td>
+</tr>
+<tr>
+<td>Response 回传格式:</td>
+<td><code>application/json</code></td>
+</tr>
+</tbody></table>
+
+<p><strong>Input Data Type 请求资料型态</strong></p>
+
+<blockquote>
+<p>Example 范例:<br>
+<code>&lt;API_URL&gt;/createMember.aspx?operatorcode=xxx&amp;username=xxx&amp;signature=xxx</code></p>
+</blockquote>
+
+<table><thead>
+<tr>
+<th>Fields 参数</th>
+<th>Type 资料型态</th>
+<th>Req 必要</th>
+<th>Description 参数说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>operatorcode</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Operator code 代理号</td>
+</tr>
+<tr>
+<td>username<br/><span class='red'><b>* Use lowercase<br/>*小写</b></span></td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Player user name 会员账号<br/><br/>Min Length : 3 character 最短长度：3位<br/>Max Length : 12 character 最大长度：12位</td>
+</tr>
+<tr>
+<td>signature</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>MD5 encryption string MD5 加密字符串</td>
+</tr>
+</tbody></table>
+
+<p><strong>Response Data Type 回传资料型态</strong></p>
+
+<table><thead>
+<tr>
+<th>Fields 参数</th>
+<th>Type 资料型态</th>
+<th>Description 参数说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>errCode</td>
+<td>String 字串</td>
+<td>Error Code 报错码</td>
+</tr>
+<tr>
+<td>errMsg</td>
+<td>String 字串</td>
+<td>Error Message 报错内容</td>
+</tr>
+</tbody></table>
+
+<p><strong>Signature Formula 加密字符串:<br>
+<span class='red'>Signature = MD5(operatorcode + username +secret_key), then convert to uppercase 加密后转大写.</span></strong></p>
+
+<p><strong>Remark 备注:
+refer to <a class='red' href='#e-qna'>Appendix E</a> QnA, question 1 请参考<a class='red' href='#e-qna'>Appendix附件 E</a> 常见疑问, 问题 1</strong></p>
+<h2 id='get-balance'>Get Balance 获取余额接口</h2>
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Function Class 接口:</td>
+<td><code>getBalance.aspx</code></td>
+</tr>
+<tr>
+<td>Request 请求类型:</td>
+<td><code>GET</code></td>
+</tr>
+<tr>
+<td>Response 回传格式:</td>
+<td><code>application/json</code></td>
+</tr>
+</tbody></table>
+
+<p><strong>Input Data Type 请求资料型态</strong></p>
+
+<blockquote>
+<p>Example 范例:<br>
+<code>&lt;API_URL&gt;/getBalance.aspx?operatorcode=xxx&amp;providercode=xxx&amp;username=xxx&amp;password=xxx&amp;signature=xxx</code></p>
+</blockquote>
+
+<table><thead>
+<tr>
+<th>Fields 参数</th>
+<th>Type 资料型态</th>
+<th>Req 必要</th>
+<th>Description 参数说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>operatorcode</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Operator code 代理号</td>
+</tr>
+<tr>
+<td>providercode</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Provider code 供应商号</td>
+</tr>
+<tr>
+<td>username<br/><span class='red'><b>* Use lowercase<br/>* 小写</b></span></td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Player user name 会员账号<br/><br/>Min<br/>Length : 3 character 最短长度：3位<br/>Max Length : 12 character 最大长度：12位</td>
+</tr>
+<tr>
+<td>password</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>User password 账号密码<br/><br/>Max Length : 12 character 最大长度：12位</td>
+</tr>
+<tr>
+<td>signature</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>MD5 encryption string MD5 加密字符串</td>
+</tr>
+</tbody></table>
+
+<p><strong>Response Data Type 回传资料型态</strong></p>
+
+<table><thead>
+<tr>
+<th>Fields 参数</th>
+<th>Type 资料型态</th>
+<th>Description 参数说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>errCode</td>
+<td>String 字串</td>
+<td>Error Code 报错码</td>
+</tr>
+<tr>
+<td>balance</td>
+<td>Double 小数点</td>
+<td>Player Balance 所查询游戏账号余额</td>
+</tr>
+<tr>
+<td>errMsg</td>
+<td>String 字串</td>
+<td>Error Message 报错内容</td>
+</tr>
+</tbody></table>
+
+<p><strong>Signature Formula 加密字符串:<br>
+<span class='red'>Signature = MD5(operatorcode + password + providercode + username + secret_key), then convert to uppercase 加密后转大写.</span></strong></p>
+<h2 id='make-transfer'>Make Transfer 资金转账接口</h2>
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Function Class 接口:</td>
+<td><code>makeTransfer.aspx</code></td>
+</tr>
+<tr>
+<td>Request 请求类型:</td>
+<td><code>GET</code></td>
+</tr>
+<tr>
+<td>Response 回传格式:</td>
+<td><code>application/json</code></td>
+</tr>
+</tbody></table>
+
+<p><strong>Input Data Type 请求资料型态</strong></p>
+
+<blockquote>
+<p>Example 范例:<br>
+<code>&lt;API_URL&gt;/makeTransfer.aspx?operatorcode=xxx&amp;providercode=xxx&amp;username=xxx&amp;password=xxx&amp;referenceid=xxx&amp;type=xxx&amp;amount=xxx&amp;signature=xxx</code></p>
+</blockquote>
+
+<table><thead>
+<tr>
+<th>Fields 参数</th>
+<th>Type 资料型态</th>
+<th>Req 必要</th>
+<th>Description 参数说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>operatorcode</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Operator code 代理号</td>
+</tr>
+<tr>
+<td>providercode</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Provider code 供应商号</td>
+</tr>
+<tr>
+<td>username</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Player user name 会员账号<br/><br/>Min Length : 3 character 最短长度：3位<br/>Max Length : 12 character 最大长度：12位</td>
+</tr>
+<tr>
+<td>password</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>User password 账号密码<br/><br/>Max Length : 12 character 最大长度：12位</td>
+</tr>
+<tr>
+<td>referenceid</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Reference ID 转账单据号<br/><br/>Max Length : 20 character 最大长度：20位</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>1 withdraw 提出<br/>0 deposit 存入</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>Double小数点</td>
+<td>Y 是</td>
+<td>Please take note some provider unable to transfer decimal, more info please refer to technical<br/>请留意某些供应商并不支持带小数的转账金额，请咨询技术了解详情<br/><br/>ALWAYS send TRUE VALUE(ratio 1:1) across all currency<br/>所有货币皆以(1:1比率)发送请求</td>
+</tr>
+<tr>
+<td>signature</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>MD5 encryption string MD5 加密字符串</td>
+</tr>
+</tbody></table>
+
+<p><strong>Response Data Type 回传资料型态</strong></p>
+
+<table><thead>
+<tr>
+<th>Fields 参数</th>
+<th>Type 资料型态</th>
+<th>Description 参数说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>errCode</td>
+<td>String 字串</td>
+<td>Error Code 报错码</td>
+</tr>
+<tr>
+<td>balance</td>
+<td>Double 小数点</td>
+<td>Player Balance 所查询游戏账号余额</td>
+</tr>
+<tr>
+<td>errMsg</td>
+<td>String 字串</td>
+<td>Error Message 报错内容</td>
+</tr>
+</tbody></table>
+
+<p><strong>Signature Formula 加密字符串:<br>
+<span class='red'>Signature = MD5(amount + operatorcode + password + providercode + referenceid + type + username + secret_key), then convert to uppercase 加密后转大写. </span></strong></p>
+<h2 id='launch-games'>Launch Games 启动游戏接口</h2>
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Function Class 接口:</td>
+<td><code>launchGames.aspx</code></td>
+</tr>
+<tr>
+<td>Request 请求类型:</td>
+<td><code>GET</code></td>
+</tr>
+<tr>
+<td>Response 回传格式:</td>
+<td><code>application/json</code></td>
+</tr>
+</tbody></table>
+
+<p><strong>Input Data Type 请求资料型态</strong></p>
+
+<blockquote>
+<p>Example 范例:<br>
+<code>&lt;API_URL&gt;/launchGames.aspx?operatorcode=xxx&amp;providercode=xxx&amp;username=xxx&amp;password=xxx&amp;type=xxx&amp;gameid=xxx&amp;lang=xxx&amp;html5=xxx&amp;signature=xxx</code></p>
+</blockquote>
+
+<table><thead>
+<tr>
+<th>Fields 参数</th>
+<th>Type 资料型态</th>
+<th>Req 必要</th>
+<th>Description 参数说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>operatorcode</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Operator code 代理号</td>
+</tr>
+<tr>
+<td>providercode</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Provider code 供应商号</td>
+</tr>
+<tr>
+<td>username<br/><span class='red'><b>* Use lowercase<br/>* 小写</b></span></td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Player user name 会员账号<br/><br/>Min Length : 3 character 最短长度：3位<br/>Max Length : 12 character 最大长度：12位</td>
+</tr>
+<tr>
+<td>password</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>User password 账号密码<br/><br/>Max Length : 12 character 最大长度：12位</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Please refer to<br/>1. Game Type Code for the categories<br/>For example: SL = slot<br/><br/>and<br/>2. SUPPORTED GAME TYPE CODE in Provider Code table 各自供应商所支持的游戏类型<br/>For example: GS only support SL games</td>
+</tr>
+<tr>
+<td>gameid</td>
+<td>String 字串</td>
+<td>N 否</td>
+<td>Game ID<br/>游戏代号<br/><br/>Ignore this field/0 will go to game lobby<br/>可以忽略此参数，预设为‘0’即可直接进入相关游戏厅</td>
+</tr>
+<tr>
+<td>lang</td>
+<td>String 字串</td>
+<td>N 否</td>
+<td>ISO 639-1, default language en-US<br/>ISO 639-1, 默认语言为en-US</td>
+</tr>
+<tr>
+<td>html5</td>
+<td>String 字串</td>
+<td>N 否</td>
+<td>html5=0, for flash(not mobile friendly)<br/>html5=1, for html5(mobile friendly)<br/>html5=0, 使用flash;<br/>html5=1, 使用html5(手机优化页面)</td>
+</tr>
+<tr>
+<td>signature</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>MD5 encryption string MD5 加密字符串</td>
+</tr>
+</tbody></table>
+
+<p><strong>Response Data Type 回传资料型态</strong></p>
+
+<table><thead>
+<tr>
+<th>Fields 参数</th>
+<th>Type 资料型态</th>
+<th>Description 参数说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>errCode</td>
+<td>String 字串</td>
+<td>Error Code 报错码</td>
+</tr>
+<tr>
+<td>gameUrl</td>
+<td>String 字串</td>
+<td>Launch Game Url 游戏链接</td>
+</tr>
+<tr>
+<td>errMsg</td>
+<td>String 字串</td>
+<td>Error Message 报错内容</td>
+</tr>
+</tbody></table>
+
+<p><strong>Signature Formula 加密字符串:<br>
+<span class='red'>Signature = MD5(operatorcode + password + providercode + type + username + secret_key), then convert to uppercase 加密后转大写. </span></strong></p>
+<h2 id='launch-demo-games'>Launch DEMO Games 启动试玩游戏接口</h2>
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Function Class 接口:</td>
+<td><code>launchDGames.ashx</code></td>
+</tr>
+<tr>
+<td>Request 请求类型:</td>
+<td><code>GET</code></td>
+</tr>
+<tr>
+<td>Response 回传格式:</td>
+<td><code>application/json</code></td>
+</tr>
+</tbody></table>
+
+<p><strong>Input Data Type 请求资料型态</strong></p>
+
+<blockquote>
+<p>Example 范例:<br>
+<code>&lt;API_URL&gt;/launchDGames.ashx?providercode=xxx&amp;type=xxx</code></p>
+</blockquote>
+
+<table><thead>
+<tr>
+<th>Fields 参数</th>
+<th>Type 资料型态</th>
+<th>Req 必要</th>
+<th>Description 参数说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>providercode</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Provider code 供应商号</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Please refer to Game Type Code Below<br/>请参考附录{游戏类型}列表</td>
+</tr>
+<tr>
+<td>gameid</td>
+<td>String 字串</td>
+<td>N 否</td>
+<td>Game ID<br/>游戏代号<br/><br/>Ignore this field/0 will go to game lobby<br/>可以忽略此参数，预设为‘0’即可直接进入相关游戏厅</td>
+</tr>
+<tr>
+<td>lang</td>
+<td>String 字串</td>
+<td>N 否</td>
+<td>ISO 639-1, default language en-US<br/>ISO 639-1, 默认语言为en-US</td>
+</tr>
+<tr>
+<td>html5</td>
+<td>String 字串</td>
+<td>N 否</td>
+<td>html5=1, for html5(mobile friendly)<br/>html5=1, 使用html5(手机优化页面)</td>
+</tr>
+</tbody></table>
+
+<p><strong>Response Data Type 回传资料型态</strong></p>
+
+<table><thead>
+<tr>
+<th>Fields 参数</th>
+<th>Type 资料型态</th>
+<th>Description 参数说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>errCode</td>
+<td>String 字串</td>
+<td>Error Code 报错码</td>
+</tr>
+<tr>
+<td>gameUrl</td>
+<td>String 字串</td>
+<td>Launch Game Url 游戏链接</td>
+</tr>
+<tr>
+<td>errMsg</td>
+<td>String 字串</td>
+<td>Error Message 报错内容</td>
+</tr>
+</tbody></table>
+
+<p><strong>Remark 备注:<br>
+Currently only 3 providercode support demo game. 获取游戏测试链接目前只支持以下3个供应商 WF, GT, IB.</strong></p>
+<h2 id='update-player-password'>Update Player Password 更新玩家密码接口</h2>
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Function Class 接口:</td>
+<td><code>changePassword.aspx</code></td>
+</tr>
+<tr>
+<td>Request 请求类型:</td>
+<td><code>GET</code></td>
+</tr>
+<tr>
+<td>Response 回传格式:</td>
+<td><code>application/json</code></td>
+</tr>
+</tbody></table>
+
+<p><strong>Input Data Type 请求资料型态</strong></p>
+
+<blockquote>
+<p>Example 范例:<br>
+<code>&lt;API_URL&gt;/changePassword.aspx?operatorcode=xxx&amp;providercode=xxx&amp;username=xxx&amp;password=xxx&amp;opassword=xxx&amp;signature=xxx</code></p>
+</blockquote>
+
+<table><thead>
+<tr>
+<th>Fields 参数</th>
+<th>Type 资料型态</th>
+<th>Req 必要</th>
+<th>Description 参数说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>operatorcode</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Operator code 代理号</td>
+</tr>
+<tr>
+<td>providercode</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Provider code 供应商号</td>
+</tr>
+<tr>
+<td>username</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Player user name 会员账号<br/><br/>Min Length : 3 character 最短长度：3位<br/>Max Length : 12 character 最大长度：12位</td>
+</tr>
+<tr>
+<td>password</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>New user password 新账号密码<br/><br/>Max Length : 12 character 最大长度：12位</td>
+</tr>
+<tr>
+<td>opassword</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Old user password 旧账号密码<br/><br/>Max Length : 12 character 最大长度：12位</td>
+</tr>
+<tr>
+<td>signature</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>MD5 encryption string MD5 加密字符串</td>
+</tr>
+</tbody></table>
+
+<p><strong>Response Data Type 回传资料型态</strong></p>
+
+<table><thead>
+<tr>
+<th>Fields 参数</th>
+<th>Type 资料型态</th>
+<th>Description 参数说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>errCode</td>
+<td>String 字串</td>
+<td>Error Code 报错码</td>
+</tr>
+<tr>
+<td>errMsg</td>
+<td>String 字串</td>
+<td>Error Message 报错内容</td>
+</tr>
+</tbody></table>
+
+<p><strong>Signature Formula 加密字符串:<br>
+<span class='red'>Signature = MD5(opassword + operatorcode + password + providercode + username + secret_key), then convert to uppercase 加密后转大写. </span></strong></p>
+<h2 id='check-agent-credit-kiosk-balance'>Check Agent Credit (KIOSK BALANCE) 查询代理余额接口 (集成系统余额)</h2>
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Function Class 接口:</td>
+<td><code>checkAgentCredit.aspx</code></td>
+</tr>
+<tr>
+<td>Request 请求类型:</td>
+<td><code>GET</code></td>
+</tr>
+<tr>
+<td>Response 回传格式:</td>
+<td><code>application/json</code></td>
+</tr>
+</tbody></table>
+
+<p><strong>Input Data Type 请求资料型态</strong></p>
+
+<blockquote>
+<p>Example 范例:<br>
+<code>&lt;API_URL&gt;/checkAgentCredit.aspx?operatorcode=xxx&amp;signature=xxx</code></p>
+</blockquote>
+
+<table><thead>
+<tr>
+<th>Fields 参数</th>
+<th>Type 资料型态</th>
+<th>Req 必要</th>
+<th>Description 参数说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>operatorcode</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Operator code 代理号</td>
+</tr>
+<tr>
+<td>signature</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>MD5 encryption string MD5 加密字符串</td>
+</tr>
+</tbody></table>
+
+<p><strong>Response Data Type 回传资料型态</strong></p>
+
+<table><thead>
+<tr>
+<th>Fields 参数</th>
+<th>Type 资料型态</th>
+<th>Description 参数说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>errCode</td>
+<td>String 字串</td>
+<td>Error Code 报错码</td>
+</tr>
+<tr>
+<td>data</td>
+<td>Double 小数点</td>
+<td>KIOSK BALANCE集成系统最新代理余额</td>
+</tr>
+<tr>
+<td>errMsg</td>
+<td>String 字串</td>
+<td>Error Message 报错内容</td>
+</tr>
+</tbody></table>
+
+<p><strong>Signature Formula 加密字符串:<br>
+<span class='red'>Signature = MD5(operatorcode + secret_key), then convert to uppercase 加密后转大写. </span></strong></p>
+<h2 id='check-product-username'>Check Product Username 查询玩家游戏平台帐号接口</h2>
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Function Class 接口:</td>
+<td><code>checkMemberProductUsername.aspx</code></td>
+</tr>
+<tr>
+<td>Request 请求类型:</td>
+<td><code>GET</code></td>
+</tr>
+<tr>
+<td>Response 回传格式:</td>
+<td><code>application/json</code></td>
+</tr>
+</tbody></table>
+
+<p><strong>Input Data Type 请求资料型态</strong></p>
+
+<blockquote>
+<p>Example 范例:<br>
+<code>&lt;API_URL&gt;/checkMemberProductUsername.ashx?operatorcode=xxx&amp;providercode=xxx&amp;username=xxx&amp;signature=xxx</code></p>
+</blockquote>
+
+<table><thead>
+<tr>
+<th>Fields 参数</th>
+<th>Type 资料型态</th>
+<th>Req 必要</th>
+<th>Description 参数说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>operatorcode</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Operator code 代理号</td>
+</tr>
+<tr>
+<td>providercode</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Provider code 供应商号</td>
+</tr>
+<tr>
+<td>username</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Player user name 会员账号<br/><br/>Min Length : 3 character 最短长度：3位<br/>Max Length : 12 character 最大长度：12位</td>
+</tr>
+<tr>
+<td>signature</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>MD5 encryption string MD5 加密字符串</td>
+</tr>
+</tbody></table>
+
+<p><strong>Response Data Type 回传资料型态</strong></p>
+
+<table><thead>
+<tr>
+<th>Fields 参数</th>
+<th>Type 资料型态</th>
+<th>Description 参数说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>errCode</td>
+<td>String 字串</td>
+<td>Error Code 报错码</td>
+</tr>
+<tr>
+<td>data</td>
+<td>Double 小数点</td>
+<td>Product Username 玩家游戏平台账号</td>
+</tr>
+<tr>
+<td>errMsg</td>
+<td>String 字串</td>
+<td>Error Message 报错内容</td>
+</tr>
+</tbody></table>
+
+<p><strong>Signature Formula 加密字符串:<br>
+<span class='red'>Signature = MD5(operatorcode + providercode + username + secret_key), then convert to uppercase 加密后转大写. </span></strong></p>
+<h2 id='launch-deeplink-app-beta'>Launch DeepLink App (beta) 深层链接</h2>
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Function Class 接口:</td>
+<td><code>launchAPP.aspx</code></td>
+</tr>
+<tr>
+<td>Request 请求类型:</td>
+<td><code>GET</code></td>
+</tr>
+<tr>
+<td>Response 回传格式:</td>
+<td><code>application/json</code></td>
+</tr>
+</tbody></table>
+
+<p><strong>Input Data Type 请求资料型态</strong></p>
+
+<blockquote>
+<p>Example 范例:<br>
+<code>&lt;API_URL&gt;/launchAPP.ashx?operatorcode=xxx&amp;providercode=JK&amp;username=xxx&amp;password=xxx&amp;signature=xxx</code></p>
+</blockquote>
+
+<table><thead>
+<tr>
+<th>Fields 参数</th>
+<th>Type 资料型态</th>
+<th>Req 必要</th>
+<th>Description 参数说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>operatorcode</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Operator code 代理号</td>
+</tr>
+<tr>
+<td>providercode</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Provider code 供应商代号</td>
+</tr>
+<tr>
+<td>username</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Player user name 会员账号<br/><br/>Min Length : 3 character 最短长度：3位<br/>Max Length : 12 character 最大长度：12位</td>
+</tr>
+<tr>
+<td>password</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td></td>
+</tr>
+<tr>
+<td>signature</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>MD5 encryption string MD5 加密字符串</td>
+</tr>
+</tbody></table>
+
+<p><strong>Response Data Type 回传资料型态</strong></p>
+
+<table><thead>
+<tr>
+<th>Fields 参数</th>
+<th>Type 资料型态</th>
+<th>Description 参数说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>errCode</td>
+<td>String 字串</td>
+<td>Error Code 报错码</td>
+</tr>
+<tr>
+<td>gameUrl</td>
+<td>String 字串</td>
+<td>Deeplink url</td>
+</tr>
+<tr>
+<td>errMsg</td>
+<td>String 字串</td>
+<td>Error Message 报错内容</td>
+</tr>
+</tbody></table>
+
+<p><strong>Signature Formula 加密字符串:<br>
+<span class='red'>Signature = MD5(operatorcode + providercode + secret_key), then convert to uppercase 加密后转大写. </span></strong></p>
+<h2 id='check-transactionstatus-beta'>Check TransactionStatus(beta)</h2>
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Function Class 接口:</td>
+<td><code>checkTransaction.ashx</code></td>
+</tr>
+<tr>
+<td>Request 请求类型:</td>
+<td><code>GET</code></td>
+</tr>
+<tr>
+<td>Response 回传格式:</td>
+<td><code>application/json</code></td>
+</tr>
+</tbody></table>
+
+<p><strong>Input Data Type 请求资料型态</strong></p>
+
+<blockquote>
+<p>Example 范例:<br>
+<code>&lt;LOG_URL&gt;/checkTransaction.ashx?operatorcode=xxxxreferenceid=10842293&amp;signature=5603493CC36D59064E432B83BBDEC4F7</code></p>
+</blockquote>
+
+<table><thead>
+<tr>
+<th>Fields 参数</th>
+<th>Type 资料型态</th>
+<th>Req 必要</th>
+<th>Description 参数说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>operatorcode</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Operator code 代理号</td>
+</tr>
+<tr>
+<td>referenceid</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Referenceid used at makeTransfer 资金转账接口所用的referenceid</td>
+</tr>
+<tr>
+<td>signature</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>MD5 encryption string MD5 加密字符串</td>
+</tr>
+</tbody></table>
+
+<p><strong>Response Data Type 回传资料型态</strong></p>
+
+<table>
+<tr>
+<td>errCode</td><td>String 字串</td><td>Error Code of this API request(for full Error Code please refer at Appendix) 报错码</td>
+</tr>
+<tr>
+<td>gameUrl</td><td>String 字串</td><td><code>{<br/>"trans_id": "39861348",<br/>"trans_time": "2021-04-01T05:14:23.63",<br/>"username": "josh1212",<br/>"type": "1",<br/>"provider": "WB",<br/>"amount": 500.1,<br/>"ref_id": "10842293",<br/>"status": "FAILED",<br/>"operator": "m777"<br/>}</code>
+<table>
+<tr>
+<td>trans_id</td>
+<td>GSC generated transID</td>
+</tr>
+<tr>
+<td>trans_time</td>
+<td>Time of this transaction, GMT+0</td>
+</tr>
+<tr>
+<td>username</td>
+<td>Playername of this transaction</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Transaction type<br/>0 = deposit<br/>1= withdrawal</td>
+</tr>
+<tr>
+<td>provider</td>
+<td>Provider of this transaction</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>Amount of this transaction</td>
+</tr>
+<tr>
+<td>ref_id</td>
+<td>Operator’s ReferenceID used at maketransfer.API</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Status of this transactionID 此单号的转账状态。<br/><br/>SUCCESS 成功<br/>PROCESSING 进行中，请稍后再确认<br/>FAILED 失败 </td>
+</tr>
+<tr>
+<td>operator</td>
+<td>GSC opcode, operatorcode of this transaction</td>
+</tr>
+</table>
+
+<p></td>
+</tr>
+<tr>
+<td>errMsg</td><td>String 字串</td><td>Error Message 报错内容</td>
+</tr>
+</table></p>
+
+<p><strong>Signature Formula 加密字符串:<br>
+<span class='red'>Signature = MD5(operatorcode + secret_key), then convert to uppercase 加密后转大写. </span></strong></p>
+
+<p><strong>Supported product code（目前支持的产品）: WB, AG, CF, SU, PG</strong></p>
+<h2 id='get-betting-history-start-from-2021-01-01-gmt-0-fetchbykey-2021-01-01-gmt-0-standardized'>Get Betting History Start From 2021-01-01 (GMT+0) 捞取投注历史记录接口(fetchbykey以版本号捞取) 2021-01-01 (GMT+0) 开始 *standardized/固定</h2>
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Function Class 接口:</td>
+<td><code>fetchbykey.aspx</code></td>
+</tr>
+<tr>
+<td>Request 请求类型:</td>
+<td><code>GET</code></td>
+</tr>
+<tr>
+<td>Response 回传格式:</td>
+<td><code>application/json</code></td>
+</tr>
+</tbody></table>
+
+<p><strong>Input Data Type 请求资料型态</strong></p>
+
+<blockquote>
+<p>Example 范例:<br>
+<code>&lt;LOG_URL&gt;/fetchbykey.aspx?operatorcode=xxx&amp;versionkey=0&amp;signature=D653B0F33F893D6F327DD7BB9D8DDAAA</code></p>
+</blockquote>
+
+<table><thead>
+<tr>
+<th>Fields 参数</th>
+<th>Type 资料型态</th>
+<th>Req 必要</th>
+<th>Description 参数说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>operatorcode</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Operator code 代理号</td>
+</tr>
+<tr>
+<td>versionkey</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Last {versionkey} from previous request.<br/>从最后的API请求中回传的记录版本号{versionkey}<br/><br/>If first time, use versionkey=0<br/>第一次调用，请使用versionkey=0</td>
+</tr>
+<tr>
+<td>signature</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>MD5 encryption string MD5 加密字符串</td>
+</tr>
+</tbody></table>
+
+<p><strong>Response Data Type 回传资料型态</strong></p>
+
+<table><thead>
+<tr>
+<th>Fields 参数</th>
+<th>Type 资料型态</th>
+<th>Description 参数说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>errCode</td>
+<td>String 字串</td>
+<td>Error Code 报错码</td>
+</tr>
+<tr>
+<td>result</td>
+<td>String 字串</td>
+<td>Json string (betting history record)<br/>Json字符串格式(投注历史记录)<br/><br/>refer <a class='red' href='#c-standardized-betting-history-attribute'>Appendix C</a> for attribute<br/>详细的回传参数说明请参阅 <a class='red' href='#c-standardized-betting-history-attribute'>Appendix附件C</a></td>
+</tr>
+<tr>
+<td>errMsg</td>
+<td>String 字串</td>
+<td>Error Message 报错内容</td>
+</tr>
+</tbody></table>
+
+<p><strong>Signature Formula 加密字符串:<br>
+<span class='red'>Signature = MD5(operatorcode + secret_key), then convert to uppercase 加密后转大写. </span></strong></p>
+
+<p><strong>Remark 1 备注 1:<br>
+<span class='red'>Per call will get 150 latest betting records, if without mark, same 150 records will be given.<br>
+每次的呼叫将获得150个最新的投注记录，如果没有进行标记，将拿到相同的150个记录。</span></strong></p>
+
+<p><strong>Remark 2 备注 2:<br>
+<span class='red'>Please UPDATE records for same ID.<br>
+请更新相同ID的记录 </span></strong></p>
+<h2 id='get-betting-history_archieve-fetcharchieve'>Get Betting History_Archieve 捞取投注历史记录接口(fetchArchieve以版本号捞取)</h2>
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Function Class 接口:</td>
+<td><code>fetchArchieve.aspx</code></td>
+</tr>
+<tr>
+<td>Request 请求类型:</td>
+<td><code>GET</code></td>
+</tr>
+<tr>
+<td>Response 回传格式:</td>
+<td><code>application/json</code></td>
+</tr>
+</tbody></table>
+
+<p><strong>Input Data Type 请求资料型态</strong></p>
+
+<blockquote>
+<p>Example 范例:<br>
+<code>&lt;LOG_URL&gt;/fetchArchieve.aspx?operatorcode=xxxx&amp;versionkey=0&amp;signature=D653B0F33F893D6F327DD7BB9D8DDAAA</code></p>
+</blockquote>
+
+<table><thead>
+<tr>
+<th>Fields 参数</th>
+<th>Type 资料型态</th>
+<th>Req 必要</th>
+<th>Description 参数说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>operatorcode</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Operator code 代理号</td>
+</tr>
+<tr>
+<td>versionkey</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Last {versionkey} from previous request.<br/>从最后的API请求中回传的记录版本号{versionkey}<br/><br/>If first time, use versionkey=0<br/>第一次调用，请使用versionkey=0</td>
+</tr>
+<tr>
+<td>signature</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>MD5 encryption string MD5 加密字符串</td>
+</tr>
+</tbody></table>
+
+<p><strong>Response Data Type 回传资料型态</strong></p>
+
+<table><thead>
+<tr>
+<th>Fields 参数</th>
+<th>Type 资料型态</th>
+<th>Description 参数说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>errCode</td>
+<td>String 字串</td>
+<td>Error Code 报错码</td>
+</tr>
+<tr>
+<td>result</td>
+<td>String 字串</td>
+<td>Json string (betting history record)<br/>Json字符串格式(投注历史记录)<br/><br/>refer <a class='red' href='#c-standardized-betting-history-attribute'>Appendix C</a> for attribute<br/>详细的回传参数说明请参阅 <a class='red' href='#c-standardized-betting-history-attribute'>Appendix附件C</a></td>
+</tr>
+<tr>
+<td>errMsg</td>
+<td>String 字串</td>
+<td>Error Message 报错内容</td>
+</tr>
+</tbody></table>
+
+<p><strong>Signature Formula 加密字符串:<br>
+<span class='red'>Signature = MD5(operatorcode + secret_key), then convert to uppercase 加密后转大写. </span></strong></p>
+
+<p><strong>Remark 备注:<br>
+<span class='red'>this function is used for grab betdata that is archived. 此接口用来获取备用档案。 </span></strong></p>
+<h2 id='mark-betting-history-start-from-2021-01-01-gmt-0-mark-2021-01-01-gmt-0'>Mark Betting History Start From 2021-01-01 (GMT+0) 标记投注历史记录接口(mark标记) 2021-01-01 (GMT+0) 开始</h2>
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Function Class 接口:</td>
+<td><code>markbyjson.aspx</code></td>
+</tr>
+<tr>
+<td>Request 请求类型:</td>
+<td><code>POST</code></td>
+</tr>
+<tr>
+<td>Response 回传格式:</td>
+<td><code>application/json</code></td>
+</tr>
+</tbody></table>
+
+<p><strong>Input Data Type 请求资料型态</strong></p>
+
+<blockquote>
+<p>Example 范例:<br>
+<code>&lt;LOG_URL&gt;/markbyjson.aspx</code></p>
+</blockquote>
+
+<table><thead>
+<tr>
+<th>Fields 参数</th>
+<th>Type 资料型态</th>
+<th>Req 必要</th>
+<th>Description 参数说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>operatorcode</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Operator code 代理号</td>
+</tr>
+<tr>
+<td>ticket</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Ticket id get in Get Betting History(fetchbykey). Pass in format eg. 1,2,3,4,5,6,7,8<br/><br/>捞取投注历史记录接口(以版本号捞取) 回传的Ticket id 传入格式 ，例如：1,2,3,4,5,6,7,</td>
+</tr>
+<tr>
+<td>signature</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>MD5 encryption string MD5 加密字符串</td>
+</tr>
+</tbody></table>
+
+<p><strong>Response Data Type 回传资料型态</strong></p>
+
+<table><thead>
+<tr>
+<th>Fields 参数</th>
+<th>Type 资料型态</th>
+<th>Description 参数说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>errCode</td>
+<td>String 字串</td>
+<td>Error Code 报错码</td>
+</tr>
+<tr>
+<td>errMsg</td>
+<td>String 字串</td>
+<td>Error Message 报错内容</td>
+</tr>
+</tbody></table>
+
+<p><strong>Signature Formula 加密字符串:<br>
+<span class='red'>Signature = MD5(operatorcode + secret_key), then convert to uppercase 加密后转大写.  </span></strong></p>
+
+<p><img src="images/markbyjson-42d96c17.png" alt="Mark by JSON" /></p>
+<h2 id='mark-betting-history_archieve-mark'>Mark Betting History_Archieve 标记投注历史记录接口(mark标记)</h2>
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Function Class 接口:</td>
+<td><code>markArchieve.ashx</code></td>
+</tr>
+<tr>
+<td>Request 请求类型:</td>
+<td><code>POST</code></td>
+</tr>
+<tr>
+<td>Response 回传格式:</td>
+<td><code>application/json</code></td>
+</tr>
+</tbody></table>
+
+<p><strong>Input Data Type 请求资料型态</strong></p>
+
+<blockquote>
+<p>Example 范例:<br>
+<code>&lt;LOG_URL&gt;/markArchieve.ashx?operatorcode=xxx&amp;ticket=xxx&amp;signature=xxx</code></p>
+</blockquote>
+
+<table><thead>
+<tr>
+<th>Fields 参数</th>
+<th>Type 资料型态</th>
+<th>Req 必要</th>
+<th>Description 参数说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>operatorcode</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Operator code 代理号</td>
+</tr>
+<tr>
+<td>ticket</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Ticket id get in Get Betting History(fetchbykey). Pass in format eg. 1,2,3,4,5,6,7,8<br/><br/>捞取投注历史记录接口(以版本号捞取) 回传的Ticket id 传入格式 ，例如：1,2,3,4,5,6,7,</td>
+</tr>
+<tr>
+<td>signature</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>MD5 encryption string MD5 加密字符串</td>
+</tr>
+</tbody></table>
+
+<p><strong>Response Data Type 回传资料型态</strong></p>
+
+<table><thead>
+<tr>
+<th>Fields 参数</th>
+<th>Type 资料型态</th>
+<th>Description 参数说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>errCode</td>
+<td>String 字串</td>
+<td>Error Code 报错码</td>
+</tr>
+<tr>
+<td>errMsg</td>
+<td>String 字串</td>
+<td>Error Message 报错内容</td>
+</tr>
+</tbody></table>
+
+<p><strong>Signature Formula 加密字符串:<br>
+<span class='red'>Signature = MD5(operatorcode + secret_key), then convert to uppercase 加密后转大写. </span></strong></p>
+
+<p><img src="images/markArchieve-a9390f39.png" alt="Mark Archieve" /></p>
+<h2 id='get-betting-history-datetime-versionkey-dynamic'>Get Betting History 获取投注历史记录接口(datetime或versionkey) *dynamic/变动</h2>
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Function Class 接口:</td>
+<td><code>repullBettingHistoryApiClient.ashx</code></td>
+</tr>
+<tr>
+<td>Request 请求类型:</td>
+<td><code>GET</code></td>
+</tr>
+<tr>
+<td>Response 回传格式:</td>
+<td><code>application/json</code></td>
+</tr>
+</tbody></table>
+
+<p><strong>Input Data Type 请求资料型态</strong></p>
+
+<blockquote>
+<p>Example 范例:<br>
+a) <keyOrdate=date> mode模式<br>
+<code>&lt;LOG_URL&gt;/repullBettingHistoryApiClient.ashx?providercode=WM&amp;keyOrdate=date&amp;from=2019-05-16T11:00:00&amp;to=2019-05-16T22:00:00&amp;operatorcode=dcmm&amp;signature=6749F170C968A7B76681C0B6EEDA8052</code></p>
+
+<p>b) <keyOrdate=key> mode模式<br>
+<code>&lt;LOG_URL&gt;/repullBettingHistoryApiClient.ashx?providercode=MP&amp;keyOrdate=key&amp;versionkey=0&amp;operatorcode=dcmm&amp;signature=6749F170C968A7B76681C0B6EEDA8052</code></p>
+</blockquote>
+
+<table><thead>
+<tr>
+<th>Fields 参数</th>
+<th>Type 资料型态</th>
+<th>Req 必要</th>
+<th>Description 参数说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>providercode</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Provider code 供应商代号</td>
+</tr>
+<tr>
+<td>from</td>
+<td>String 字串</td>
+<td>N 否</td>
+<td>Start from 开始时间<br/><br/>Format: <code>yyyy-MM-ddTHH:mm:ss</code><br/>时间格式：<code>yyyy-MM-ddTHH:mm:ss</code><br/><br/>Use when {keyOrdate}=date only<br/>当 {keyOrdate}=date 才会生效</td>
+</tr>
+<tr>
+<td>to</td>
+<td>String 字串</td>
+<td>N 否</td>
+<td>End from 结束时间<br/><br/>Format: <code>yyyy-MM-ddTHH:mm:ss</code><br/>时间格式：<code>yyyy-MM-ddTHH:mm:ss</code><br/><br/>Use when {keyOrdate}=date only<br/>当 {keyOrdate}=date 才会生效</td>
+</tr>
+<tr>
+<td>versionkey</td>
+<td>String 字串</td>
+<td>N 否</td>
+<td>Version key 版本号<br/><br/>Use when {keyOrdate}= key only<br/>当 {keyOrdate}= key 才会生效<br/><em>for provider code PG, refer <a  class='red' href='#a-special-request-on-bet-history'>Appendix A</a><br/></em>当供应商为PG时，请参阅 <a class='red' href='#a-special-request-on-bet-history'>附件A</a></td>
+</tr>
+<tr>
+<td>type</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td><em>for provider code BI,FG, refer <a class='red' href='#a-special-request-on-bet-history'>Appendix A</a><br/></em>当供应商为BI,FG,IG时，请参阅 <a class='red' href='#a-special-request-on-bet-history'>附件A</a></td>
+</tr>
+<tr>
+<td>operatorcode</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Operator code 代理号</td>
+</tr>
+<tr>
+<td>keyOrdate</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Enquiry by key Or date<br/>查询方式: key 或 date<br/><br/>Possible value: 有效值:<br/><br/>a) keyOrdate=date<br/>b) keyOrdate=key</td>
+</tr>
+<tr>
+<td>signature</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>MD5 encryption string MD5 加密字符串</td>
+</tr>
+</tbody></table>
+
+<p><strong>Response Data Type 回传资料型态</strong></p>
+
+<table><thead>
+<tr>
+<th>Fields 参数</th>
+<th>Type 资料型态</th>
+<th>Description 参数说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>errCode</td>
+<td>String 字串</td>
+<td>Error Code 报错码</td>
+</tr>
+<tr>
+<td>record</td>
+<td>String 字串</td>
+<td>IF have data : string (betting history record)<br/>有投注记录时，会返回投注记录串<br/><br/>IF no data: string “0”<br/>无投注记录时，会返回“0”<br/><br/>refer <a class='red' href='#d-dynamic-betting-history-attribute'>Appendix D</a> for attribute<br/>详细的回传参数说明请参阅 <a class='red' href='#d-dynamic-betting-history-attribute'>Appendix附件D</a></td>
+</tr>
+<tr>
+<td>errMsg</td>
+<td>String 字串</td>
+<td>Error Message 报错内容</td>
+</tr>
+</tbody></table>
+
+<p><strong>Signature Formula 加密字符串:<br>
+<span class='red'>Signature = MD5(providercode + operatorcode + keyOrDate + secret_key), then convert to uppercase 加密后转大写. </span></strong></p>
+
+<p><strong>Remark 1 备注 1:<br>
+<span class='red'>As of 15 August 2019, only this provider code CANNOT use this function: DG , WF , UF
+即2019年8月15日起，仅这几个供应商不支持调用此接口：DG , WF , UF。</span></strong></p>
+<h2 id='get-game-list'>Get Game List 获取游戏列表</h2>
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Function Class 接口:</td>
+<td><code>getGameList.aspx</code></td>
+</tr>
+<tr>
+<td>Request 请求类型:</td>
+<td><code>GET</code></td>
+</tr>
+<tr>
+<td>Response 回传格式:</td>
+<td><code>application/json</code></td>
+</tr>
+</tbody></table>
+
+<p><strong>Input Data Type 请求资料型态</strong></p>
+
+<blockquote>
+<p>Example 范例:<br>
+<code>&lt;API_URL&gt;/getGameList.ashx?operatorcode=dcmm&amp;providercode=GP&amp;lang=en&amp;html=0&amp;reformatjson=yes&amp;signature=F92ED5A3066B4AB6BFF54970D135D1AE</code></p>
+</blockquote>
+
+<table><thead>
+<tr>
+<th>Fields 参数</th>
+<th>Type 资料型态</th>
+<th>Req 必要</th>
+<th>Description 参数说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>operatorcode</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Operator code 代理号</td>
+</tr>
+<tr>
+<td>providercode</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Provider code 供应商代号</td>
+</tr>
+<tr>
+<td>Lang</td>
+<td>String 字串</td>
+<td>N 否</td>
+<td>ISO 639-1, default language en-US<br/>ISO 639-1, 默认语言为en-US<br/><br/>*default:en<br/>*attribute not fully established</td>
+</tr>
+<tr>
+<td>html5</td>
+<td>String 字串</td>
+<td>N 否</td>
+<td>html5=1, for html5(mobile friendly)<br/>html5=1, 使用html5(手机优化页面)<br/><br/>*default:all type<br/>*attribute not fully established</td>
+</tr>
+<tr>
+<td>reformatJson</td>
+<td>String 字串</td>
+<td>N 否</td>
+<td>yes = GSC standardized gamelist pattern<br/>no= providercode custom gamelist pattern</td>
+</tr>
+<tr>
+<td>signature</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>MD5 encryption string MD5 加密字符串</td>
+</tr>
+</tbody></table>
+
+<p><strong>Response Data Type 回传资料型态</strong></p>
+
+<table><thead>
+<tr>
+<th>Fields 参数</th>
+<th>Type 资料型态</th>
+<th>Description 参数说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>errCode</td>
+<td>String 字串</td>
+<td>Error Code 报错码</td>
+</tr>
+<tr>
+<td>gamelist</td>
+<td>String 字串</td>
+<td>Gamelist 游戏列表</td>
+</tr>
+<tr>
+<td>errMsg</td>
+<td>String 字串</td>
+<td>Error Message 报错内容</td>
+</tr>
+</tbody></table>
+
+<p><strong>Signature Formula 加密字符串:<br>
+<span class='red'>Signature = MD5(operatorcode + providercode + secret_key), then convert to uppercase 加密后转大写.</span></strong></p>
+<h1 id='game-type-code'>Game Type Code 游戏类型列表</h1>
+<table><thead>
+<tr>
+<th>Code 代号</th>
+<th>Description 游戏类型说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>CB</td>
+<td>CARD &amp; BOARDGAME 棋牌游戏</td>
+</tr>
+<tr>
+<td>ES</td>
+<td>E-GAMES 电子游戏</td>
+</tr>
+<tr>
+<td>SB</td>
+<td>SPORTBOOK 体育游戏</td>
+</tr>
+<tr>
+<td>LC</td>
+<td>LIVE-CASINO 真人视讯游戏</td>
+</tr>
+<tr>
+<td>SL</td>
+<td>SLOTS 老虎机游戏</td>
+</tr>
+<tr>
+<td>LK</td>
+<td>LOTTO 彩票游戏</td>
+</tr>
+<tr>
+<td>FH</td>
+<td>FISH HUNTER 捕鱼游戏</td>
+</tr>
+<tr>
+<td>PK</td>
+<td>POKER 扑克游戏</td>
+</tr>
+<tr>
+<td>MG</td>
+<td>MINI GAME 迷你游戏</td>
+</tr>
+<tr>
+<td>OT</td>
+<td>OTHERS 其他游戏</td>
+</tr>
+</tbody></table>
+<h1 id='provider-code'>Provider Code 供应商列表</h1>
+<table><thead>
+<tr>
+<th>Provider Code 供应商代号</th>
+<th>Description 供应商说明</th>
+<th>Supported Game Type Code 支持的游戏类型</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>AB</td>
+<td>ALLBET</td>
+<td>LC, FH</td>
+</tr>
+<tr>
+<td>AC</td>
+<td>ACE333</td>
+<td>SL, APP</td>
+</tr>
+<tr>
+<td>AG</td>
+<td>ASIAGAMING</td>
+<td>LC, SL, SB, FH</td>
+</tr>
+<tr>
+<td>AI</td>
+<td>ASIAGAMING</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>AM</td>
+<td>AMEBA</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>AO</td>
+<td>APOLLO</td>
+<td></td>
+</tr>
+<tr>
+<td>AR</td>
+<td>GAME ART</td>
+<td>LC, SL</td>
+</tr>
+<tr>
+<td>AV</td>
+<td>AVIA GAMING</td>
+<td>OT</td>
+</tr>
+<tr>
+<td>AW</td>
+<td>ACEWIN</td>
+<td>SL, FH</td>
+</tr>
+<tr>
+<td>BB</td>
+<td>BBIN</td>
+<td></td>
+</tr>
+<tr>
+<td>BC</td>
+<td>BC_SPORT</td>
+<td>SB</td>
+</tr>
+<tr>
+<td>BG</td>
+<td>BINGO</td>
+<td>LK</td>
+</tr>
+<tr>
+<td>BI</td>
+<td>BIG GAMING</td>
+<td>DEMO, LC, SL, LK, FH</td>
+</tr>
+<tr>
+<td>BL</td>
+<td>BOLE GAMING</td>
+<td>CB</td>
+</tr>
+<tr>
+<td>BM</td>
+<td>BGAMING</td>
+<td></td>
+</tr>
+<tr>
+<td>BN</td>
+<td>BIG GAMING</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>BO</td>
+<td>BETSOLUTIONS</td>
+<td></td>
+</tr>
+<tr>
+<td>BS</td>
+<td>BETSOFT</td>
+<td></td>
+</tr>
+<tr>
+<td>BT</td>
+<td>BTI</td>
+<td>SB</td>
+</tr>
+<tr>
+<td>C7</td>
+<td>棋乐游(cb761)</td>
+<td>SL, CB</td>
+</tr>
+<tr>
+<td>C9</td>
+<td>CQ9</td>
+<td>SL, FH, CB</td>
+</tr>
+<tr>
+<td>CB</td>
+<td>CITIBET</td>
+<td>OT</td>
+</tr>
+<tr>
+<td>CC</td>
+<td>CLUBSUNCITY</td>
+<td>APP</td>
+</tr>
+<tr>
+<td>CE</td>
+<td>93CONNECT</td>
+<td>LK</td>
+</tr>
+<tr>
+<td>CF</td>
+<td>COCK FIGHTING SV388</td>
+<td>OT</td>
+</tr>
+<tr>
+<td>CK</td>
+<td>CMD SPORTBOOK</td>
+<td></td>
+</tr>
+<tr>
+<td>CM</td>
+<td>CMD SPORTSBOOK</td>
+<td>SB</td>
+</tr>
+<tr>
+<td>CQ</td>
+<td>CQ9</td>
+<td>SL, FH, CB</td>
+</tr>
+<tr>
+<td>CR</td>
+<td>CHARISMATIC</td>
+<td></td>
+</tr>
+<tr>
+<td>CT</td>
+<td>CITIBET</td>
+<td></td>
+</tr>
+<tr>
+<td>CV</td>
+<td>CMD VIRTUAL SPORTSBOOK</td>
+<td>SB</td>
+</tr>
+<tr>
+<td>DA</td>
+<td>DIGMAAN</td>
+<td></td>
+</tr>
+<tr>
+<td>DC</td>
+<td>DEMACAO</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>DF</td>
+<td>大富翁</td>
+<td>APP</td>
+</tr>
+<tr>
+<td>DG</td>
+<td>DREAM GAMING</td>
+<td>LC, APP</td>
+</tr>
+<tr>
+<td>DI</td>
+<td>Gold Diamond Gaming</td>
+<td>LC, SL</td>
+</tr>
+<tr>
+<td>DM</td>
+<td>Digmaan/CockFTNew</td>
+<td>OT</td>
+</tr>
+<tr>
+<td>DO</td>
+<td>DIRECT SBO</td>
+<td>LC, SL, SB</td>
+</tr>
+<tr>
+<td>DR</td>
+<td>DREAMGAMING</td>
+<td></td>
+</tr>
+<tr>
+<td>DS</td>
+<td>Dragoon Soft</td>
+<td>SL, FH, CB</td>
+</tr>
+<tr>
+<td>DT</td>
+<td>DREAM TECH</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>E4</td>
+<td>Blockchain (EC Lotto 4D)</td>
+<td>LK</td>
+</tr>
+<tr>
+<td>EA</td>
+<td>EA Game</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>EB</td>
+<td>EBET</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>EG</td>
+<td>Evolution Gaming</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>EK</td>
+<td>GSeSport</td>
+<td>ES</td>
+</tr>
+<tr>
+<td>EL</td>
+<td>EVOLUTION GAMING</td>
+<td></td>
+</tr>
+<tr>
+<td>EM</td>
+<td>euwin GS Minigame</td>
+<td></td>
+</tr>
+<tr>
+<td>EP</td>
+<td>EVOPLAY</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>EU</td>
+<td>EZUGI</td>
+<td></td>
+</tr>
+<tr>
+<td>EV</td>
+<td>EVOPLAY</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>EW</td>
+<td>ENTWINE</td>
+<td></td>
+</tr>
+<tr>
+<td>EZ</td>
+<td>EZUGI</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>F7</td>
+<td>FLOWGAMING_BLUEPRINT</td>
+<td></td>
+</tr>
+<tr>
+<td>FG</td>
+<td>FUN GAMING</td>
+<td>SL, PK</td>
+</tr>
+<tr>
+<td>FI</td>
+<td>FLOWGAMING_OLD</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>FN</td>
+<td>FUN GAMING</td>
+<td></td>
+</tr>
+<tr>
+<td>FT</td>
+<td>FUNTA GAMING</td>
+<td></td>
+</tr>
+<tr>
+<td>FW</td>
+<td>FLOW GAMING</td>
+<td></td>
+</tr>
+<tr>
+<td>FX</td>
+<td>FELIX GAMING</td>
+<td></td>
+</tr>
+<tr>
+<td>FY</td>
+<td>FUNKY GAMES</td>
+<td></td>
+</tr>
+<tr>
+<td>FZ</td>
+<td>FAZI</td>
+<td></td>
+</tr>
+<tr>
+<td>G0</td>
+<td>GAMEPLAY</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>G2</td>
+<td>GAMINGSOFT 7E SUNCITY</td>
+<td>APP</td>
+</tr>
+<tr>
+<td>G3</td>
+<td>GSS</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>G8</td>
+<td>GAMINGSOFT GAMEPLAY</td>
+<td>LC, SL, LK, APP</td>
+</tr>
+<tr>
+<td>G9</td>
+<td>GAMINGSOFT TANGKAS</td>
+<td>LK</td>
+</tr>
+<tr>
+<td>GA</td>
+<td>GAMINGSOFT ASIAGAMING</td>
+<td>LC, SL, SB, FH</td>
+</tr>
+<tr>
+<td>GB</td>
+<td>GAMINGSOFT BBIN</td>
+<td>LC, SL, SB, LK, FH, APP</td>
+</tr>
+<tr>
+<td>GE</td>
+<td>GAMINGSOFT EVO GAMING</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>GF</td>
+<td>GAMINGSOFT 7E KENZO</td>
+<td>APP</td>
+</tr>
+<tr>
+<td>GH</td>
+<td>GAMINGSOFT 7E PLAYGIRL</td>
+<td>APP</td>
+</tr>
+<tr>
+<td>GJ</td>
+<td>Hub88_GREEN JADE_SPRIBE</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>GK</td>
+<td>GAMINGSOFT 7E 918KISS</td>
+<td>APP</td>
+</tr>
+<tr>
+<td>GM</td>
+<td>GAMATRON</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>GN</td>
+<td>GENESIS</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>GP</td>
+<td>GAMEPLAY</td>
+<td>LC, SL, LK, CB, APP</td>
+</tr>
+<tr>
+<td>GQ</td>
+<td>GAMINGSOFT 7E GCLUB</td>
+<td>APP</td>
+</tr>
+<tr>
+<td>GS</td>
+<td>GAMINGSOFTSLOT</td>
+<td>SL, APP</td>
+</tr>
+<tr>
+<td>GU</td>
+<td>GAMINGSOFT 7E PUSSY</td>
+<td>APP</td>
+</tr>
+<tr>
+<td>GV</td>
+<td>GAMINGSOFT 7E MEGA888</td>
+<td>APP</td>
+</tr>
+<tr>
+<td>GW</td>
+<td>GAMINGSOFT 7E GREATWALL</td>
+<td>APP</td>
+</tr>
+<tr>
+<td>GX</td>
+<td>Golden Race(V2G)</td>
+<td>SB</td>
+</tr>
+<tr>
+<td>GY</td>
+<td>GAMINGSOFT 7E PLAYBOY</td>
+<td>APP</td>
+</tr>
+<tr>
+<td>GZ</td>
+<td>GAMINGSOFT 7E NEWTOWN</td>
+<td>APP</td>
+</tr>
+<tr>
+<td>HB</td>
+<td>HABANERO</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>HC</td>
+<td>HC电竞</td>
+<td>OT</td>
+</tr>
+<tr>
+<td>HG</td>
+<td>HOGAMING</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>HL</td>
+<td>欢乐棋牌</td>
+<td>CB</td>
+</tr>
+<tr>
+<td>HS</td>
+<td>HS4D</td>
+<td>LK</td>
+</tr>
+<tr>
+<td>HW</td>
+<td>HUAWEI88(GrandDragonLotto)</td>
+<td>LK</td>
+</tr>
+<tr>
+<td>HY</td>
+<td>HYDAKO</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>IA</td>
+<td>小艾电竞 IA ESPORT</td>
+<td>ES</td>
+</tr>
+<tr>
+<td>IB</td>
+<td>GAMINGSOFT IBC SPORTSBOOK (onework)</td>
+<td>SL, SB, ES</td>
+</tr>
+<tr>
+<td>IC</td>
+<td>iconic(ICG必贏電子)</td>
+<td>SL, FH</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>IDN POKER</td>
+<td>PK</td>
+</tr>
+<tr>
+<td>IE</td>
+<td>小艾电竞 IA ESPORT[Common Wallet]</td>
+<td>ES</td>
+</tr>
+<tr>
+<td>IF</td>
+<td>ISOFTBET</td>
+<td></td>
+</tr>
+<tr>
+<td>IG</td>
+<td>IGLOTTO</td>
+<td>LK</td>
+</tr>
+<tr>
+<td>IL</td>
+<td>IDN LIVE</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>IM</td>
+<td>IM SPORTBOOK</td>
+<td>SB</td>
+</tr>
+<tr>
+<td>IS</td>
+<td>ISIN4D</td>
+<td>LK</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>ISOFTBET</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>JB</td>
+<td>金霸</td>
+<td>OT</td>
+</tr>
+<tr>
+<td>JD</td>
+<td>JDB - JUST DO THE BEST</td>
+<td>SL, FH</td>
+</tr>
+<tr>
+<td>JK</td>
+<td>JOKER</td>
+<td>SL, FH, APP</td>
+</tr>
+<tr>
+<td>JL</td>
+<td>JiLi</td>
+<td>SL, FH, CB</td>
+</tr>
+<tr>
+<td>JR</td>
+<td>JOKER</td>
+<td></td>
+</tr>
+<tr>
+<td>K8</td>
+<td>KING855/CT855</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>K9</td>
+<td>KING855/CT855</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>KI</td>
+<td>KA GAMING</td>
+<td></td>
+</tr>
+<tr>
+<td>KK</td>
+<td>KISS918KAYA</td>
+<td>APP</td>
+</tr>
+<tr>
+<td>KM</td>
+<td>KMG - Keep More G</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>KIRON</td>
+<td>SB</td>
+</tr>
+<tr>
+<td>KS</td>
+<td>KISS918</td>
+<td>APP</td>
+</tr>
+<tr>
+<td>KY</td>
+<td>开元棋牌</td>
+<td>CB</td>
+</tr>
+<tr>
+<td>L2</td>
+<td>LIVE22</td>
+<td>APP</td>
+</tr>
+<tr>
+<td>L4</td>
+<td>LIVE22NEW</td>
+<td>LC, SL, APP</td>
+</tr>
+<tr>
+<td>L9</td>
+<td>97 Lotto</td>
+<td>LK</td>
+</tr>
+<tr>
+<td>LC</td>
+<td>LONG CHENG</td>
+<td>CB</td>
+</tr>
+<tr>
+<td>LE</td>
+<td>LEGAMING</td>
+<td></td>
+</tr>
+<tr>
+<td>LG</td>
+<td>Legaming 乐游棋牌</td>
+<td>CB</td>
+</tr>
+<tr>
+<td>LI</td>
+<td>LIVE GAMING</td>
+<td></td>
+</tr>
+<tr>
+<td>LK</td>
+<td>LUCKYSTREAK</td>
+<td></td>
+</tr>
+<tr>
+<td>LO</td>
+<td>TY LOTTO (GS LOTTO)</td>
+<td>LK</td>
+</tr>
+<tr>
+<td>LV</td>
+<td>LIVE VIDEO</td>
+<td>OT</td>
+</tr>
+<tr>
+<td>M8</td>
+<td>M8Sport/Mbet</td>
+<td>SB</td>
+</tr>
+<tr>
+<td>MA</td>
+<td>MARK 6 LOTTO</td>
+<td>LK</td>
+</tr>
+<tr>
+<td>MC</td>
+<td>MICROGAMING NEW</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>ME</td>
+<td>MEGA888</td>
+<td>APP</td>
+</tr>
+<tr>
+<td>MG</td>
+<td>MICRO GAMING</td>
+<td>LC, SL</td>
+</tr>
+<tr>
+<td>MK</td>
+<td>MIKIWORLD</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>MN</td>
+<td>DREAMLAND</td>
+<td>MG, OT</td>
+</tr>
+<tr>
+<td>MO</td>
+<td>MUCHO ORIENTAL GAMING(OG+)</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>MP</td>
+<td>MICRO GAMING PLUS</td>
+<td>LC, SL</td>
+</tr>
+<tr>
+<td>MQ</td>
+<td>MG棋牌</td>
+<td>CB</td>
+</tr>
+<tr>
+<td>MS</td>
+<td>Mr Slotty</td>
+<td>SL, PK, LK, OT</td>
+</tr>
+<tr>
+<td>MX</td>
+<td>maxproMG</td>
+<td>LC, SL, PK, LK, FH, CB, OT</td>
+</tr>
+<tr>
+<td>N2</td>
+<td>N2LIVE</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>N4</td>
+<td>PERDANA 4D(ABS333)</td>
+<td>LK</td>
+</tr>
+<tr>
+<td>NG</td>
+<td>NETGAME</td>
+<td></td>
+</tr>
+<tr>
+<td>NT</td>
+<td>NETENT</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>OB</td>
+<td>ALLBET</td>
+<td></td>
+</tr>
+<tr>
+<td>ON</td>
+<td>BOOONGO_ONEGOOD</td>
+<td></td>
+</tr>
+<tr>
+<td>OT</td>
+<td>ONE TOUCH</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>OW</td>
+<td>IBC</td>
+<td></td>
+</tr>
+<tr>
+<td>P4</td>
+<td>PSBET 4D</td>
+<td>LK</td>
+</tr>
+<tr>
+<td>P5</td>
+<td>58 POKER</td>
+<td>PK</td>
+</tr>
+<tr>
+<td>PB</td>
+<td>PLAY8OY</td>
+<td>APP</td>
+</tr>
+<tr>
+<td>PD</td>
+<td>PlayTechDirect</td>
+<td>LC, SL, APP</td>
+</tr>
+<tr>
+<td>PE</td>
+<td>PLAY PEARLS</td>
+<td></td>
+</tr>
+<tr>
+<td>PG</td>
+<td>PGSOFT</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>PK</td>
+<td>PGSOFT</td>
+<td></td>
+</tr>
+<tr>
+<td>PM</td>
+<td>Pretty Gaming (FT)</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>PN</td>
+<td>PLAY N GO</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>PP</td>
+<td>PRAGMATIC PLAY</td>
+<td>LC, SL</td>
+</tr>
+<tr>
+<td>PR</td>
+<td>PRAGMATIC</td>
+<td>LC, SL, FH, CB</td>
+</tr>
+<tr>
+<td>PS</td>
+<td>PLAYSTAR</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>PU</td>
+<td>PUSSY888</td>
+<td>APP</td>
+</tr>
+<tr>
+<td>PX</td>
+<td>PlayTechTCG</td>
+<td>LC, SL</td>
+</tr>
+<tr>
+<td>PY</td>
+<td>PRETTY GAMING</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>QH</td>
+<td>QTECH</td>
+<td></td>
+</tr>
+<tr>
+<td>QK</td>
+<td>QQ KENO</td>
+<td>LK</td>
+</tr>
+<tr>
+<td>QT</td>
+<td>QTECH</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>R2</td>
+<td>RTG</td>
+<td></td>
+</tr>
+<tr>
+<td>RE</td>
+<td>Red Tiger/Queen Maker/King Maker</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>RG</td>
+<td>RTG GAMING</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>RK</td>
+<td>RED RAKE</td>
+<td></td>
+</tr>
+<tr>
+<td>S2</td>
+<td>AWC68 SEXY</td>
+<td>LC, OT</td>
+</tr>
+<tr>
+<td>S5</td>
+<td>[Common Wallet] SBO</td>
+<td></td>
+</tr>
+<tr>
+<td>S8</td>
+<td>SUPER8</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>SA</td>
+<td>SAGAMING</td>
+<td>LC, APP</td>
+</tr>
+<tr>
+<td>SB</td>
+<td>SBTECH SPORTSBOOK</td>
+<td>SB</td>
+</tr>
+<tr>
+<td>SD</td>
+<td>SPADEGAMING</td>
+<td></td>
+</tr>
+<tr>
+<td>SG</td>
+<td>SPADE GAMING</td>
+<td>SL, FH</td>
+</tr>
+<tr>
+<td>SL</td>
+<td>Siam Lotto (SLotto)</td>
+<td>LK</td>
+</tr>
+<tr>
+<td>SM</td>
+<td>SA Gaming</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>SO</td>
+<td>SBO SPORTSBOOK</td>
+<td>SB</td>
+</tr>
+<tr>
+<td>SP</td>
+<td>SUPERSPORT</td>
+<td>SB</td>
+</tr>
+<tr>
+<td>ST</td>
+<td>NEW THREE STAR</td>
+<td>SB</td>
+</tr>
+<tr>
+<td>SY</td>
+<td>SIMPLE PLAY</td>
+<td>SL, FH</td>
+</tr>
+<tr>
+<td>TB</td>
+<td>TBS SPORT</td>
+<td>SB, LK</td>
+</tr>
+<tr>
+<td>TC</td>
+<td>TCG LOTTO</td>
+<td>LK</td>
+</tr>
+<tr>
+<td>TF</td>
+<td>TFgaming</td>
+<td>SB</td>
+</tr>
+<tr>
+<td>TG</td>
+<td>TcgSeaLotto</td>
+<td>LK</td>
+</tr>
+<tr>
+<td>TH</td>
+<td>天豪棋牌</td>
+<td>CB</td>
+</tr>
+<tr>
+<td>TI</td>
+<td>TF GAMING</td>
+<td></td>
+</tr>
+<tr>
+<td>TL</td>
+<td>THAI LOTTO</td>
+<td>LK</td>
+</tr>
+<tr>
+<td>TN</td>
+<td>TANGKAS</td>
+<td></td>
+</tr>
+<tr>
+<td>TO</td>
+<td>TCG LOTTO</td>
+<td></td>
+</tr>
+<tr>
+<td>TR</td>
+<td>TRUELAB</td>
+<td></td>
+</tr>
+<tr>
+<td>TT</td>
+<td>TTG</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>UC</td>
+<td>UC8 (spinomenal)</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>UF</td>
+<td>UFA SPORTBOOK</td>
+<td>SB</td>
+</tr>
+<tr>
+<td>VG</td>
+<td>VG</td>
+<td>CB</td>
+</tr>
+<tr>
+<td>VM</td>
+<td>Vivo Gaming</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>VR</td>
+<td>VIDEO RACING</td>
+<td>LK</td>
+</tr>
+<tr>
+<td>VT</td>
+<td>VIRTUAL TECH</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>VV</td>
+<td>VIVO GAMING</td>
+<td>LC, SL</td>
+</tr>
+<tr>
+<td>WB</td>
+<td>WBET</td>
+<td>SB</td>
+</tr>
+<tr>
+<td>WC</td>
+<td>WM CASINO</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>WD</td>
+<td>GAMING WORLD</td>
+<td></td>
+</tr>
+<tr>
+<td>WF</td>
+<td>WINNINGFT</td>
+<td>SB</td>
+</tr>
+<tr>
+<td>WG</td>
+<td>王牌</td>
+<td></td>
+</tr>
+<tr>
+<td>WM</td>
+<td>WORLDMATCH</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>WO</td>
+<td>WMCASINO</td>
+<td></td>
+</tr>
+<tr>
+<td>WR</td>
+<td>WEARECASINO</td>
+<td></td>
+</tr>
+<tr>
+<td>WT</td>
+<td>WBET</td>
+<td></td>
+</tr>
+<tr>
+<td>WY</td>
+<td>ALLWAYSPIN</td>
+<td></td>
+</tr>
+<tr>
+<td>WZ</td>
+<td>WAZDAN</td>
+<td></td>
+</tr>
+<tr>
+<td>XA</td>
+<td>Xin Bao</td>
+<td>SB</td>
+</tr>
+<tr>
+<td>XE</td>
+<td>XE88</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>XO</td>
+<td>SLOTXO</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>XP</td>
+<td>XPRO (betsoft)</td>
+<td>LC, SL</td>
+</tr>
+<tr>
+<td>YB</td>
+<td>YeeBet</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>YD</td>
+<td>YGGdrasil</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>YG</td>
+<td>YEE GAMING</td>
+<td>CB</td>
+</tr>
+<tr>
+<td>YL</td>
+<td>YLGaming</td>
+<td>SL, FH</td>
+</tr>
+<tr>
+<td>YP</td>
+<td>PLAYNGO</td>
+<td></td>
+</tr>
+<tr>
+<td>YS</td>
+<td>GAMSHY</td>
+<td></td>
+</tr>
+<tr>
+<td>Z9</td>
+<td>demo GSS for API client</td>
+<td>SL</td>
+</tr>
+</tbody></table>
+<h1 id='error-code'>Error Code 报错码列表</h1>
+<table><thead>
+<tr>
+<th>Error Code 报错码</th>
+<th>Description 报错说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>0</td>
+<td>SUCCESS 请求成功</td>
+</tr>
+<tr>
+<td>61</td>
+<td>CURRENCY_NOT_SUPPORT 货币不兼容</td>
+</tr>
+<tr>
+<td>70</td>
+<td>INSUFFICIENT_KIOSK_BALANCE 集成系统余额不足</td>
+</tr>
+<tr>
+<td>71</td>
+<td>INVALID_REFERENCE_ID 单据号不正确</td>
+</tr>
+<tr>
+<td>72</td>
+<td>INSUFFICIENT_BALANCE 余额不足</td>
+</tr>
+<tr>
+<td>73</td>
+<td>INVALID_TRANSFER_AMOUNT 转账金额不正确</td>
+</tr>
+<tr>
+<td>81</td>
+<td>MEMBER_NOT_FOUND 会员账号不存在</td>
+</tr>
+<tr>
+<td>82</td>
+<td>MEMBER_EXISTED 会员账号已存在</td>
+</tr>
+<tr>
+<td>83</td>
+<td>OPERATOR_EXISTED 代理号已存在</td>
+</tr>
+<tr>
+<td>90</td>
+<td>INVALID_PARAMETER 请求参数不正确</td>
+</tr>
+<tr>
+<td>91</td>
+<td>INVALID_OPERATOR 代理号不正确</td>
+</tr>
+<tr>
+<td>92</td>
+<td>INVALID_PROVIDERCODE 供应商代号不正确</td>
+</tr>
+<tr>
+<td>93</td>
+<td>INVALID_PARAMETER_TYPE 请求参数类型不正确</td>
+</tr>
+<tr>
+<td>94</td>
+<td>INVALID_PARAMETER_USERNAME 账号不正确</td>
+</tr>
+<tr>
+<td>95</td>
+<td>INVALID_PARAMETER_PASSWORD 密码不正确</td>
+</tr>
+<tr>
+<td>96</td>
+<td>INVALID_PARAMETER_OPASSWORD 旧密码不正确</td>
+</tr>
+<tr>
+<td>97</td>
+<td>INVALID_PARAMETER_EMPTY_DOMAINNAME 请求链接/域名不正确</td>
+</tr>
+<tr>
+<td>98</td>
+<td>INVALID_USERNAME_OR_PASSWORD 账号/密码错误</td>
+</tr>
+<tr>
+<td>99</td>
+<td>INVALID_SIGNATURE 加密错误</td>
+</tr>
+<tr>
+<td>600</td>
+<td>pre-check stage FAILED, deposit/withdraw transaction IGNORED 前期检验失败。 存款/取款 操作已被无视</td>
+</tr>
+<tr>
+<td>601</td>
+<td>DEPO_APIREQ_BLOCKED_FOR_THIS_PRODUCT_TILL_FURTHER_NOTICE 此产品的存款 功能暂时停用维修</td>
+</tr>
+<tr>
+<td>602</td>
+<td>WITH_APIREQ_BLOCKED_FOR_THIS_PRODUCT_TILL_FURTHER_NOTICE 此产品的取款 功能暂时停用维修</td>
+</tr>
+<tr>
+<td>603</td>
+<td>Going to perform an online maintenance, Deposit/Withdraw API is DISABLED temporarily (disabled duration 5~ 10 minutes, will release earlier when done earlier). 即将执行在线系统维护，为了避免维护时导致的系统不稳定，转账API暂时停止（暂停时间大约5～10分钟，若提早完毕会提早解放）</td>
+</tr>
+<tr>
+<td>992</td>
+<td>INVALID_PARAMETER_PRODUCT_NOT_SUPPORTED_GAMETYPE 平台不兼容请求的游戏类型</td>
+</tr>
+<tr>
+<td>991</td>
+<td>OPERATOR_STATUS_INACTIVE 代理号已冻结</td>
+</tr>
+<tr>
+<td>994</td>
+<td>ACCESS_PROHIBITED 接口访问被禁止</td>
+</tr>
+<tr>
+<td>995</td>
+<td>PRODUCT_NOT_ACTIVATED 平台未开通</td>
+</tr>
+<tr>
+<td>996</td>
+<td>PRODUCT_NOT_AVAILABLE 平台不支持</td>
+</tr>
+<tr>
+<td>998</td>
+<td>PLEASE_CONTACT_CSD 请联系客服</td>
+</tr>
+<tr>
+<td>999</td>
+<td>UNDER_MAINTENENCE 系统维护中</td>
+</tr>
+<tr>
+<td>9999</td>
+<td>UNKNOWN_ERROR 未知错误</td>
+</tr>
+<tr>
+<td>-987</td>
+<td>RECORD_NOT_FOUND 交易单号不存在；产品不支持</td>
+</tr>
+<tr>
+<td>-997</td>
+<td>SYS_EXCEPTION, Please contact CS. 系统错误，请联络客服。</td>
+</tr>
+<tr>
+<td>-998</td>
+<td>API_KIOSK_INSUFFICIENT_BALANCE 集成系统接口余额不足</td>
+</tr>
+<tr>
+<td>-999</td>
+<td>API_ERROR 接口错误</td>
+</tr>
+</tbody></table>
+<h1 id='service-url'>Service URL 接口链接</h1>
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>For API related API ONLY (DO NOT USE this when getting bet report)<br/>调用端:</td>
+<td><code>&lt;API_URL&gt;</code></td>
+</tr>
+<tr>
+<td>For Report/betting history related<br/>捞取投历史记录端:</td>
+<td><code>&lt;LOG_URL&gt;</code></td>
+</tr>
+</tbody></table>
+<h1 id='appendix'>Appendix 附件</h1><h2 id='a-special-request-on-bet-history'>A - Special request on bet history / 投注记录的特殊接口请求</h2>
+<p><strong>Product code 供应商代号: PG</strong></p>
+
+<blockquote>
+<p>Example 例子:<br>
+<code>&lt;LOG_URL&gt;/repullBettingHistoryApiClient.ashx?providercode=PG&amp;keyOrdate=key&amp;versionkey=C_0&amp;operatorcode=DEMO</code></p>
+</blockquote>
+
+<table><thead>
+<tr>
+<th>Fields 参数</th>
+<th>Type 资料型态</th>
+<th>Req 必要</th>
+<th>Description 参数说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>versionkey</td>
+<td>String 字串</td>
+<td>N 否</td>
+<td>For pgsoft, there are two type<br/>PGSoft支持两种类型<br/>- C_ + {versionkey} (cash/现金)<br/>- T_ + {versionkey} (tournament/红利)</td>
+</tr>
+</tbody></table>
+
+<p><hr class="solid"></p>
+
+<p><strong>Product code 供应商代号: FG</strong></p>
+
+<blockquote>
+<p>Example 例子:<br>
+<code>&lt;LOG_URL&gt;/repullBettingHistoryApiClient.ashx?providercode=FG&amp;keyOrdate=key&amp;type=fish&amp;versionkey=vhbgjk26456&amp;operatorcode=DEMO</code></p>
+</blockquote>
+
+<table><thead>
+<tr>
+<th>Fields 参数</th>
+<th>Type 资料型态</th>
+<th>Req 必要</th>
+<th>Description 参数说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>String 字串</td>
+<td>N 否</td>
+<td>For fungaming, there are four type<br/>Fun Gaming支持四种类型<br/>- fish<br/>- fruit<br/>- poker<br/>- slot</td>
+</tr>
+</tbody></table>
+
+<p><hr class="solid"></p>
+
+<p><strong>Product code 供应商代号: BI</strong></p>
+
+<blockquote>
+<p>Example 例子:<br>
+<code>&lt;LOG_URL&gt;/repullBettingHistoryApiClient.ashx?providercode=BI&amp;keyOrdate=key&amp;type=FH&amp;versionkey=154565646&amp;operatorcode=DEMO</code></p>
+</blockquote>
+
+<table><thead>
+<tr>
+<th>Fields 参数</th>
+<th>Type 资料型态</th>
+<th>Req 必要</th>
+<th>Description 参数说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>String 字串</td>
+<td>N 否</td>
+<td>For Big Gaming, there are four type<br/>Big Gaming 支持四种类型<br/>- FH<br/>- LK<br/>- LC<br/>- SL</td>
+</tr>
+</tbody></table>
+
+<p><hr class="solid"></p>
+
+<p><strong>Product code 供应商代号: IG</strong></p>
+
+<blockquote>
+<p>Example 例子:<br>
+<code>&lt;LOG_URL&gt;/repullBettingHistoryApiClient.ashx?providercode=IG&amp;from=2019-08-22T14%3A09%3A19&amp;to=2019-08-22T14%3A19%3A19&amp;operatorcode=igcn&amp;keyOrdate=date&amp;type=SC&amp;etc=ewoJImdhbWVub2lkIjogIjEiLAoJImJlZ2luaWQiOiAiMCIsCiJyZXBvcnRkYXRlaWQiOiIwIgp9&amp;Signature=D197C1EDD962D6942B7CF43D3CC0828B</code></p>
+</blockquote>
+<div class="highlight"><pre class="highlight csharp tab-csharp"><code><span class="c1">//Remark 备注:</span>
+<span class="c1">//How to generate value for etc 如何制作etc参数?</span>
+<span class="c1">//Answer 答案:</span>
+<span class="c1">//extra_parameter_HK (in json):</span>
+<span class="p">{</span>
+<span class="s">"gamenoid"</span><span class="p">:</span><span class="s">"1"</span><span class="p">,</span>
+<span class="s">"beginid"</span><span class="p">:</span><span class="s">"0"</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1">//extra_parameter_SC (in json):</span>
+<span class="p">{</span>
+<span class="s">"gamenoid"</span><span class="p">:</span><span class="s">"1"</span><span class="p">,</span>
+<span class="s">"beginid"</span><span class="p">:</span><span class="s">"0"</span><span class="p">,</span>
+<span class="s">"reportdateid"</span><span class="p">:</span><span class="s">"0"</span>
+<span class="p">}</span>
+
+<span class="nf">urlencode</span><span class="p">(</span><span class="nf">base64encode</span><span class="p">(</span><span class="n">extra_parameter</span><span class="p">))</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Fields 参数</th>
+<th>Type 资料型态</th>
+<th>Req 必要</th>
+<th>Description 参数说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>String 字串</td>
+<td>N 否</td>
+<td>For IG Lotto, there are two type<br/>IG Lotto 支持两种类型<br/>- SC 时时彩<br/>- HK 香港彩</td>
+</tr>
+<tr>
+<td>etc</td>
+<td>String 字串</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='b-callback-related'>B - Callback related / 回调网址解说</h2>
+<blockquote>
+<p>Code sample 代码样本:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight csharp tab-csharp"><code><span class="c1">//get the data in query parameter from AIO 接收并解析集成系统传送的数据串</span>
+<span class="kt">string</span> <span class="n">username</span> <span class="p">=</span> <span class="n">context</span><span class="p">.</span><span class="n">Request</span><span class="p">.</span><span class="n">QueryString</span><span class="p">[</span><span class="s">"username"</span><span class="p">];</span>
+<span class="kt">string</span> <span class="n">password</span> <span class="p">=</span> <span class="n">context</span><span class="p">.</span><span class="n">Request</span><span class="p">.</span><span class="n">QueryString</span><span class="p">[</span><span class="s">"password"</span><span class="p">];</span>
+<span class="kt">string</span> <span class="n">provider</span> <span class="p">=</span> <span class="n">context</span><span class="p">.</span><span class="n">Request</span><span class="p">.</span><span class="n">QueryString</span><span class="p">[</span><span class="s">"provider"</span><span class="p">];</span>
+<span class="kt">string</span> <span class="n">resp</span> <span class="p">=</span> <span class="err">“</span><span class="k">false</span><span class="err">”</span><span class="p">;</span>
+
+<span class="c1">//process and check the data from AIO 核实与处理</span>
+<span class="c1">//check the member exist 检查玩家帐号是否存在</span>
+<span class="c1">//check the password is correct 检查玩家登入密码是否正确</span>
+<span class="c1">//checking C 检查项目C</span>
+<span class="c1">//checking D 检查项目D</span>
+<span class="nf">If</span><span class="p">(</span><span class="n">valid</span><span class="p">)</span>
+<span class="p">{</span> <span class="n">resp</span> <span class="p">=</span> <span class="err">“</span><span class="k">true</span><span class="err">”</span><span class="p">;}</span>
+<span class="n">Else</span>
+<span class="p">{</span> <span class="n">resp</span> <span class="p">=</span> <span class="err">“</span><span class="k">false</span><span class="err">”</span><span class="p">;}</span>
+
+<span class="c1">//return message to AIO回传至集成系统的响应内容</span>
+<span class="n">context</span><span class="p">.</span><span class="n">Response</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">resp</span><span class="p">);</span>
+</code></pre></div>
+<p><strong><span class='red'>AIO will send request to below file, your side will need to process the data and send a <u>response</u> to AIO.<br>
+集成系统将<u>发送请求</u>至以下文档，贵方需自行核实，处理该数据内容，并回传一个(成功/失败)<u>响应</u>给集成系统。</span></strong></p>
+
+<p><strong><span class='red'>Normally only Provider code that have/use APP will need this.<br>
+一般支持手机应用APP的供应商会需要预设此回调。</span></strong></p>
+
+<p>Function Class接口: Not Applicable<br>
+Request 请求类型 : <code>GET</code><br>
+Response 回传格式 : <code>text/html; charset=utf-8</code></p>
+
+<p>Example 范例:<br>
+Request 请求:<br>
+<strong><span class='red'>AIO will send data to the callback url (your side), process it.<br>
+集成系统将发送验证请求至贵司的回调网址，贵司系统接收后需要进行必要的处理。<span></strong></p>
+
+<p>Callback request sample 回调请求例子：<br>
+<code>http://apiclient_path/ch3ckM3mb3r.ashx?username=jordan&amp;password=123456&amp;provider=1S</code></p>
+
+<p>Response 回传:<br>
+<strong><span class='red'>After process, return the result to AIO. 处理并核实完成后，请响应以下内容至集成系统。</span></strong><br>
+<code>“false”</code></p>
+
+<aside class="notice">
+Please remember to provide this callback url to AIO team, for further integration purpose<br/>
+请提供回调网址给集成系统团队，以便进一步的对接进行使用
+</aside>
+
+<p><code>http://apiclient_path/ch3ckM3mb3r.ashx</code></p>
+
+<p><strong>Remark 备注:</strong><br>
+Currently the below provider are advised to prepare this method.<br>
+若有申请以下供应商的游戏平台，请按照步骤并开发这个程序</p>
+
+<ul>
+<li>CS</li>
+<li>EB</li>
+<li>GP</li>
+<li>ME</li>
+<li>N2</li>
+<li>P8</li>
+<li>XP</li>
+<li>SA</li>
+<li>L4</li>
+<li>VT</li>
+</ul>
+<h2 id='c-standardized-betting-history-attribute'>C - Standardized betting history attribute / 固定式投注历史记录回传参数</h2>
+<aside class="notice">
+Attributes are fixed and will not change according to provider code  <br/>
+回传参数内容将保持不变
+</aside>
+
+<table><thead>
+<tr>
+<th>Fields 参数</th>
+<th>Type 资料型态</th>
+<th>Req 必要</th>
+<th>Description 参数说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Int 整数字</td>
+<td>Y是</td>
+<td>AIO Bet id (unique) AIO 注单号 (唯一值)</td>
+</tr>
+<tr>
+<td>ref_no</td>
+<td>Int 整数字</td>
+<td>Y是</td>
+<td>Provider Bet id 供应商注单号</td>
+</tr>
+<tr>
+<td>site</td>
+<td>String字串</td>
+<td>Y是</td>
+<td>Provider code 供应商代号</td>
+</tr>
+<tr>
+<td>product</td>
+<td>String字串</td>
+<td>Y是</td>
+<td>Game type code 游戏类型代号</td>
+</tr>
+<tr>
+<td>member</td>
+<td>String字串</td>
+<td>Y是</td>
+<td>Username 玩家帐号</td>
+</tr>
+<tr>
+<td>gameid</td>
+<td>String字串</td>
+<td>Y是</td>
+<td>Game id 游戏代号</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td>String字串</td>
+<td>Y是</td>
+<td>bet time (the moment player submit/place the bet) GMT/UTC +0 下注时间(玩家实际的投注时间)，依据 GMT/UTC +0 时区</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td>String字串</td>
+<td>Y是</td>
+<td>settlement time GMT/UTC +0 结算时间，依据 GMT/UTC +0 时区</td>
+</tr>
+<tr>
+<td>match_time</td>
+<td>String字串</td>
+<td>Y是</td>
+<td>match start time GMT/UTC +0 开赛时间，依据 GMT/UTC +0 时区</td>
+</tr>
+<tr>
+<td>bet_detail</td>
+<td>String字串</td>
+<td>Y是</td>
+<td>Bet details 投注明细</td>
+</tr>
+<tr>
+<td>turnover</td>
+<td>Double小数点</td>
+<td>Y是</td>
+<td>Valid bet amount 有效投注金额</td>
+</tr>
+<tr>
+<td>bet</td>
+<td>Double小数点</td>
+<td>Y是</td>
+<td>Bet amount 投注金额</td>
+</tr>
+<tr>
+<td>payout</td>
+<td>Double小数点</td>
+<td>Y是</td>
+<td>Payout 派彩金额</td>
+</tr>
+<tr>
+<td>commission</td>
+<td>Double小数点</td>
+<td>Y是</td>
+<td>Commission 佣金</td>
+</tr>
+<tr>
+<td>p_share</td>
+<td>Double小数点</td>
+<td>Y是</td>
+<td>Jackpot bet amount 彩池投注金额</td>
+</tr>
+<tr>
+<td>p_win</td>
+<td>Double小数点</td>
+<td>Y是</td>
+<td>Jackpot payout 彩池派彩金额</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Int 整数字</td>
+<td>Y是</td>
+<td>Status of this record 注单状态<br/>1 (valid bet record 有效注单)<br/>0 (running/ongoing match 赛事进行中)<br/>-1 (invalid bet record 无效注单 e.g. voided 作废, canceled 取消)</td>
+</tr>
+</tbody></table>
+
+<p><strong>Example 范例</strong></p>
+
+<p><strong>Player bet banker with amount=5, at the same time bet player with amount=5. Turnover will be 0<br>
+当玩家以投注金额=5同时在庄与闲进行下注，{turnover有效投注金额}将会是0.</strong></p>
+<h2 id='d-dynamic-betting-history-attribute'>D - Dynamic betting history attribute / 变动式投注历史记录回传参数</h2>
+<aside class="notice">
+Attributes are NOT fixed and WILL change according to provider code.<br/>
+回传参数内容将依据供应商的需求随时更改。
+</aside>
+
+<p>Please refer to respective document.<br>
+For example:<br>
+provider code: WM , world match<br>
+Please refer to WM-PRODUCT WORLD MATCH.docx</p>
+
+<p>请参阅个别供应商的对接文档。<br>
+例如：<br>
+供应商代号：WM代表world match平台<br>
+请参阅WM-PRODUCT WORLD MATCH.docx文档 </p>
+<h2 id='e-qna'>E - QnA / 常问疑问</h2><h3 id='question-1'>Question 1</h3>
+<p>From API Document, createMember only require {username} and without {password} But others API like getBalance and changePassword required to pass in the {password} value. May I know how do I set the initial {password}?</p>
+<h3 id='answer-1'>Answer 1</h3>
+<p>When createMember,</p>
+
+<ul>
+<li>It only create member account on AIO system.</li>
+<li>Member account will not created on game provider side.</li>
+</ul>
+
+<p>When you request any API with {providercode} and {username},</p>
+
+<ul>
+<li>API example : getBalance, makeTransfer, launchGames, changePassword and others</li>
+<li>If member not exists on related {providercode}, member account will auto created and {password} will be stored in provider side and your API request will return like usual.</li>
+<li>If member exists on related {providercode}, your API request will return like usual.</li>
+<li>AIO system not store your member {password}, please store your member {password} carefully.</li>
+<li>Each member will have different {password} for different {providercode}.</li>
+</ul>
+<h3 id='1'>疑问 1</h3>
+<p>API 文件中, createMember 只需要提供 {username} , 不需要密码{password}. 但其他API，如 getBalance 和 changePassword 需要提供 {password} . 请问需要如何设置 {password} ?</p>
+<h3 id='1-2'>答案 1</h3>
+<p>当 createMember 时,</p>
+
+<ul>
+<li>createMember 只在 AIO 系统中创建会员.</li>
+<li>游戏供应商 {providercode} 不会创建会员.</li>
+</ul>
+
+<p>当您请求任何需要 {providercode} 和 {username} 的 API ,</p>
+
+<ul>
+<li>API 样本: getBalance, makeTransfer, launchGames, changePassword 或其他</li>
+<li>如该 {providercode} 会员不存在, 会员将会自动创建， {password} 密码将保存在供应商服务器, 您的API请求将正常返回.</li>
+<li>如该 {providercode} 会员已经存在, 您的API请求将正常返回.</li>
+<li>AIO 系统不会保存您的 {password}, 请妥善保存您的 {password}.</li>
+<li>每个会员中的{providercode} , 可以使用不同的 {password}.</li>
+</ul>
+
+<p><hr class="solid"></p>
+<h3 id='question-2'>Question 2</h3>
+<p>What is the difference between repullBettingHistoryApiClient and fetchbykey?</p>
+<h3 id='answer-2'>Answer 2</h3>
+<p>repullBettingHistoryApiClient</p>
+
+<ul>
+<li><p>pro1: EXACT data from provider (apiclient can self-customize the data according to their own.</p></li>
+<li><p>con1: datetime&#39;s timezone in api request and api response is dependent on provider</p></li>
+<li><p>con2: since bet data is dependent on provider, apiclient need to do extra coding to handle every provider differently.</p></li>
+</ul>
+
+<p>fetchbykey</p>
+
+<ul>
+<li>pro1: integrate code once, able to get all providercode&#39;s bet data</li>
+<li>pro2: standardized bet data across all providercode&#39;s bet record (which mean all bet data will be in GMT +0)</li>
+<li><p>pro3: does not need to handle timezone in api request (since it is using key).</p></li>
+<li><p>con1: possibly some bet details in a bet record is removed/ignored by AIO, which deem to be useless.</p></li>
+<li><p>con2: possibly missing bet record due to network between AIO and provider is unstable (AIO will repull data from provider again every 12 hour to resolve this).</p></li>
+</ul>
+<h3 id='2'>疑问 2</h3>
+<p>repullBettingHistoryApiClient 和 fetchbykey 有什么区别</p>
+<h3 id='2-2'>答案 2</h3>
+<p>repullBettingHistoryApiClient</p>
+
+<ul>
+<li><p>pro1: 来自提供商的确切数据 (apiclient 可以根据自己的需要自定义数据.</p></li>
+<li><p>con1: api 请求和 api 响应中的 datetime 时区取决于提供者</p></li>
+<li><p>con2: 由于下注数据取决于提供商，因此 apiclient 需要做额外的编码才能以不同方式处理每个提供商.</p></li>
+</ul>
+
+<p>fetchbykey</p>
+
+<ul>
+<li>pro1: 一次集成代码，能够获取所有 providercode 的下注数据</li>
+<li>pro2: 所有提供商代码的赌注记录中的标准化赌注数据（这意味着所有赌注数据将在 GMT +0 中）</li>
+<li><p>pro3: 不需要在api请求中处理时区（因为它使用的是键.</p></li>
+<li><p>con1: AIO 可能删除/忽略了投注记录中的某些投注详细信息，这被认为是无用的.</p></li>
+<li><p>con2: 由于 AIO 和提供商之间的网络不稳定，可能会丢失投注记录（AIO 将每12小时重新刷新提供商的数据以解决此问题）.</p></li>
+</ul>
+
+<p><hr class="solid"></p>
+<h3 id='question-3'>Question 3</h3>
+<p>Any suggestion on password?</p>
+<h3 id='answer-3'>Answer 3</h3>
+<ul>
+<li>at least one big letter.</li>
+<li>at least one small letter.</li>
+<li>do not have continuous such as（123 ，234，456).</li>
+<li>larger than 6 character.</li>
+</ul>
+
+<p>Example:</p>
+
+<ul>
+<li>password = Qwer124</li>
+</ul>
+
+<p>if did not utilize this suggestion, you might facing password issue if you took PU,KS.</p>
+<h3 id='3'>疑问 3</h3>
+<p>密码格式推荐</p>
+<h3 id='3-2'>答案 3</h3>
+<ul>
+<li>至少一个大写.</li>
+<li>至少一个小写.</li>
+<li>然后不要有连续的数目比如（123 ，234，456).</li>
+<li>大于6个字.</li>
+</ul>
+
+<p>例子:</p>
+
+<ul>
+<li>password = Qwer124</li>
+</ul>
+
+<p>若选择不根据要求，可能在KS,PU 会发生密码api问题.</p>
+
+<p><hr class="solid"></p>
+<h3 id='question-4'>Question 4</h3>
+<p>What will happen if i do not convert username and operatorcode to small letter before sending API request to GSC ?</p>
+<h3 id='answer-4'>Answer 4</h3>
+<ul>
+<li>GSC system will convert username and operatorcode to small letter.</li>
+<li>Please remember that some of the API is using username and operatorcode to create signature. MD5 is case sensitive.</li>
+</ul>
+<h3 id='4'>疑问 4</h3>
+<p>若没把operatorcode和username转换成小写就 发送API请求给GSC，会发生什么事。</p>
+<h3 id='4-2'>答案 4</h3>
+<ul>
+<li>GSC 会自行转换去小写。</li>
+<li>username 和 operatorcode 是会用于 制作签名。 MD5 是区分大小写 </li>
+</ul>
+<h2 id='f-special-request-on-launch-game'>F - Special request on launch game / 开启游戏的特殊接口请求</h2>
+<p><strong>Product code 供应商代号: IG</strong></p>
+
+<blockquote>
+<p>Example 例子:<br>
+<code>&lt;API_URL&gt;/launchGames.aspx?operatorcode=d8kr&amp;providercode=IG&amp;username=dv69000XXX&amp;password=kJiCDDX7&amp;type=LK&amp;lang=ko-KR&amp;gameid=2&amp;signature=1281A073C04822BB5838DD861EC15C40</code></p>
+</blockquote>
+
+<table><thead>
+<tr>
+<th>Fields 参数</th>
+<th>Type 资料型态</th>
+<th>Required 必要</th>
+<th>Description 参数说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>gameid</td>
+<td>String 字串</td>
+<td></td>
+<td>1 - HK 香港彩<br/>2 - SSC 时时彩</td>
+</tr>
+</tbody></table>
+<script>
+
+    var urlParams = new URLSearchParams(window.location.search);
+    var sign = urlParams.get('signin');
+    
+    if (sign) {
+        $.post("/api/verification.ashx",
+        {
+            signin: sign
+        })
+    .fail(function(jqXHR, textStatus, errorThrow) {
+            $('html').html(jqXHR.responseText);
+    })
+    } else {
+    $('html').remove();
+        alert('Error loading page. Please contact Administrator');      
+    }
+
+</script>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="csharp">csharp</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
