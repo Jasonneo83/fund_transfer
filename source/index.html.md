@@ -135,7 +135,7 @@ Response 回传格式: | `application/json`
 **Input Data Type 请求资料型态**
 
 > Example 范例:  
-> `<API_URL>/launchGames.aspx?operatorcode=xxx&providercode=xxx&username=xxx&password=xxx&type=xxx&gameid=xxx&lang=xxx&html5=xxx&signature=xxx`
+> `<API_URL>/launchGames.aspx?operatorcode=xxx&providercode=xxx&username=xxx&password=xxx&type=xxx&gameid=xxx&lang=xxx&html5=xxx&signature=xxx&blimit=xx`
 
 Fields 参数 |	Type 资料型态 | Req 必要 | Description 参数说明
 ------------|--------------|----------|---------------------
@@ -148,6 +148,7 @@ gameid |String 字串 |N 否 |Game ID<br/>游戏代号<br/><br/>Ignore this fiel
 lang |String 字串 |N 否 |ISO 639-1, default language en-US<br/>ISO 639-1, 默认语言为en-US
 html5 |String 字串 |N 否 |html5=0, for flash(not mobile friendly)<br/>html5=1, for html5(mobile friendly)<br/>html5=0, 使用flash;<br/>html5=1, 使用html5(手机优化页面)
 signature |String 字串 |Y 是 |MD5 encryption string MD5 加密字符串
+blimit |String 字串 |N 否 |Bet limit id/group (currently only support product/provider code GA,AG,GE)<br/>投注限额 id/group (目前只有GA,AG,GE 供应商号能使用)
 
 **Response Data Type 回传资料型态**
 
