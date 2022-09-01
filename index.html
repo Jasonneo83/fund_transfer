@@ -684,11 +684,6 @@ refer to <a class='red' href='#e-qna'>Appendix E</a> QnA, question 1 请参考<a
 <td>Error Code 报错码</td>
 </tr>
 <tr>
-<td>balance</td>
-<td>Double 小数点</td>
-<td>Player Balance 所查询游戏账号余额</td>
-</tr>
-<tr>
 <td>errMsg</td>
 <td>String 字串</td>
 <td>Error Message 报错内容</td>
@@ -722,7 +717,7 @@ refer to <a class='red' href='#e-qna'>Appendix E</a> QnA, question 1 请参考<a
 
 <blockquote>
 <p>Example 范例:<br>
-<code>&lt;API_URL&gt;/launchGames.aspx?operatorcode=xxx&amp;providercode=xxx&amp;username=xxx&amp;password=xxx&amp;type=xxx&amp;gameid=xxx&amp;lang=xxx&amp;html5=xxx&amp;signature=xxx</code></p>
+<code>&lt;API_URL&gt;/launchGames.aspx?operatorcode=xxx&amp;providercode=xxx&amp;username=xxx&amp;password=xxx&amp;type=xxx&amp;gameid=xxx&amp;lang=xxx&amp;html5=xxx&amp;signature=xxx&amp;blimit=xx</code></p>
 </blockquote>
 
 <table><thead>
@@ -786,6 +781,12 @@ refer to <a class='red' href='#e-qna'>Appendix E</a> QnA, question 1 请参考<a
 <td>String 字串</td>
 <td>Y 是</td>
 <td>MD5 encryption string MD5 加密字符串</td>
+</tr>
+<tr>
+<td>blimit</td>
+<td>String 字串</td>
+<td>N 否</td>
+<td>Bet limit id/group (currently only support product/provider code GA,AG,GE)<br/>投注限额 id/group (目前只有GA,AG,GE 供应商号能使用)</td>
 </tr>
 </tbody></table>
 
@@ -1625,6 +1626,25 @@ Currently only 3 providercode support demo game. 获取游戏测试链接目前�
 
 <p><strong>Response Data Type 回传资料型态</strong></p>
 
+<blockquote>
+<p>Method: <code>POST</code><br>
+URL: <code>&lt;LOG_URL&gt;/markbyjson.ashx</code><br>
+Body:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight csharp tab-csharp"><code><span class="p">{</span>
+  <span class="s">"ticket"</span> <span class="p">:</span> <span class="s">"1,2,3,4,5,6,7,8"</span><span class="p">,</span>
+  <span class="s">"operatorcode"</span> <span class="p">:</span> <span class="s">"xxxx"</span><span class="p">,</span>
+  <span class="s">"signature"</span> <span class="p">:</span> <span class="s">"xxxxxxxxxxx"</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>Response Body</p>
+</blockquote>
+<div class="highlight"><pre class="highlight csharp tab-csharp"><code><span class="p">{</span>
+  <span class="s">"errCode"</span> <span class="p">:</span> <span class="s">"0"</span><span class="p">,</span>
+  <span class="s">"errMsg"</span> <span class="p">:</span> <span class="s">"SUCCESS"</span>
+<span class="p">}</span>
+</code></pre></div>
 <table><thead>
 <tr>
 <th>Fields 参数</th>
@@ -1646,8 +1666,6 @@ Currently only 3 providercode support demo game. 获取游戏测试链接目前�
 
 <p><strong>Signature Formula 加密字符串:<br>
 <span class='red'>Signature = MD5(operatorcode + secret_key), then convert to uppercase 加密后转大写.  </span></strong></p>
-
-<p><img src="images/markbyjson-42d96c17.png" alt="Mark by JSON" /></p>
 <h2 id='mark-betting-history_archieve-mark'>Mark Betting History_Archieve 标记投注历史记录接口(mark标记)</h2>
 <table><thead>
 <tr>
@@ -1706,6 +1724,25 @@ Currently only 3 providercode support demo game. 获取游戏测试链接目前�
 
 <p><strong>Response Data Type 回传资料型态</strong></p>
 
+<blockquote>
+<p>Method: <code>POST</code><br>
+URL: <code>&lt;LOG_URL&gt;/markArchieve.ashx</code><br>
+Body:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight csharp tab-csharp"><code><span class="p">{</span>
+  <span class="s">"operatorcode"</span> <span class="p">:</span> <span class="s">"xxxx"</span><span class="p">,</span>
+  <span class="s">"signature"</span> <span class="p">:</span> <span class="s">"xxxxxxxxxxx"</span>
+  <span class="s">"ticket"</span> <span class="p">:</span> <span class="s">"4098362429,1010,2040"</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>Response Body: </p>
+</blockquote>
+<div class="highlight"><pre class="highlight csharp tab-csharp"><code><span class="p">{</span>
+  <span class="s">"errCode"</span> <span class="p">:</span> <span class="s">"0"</span><span class="p">,</span>
+  <span class="s">"errMsg"</span> <span class="p">:</span> <span class="s">"SUCCESS"</span>
+<span class="p">}</span>
+</code></pre></div>
 <table><thead>
 <tr>
 <th>Fields 参数</th>
@@ -1727,8 +1764,6 @@ Currently only 3 providercode support demo game. 获取游戏测试链接目前�
 
 <p><strong>Signature Formula 加密字符串:<br>
 <span class='red'>Signature = MD5(operatorcode + secret_key), then convert to uppercase 加密后转大写. </span></strong></p>
-
-<p><img src="images/markArchieve-a9390f39.png" alt="Mark Archieve" /></p>
 <h2 id='get-betting-history-datetime-versionkey-dynamic'>Get Betting History 获取投注历史记录接口(datetime或versionkey) *dynamic/变动</h2>
 <table><thead>
 <tr>
@@ -1849,8 +1884,12 @@ a) <keyOrdate=date> mode模式<br>
 <span class='red'>Signature = MD5(providercode + operatorcode + keyOrDate + secret_key), then convert to uppercase 加密后转大写. </span></strong></p>
 
 <p><strong>Remark 1 备注 1:<br>
-<span class='red'>As of 15 August 2019, only this provider code CANNOT use this function: DG , WF , UF
+<span class='red'>As of 15 August 2019, only this provider code CANNOT use this function: DG , WF , UF<br>
 即2019年8月15日起，仅这几个供应商不支持调用此接口：DG , WF , UF。</span></strong></p>
+
+<p><strong>Remark 2 备注 2:<br>
+<span class='red'>This API will return the un-process raw data from game provider, the content include bet and winlose amount will be based on game provider ratio (eg: 1:1 or 1:1000)<br>
+此API接口将返回游戏商未经处理的原始数据，内容包括投注和输赢金额将根据游戏商的比例 (例如 1:1或1:1000) </span></strong></p>
 <h2 id='get-game-list'>Get Game List 获取游戏列表</h2>
 <table><thead>
 <tr>
@@ -2010,24 +2049,74 @@ a) <keyOrdate=date> mode模式<br>
 </tr>
 </thead><tbody>
 <tr>
+<td>A1</td>
+<td>MD998_BG</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>A2</td>
+<td>MD998_CF</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>A3</td>
+<td>MD998_CT855</td>
+<td>LK,LC</td>
+</tr>
+<tr>
+<td>A4</td>
+<td>MD998_DG</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>A5</td>
+<td>MD998_EVO</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>A6</td>
+<td>MD998_EZUGI</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>A7</td>
+<td>MD998_FGG</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>A8</td>
+<td>MD998_GD</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>A9</td>
+<td>MD998_LS</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>AA</td>
+<td>API2ALL998</td>
+<td>SL,SB,LK,PK,FH,CB,ES,MG,LC</td>
+</tr>
+<tr>
 <td>AB</td>
 <td>ALLBET</td>
-<td>LC, FH</td>
+<td>FH,LC</td>
 </tr>
 <tr>
 <td>AC</td>
 <td>ACE333</td>
-<td>SL, APP</td>
+<td>SL,APP</td>
 </tr>
 <tr>
 <td>AG</td>
 <td>ASIAGAMING</td>
-<td>LC, SL, SB, FH</td>
+<td>SL,SB,FH,LC</td>
 </tr>
 <tr>
-<td>AI</td>
-<td>ASIAGAMING</td>
-<td>SL</td>
+<td>AL</td>
+<td>ALT Sport</td>
+<td>SB</td>
 </tr>
 <tr>
 <td>AM</td>
@@ -2035,14 +2124,14 @@ a) <keyOrdate=date> mode模式<br>
 <td>SL</td>
 </tr>
 <tr>
-<td>AO</td>
-<td>APOLLO</td>
-<td></td>
+<td>AP</td>
+<td>AMB_POKER</td>
+<td>PK</td>
 </tr>
 <tr>
 <td>AR</td>
 <td>GAME ART</td>
-<td>LC, SL</td>
+<td>SL,LC</td>
 </tr>
 <tr>
 <td>AV</td>
@@ -2052,17 +2141,67 @@ a) <keyOrdate=date> mode模式<br>
 <tr>
 <td>AW</td>
 <td>ACEWIN</td>
-<td>SL, FH</td>
+<td>SL,FH</td>
 </tr>
 <tr>
-<td>BB</td>
-<td>BBIN</td>
-<td></td>
+<td>AX</td>
+<td>AMB_SLOTXO</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>B1</td>
+<td>MD998_PragmaticPlayLive</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>B2</td>
+<td>MD998_SA</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>B3</td>
+<td>MD998_SexyBaccarat</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>B4</td>
+<td>MD998_WM</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>B5</td>
+<td>MD998_93connect</td>
+<td>LK</td>
+</tr>
+<tr>
+<td>B6</td>
+<td>MD998_KenoLoterry</td>
+<td>LK</td>
+</tr>
+<tr>
+<td>B7</td>
+<td>MD998_MalaysiaLottery</td>
+<td>LK</td>
+</tr>
+<tr>
+<td>B8</td>
+<td>MD998_ACE333</td>
+<td>SL,APP</td>
+</tr>
+<tr>
+<td>B9</td>
+<td>MD998_BGEgame</td>
+<td>SL</td>
 </tr>
 <tr>
 <td>BC</td>
 <td>BC_SPORT</td>
 <td>SB</td>
+</tr>
+<tr>
+<td>BF</td>
+<td>BEEFEE</td>
+<td>SL</td>
 </tr>
 <tr>
 <td>BG</td>
@@ -2072,7 +2211,7 @@ a) <keyOrdate=date> mode模式<br>
 <tr>
 <td>BI</td>
 <td>BIG GAMING</td>
-<td>DEMO, LC, SL, LK, FH</td>
+<td>SL,LK,FH,LC</td>
 </tr>
 <tr>
 <td>BL</td>
@@ -2080,39 +2219,14 @@ a) <keyOrdate=date> mode模式<br>
 <td>CB</td>
 </tr>
 <tr>
-<td>BM</td>
-<td>BGAMING</td>
+<td>BP</td>
+<td>Pinnacle 平博</td>
 <td></td>
-</tr>
-<tr>
-<td>BN</td>
-<td>BIG GAMING</td>
-<td>LC</td>
-</tr>
-<tr>
-<td>BO</td>
-<td>BETSOLUTIONS</td>
-<td></td>
-</tr>
-<tr>
-<td>BS</td>
-<td>BETSOFT</td>
-<td></td>
-</tr>
-<tr>
-<td>BT</td>
-<td>BTI</td>
-<td>SB</td>
 </tr>
 <tr>
 <td>C7</td>
 <td>棋乐游(cb761)</td>
-<td>SL, CB</td>
-</tr>
-<tr>
-<td>C9</td>
-<td>CQ9</td>
-<td>SL, FH, CB</td>
+<td>SL,CB</td>
 </tr>
 <tr>
 <td>CB</td>
@@ -2135,8 +2249,8 @@ a) <keyOrdate=date> mode模式<br>
 <td>OT</td>
 </tr>
 <tr>
-<td>CK</td>
-<td>CMD SPORTBOOK</td>
+<td>CG</td>
+<td>Creative Gaming</td>
 <td></td>
 </tr>
 <tr>
@@ -2147,17 +2261,7 @@ a) <keyOrdate=date> mode模式<br>
 <tr>
 <td>CQ</td>
 <td>CQ9</td>
-<td>SL, FH, CB</td>
-</tr>
-<tr>
-<td>CR</td>
-<td>CHARISMATIC</td>
-<td></td>
-</tr>
-<tr>
-<td>CT</td>
-<td>CITIBET</td>
-<td></td>
+<td>SL,FH,CB</td>
 </tr>
 <tr>
 <td>CV</td>
@@ -2165,14 +2269,64 @@ a) <keyOrdate=date> mode模式<br>
 <td>SB</td>
 </tr>
 <tr>
-<td>DA</td>
-<td>DIGMAAN</td>
-<td></td>
+<td>CY</td>
+<td>CITIBET_[E] Gaming Soft Technical</td>
+<td>OT</td>
+</tr>
+<tr>
+<td>D1</td>
+<td>MD998_Betsoft</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>D2</td>
+<td>MD998_Cq9</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>D3</td>
+<td>MD998_playtechDigital</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>D4</td>
+<td>MD998_GlobalGaming</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>D5</td>
+<td>MD998_IconicGame_Egame</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>D6</td>
+<td>MD998_joker</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>D7</td>
+<td>MD998_pragmatic</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>D8</td>
+<td>MD998_Skywind</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>D9</td>
+<td>MD998_SagamingEgames</td>
+<td>SL</td>
 </tr>
 <tr>
 <td>DC</td>
 <td>DEMACAO</td>
 <td>SL</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Discovery Gaming 帝駒棋牌</td>
+<td></td>
 </tr>
 <tr>
 <td>DF</td>
@@ -2182,12 +2336,17 @@ a) <keyOrdate=date> mode模式<br>
 <tr>
 <td>DG</td>
 <td>DREAM GAMING</td>
-<td>LC, APP</td>
+<td>APP,LC</td>
 </tr>
 <tr>
 <td>DI</td>
 <td>Gold Diamond Gaming</td>
-<td>LC, SL</td>
+<td>SL,LC</td>
+</tr>
+<tr>
+<td>DL</td>
+<td>28win( Grand Dragon Lotto )</td>
+<td>LK</td>
 </tr>
 <tr>
 <td>DM</td>
@@ -2197,17 +2356,12 @@ a) <keyOrdate=date> mode模式<br>
 <tr>
 <td>DO</td>
 <td>DIRECT SBO</td>
-<td>LC, SL, SB</td>
-</tr>
-<tr>
-<td>DR</td>
-<td>DREAMGAMING</td>
-<td></td>
+<td>SL,SB,LC</td>
 </tr>
 <tr>
 <td>DS</td>
 <td>Dragoon Soft</td>
-<td>SL, FH, CB</td>
+<td>SL,FH,CB</td>
 </tr>
 <tr>
 <td>DT</td>
@@ -2215,9 +2369,34 @@ a) <keyOrdate=date> mode模式<br>
 <td>SL</td>
 </tr>
 <tr>
+<td>DV</td>
+<td>DISCOVERY GAMING</td>
+<td></td>
+</tr>
+<tr>
+<td>E1</td>
+<td>MD998_VirtualTech</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>E2</td>
+<td>MD998_Legaming</td>
+<td>CB</td>
+</tr>
+<tr>
+<td>E3</td>
+<td>MD998_OGPoker</td>
+<td>CB</td>
+</tr>
+<tr>
 <td>E4</td>
 <td>Blockchain (EC Lotto 4D)</td>
 <td>LK</td>
+</tr>
+<tr>
+<td>E8</td>
+<td>EVO888(creditline)</td>
+<td></td>
 </tr>
 <tr>
 <td>EA</td>
@@ -2230,6 +2409,11 @@ a) <keyOrdate=date> mode模式<br>
 <td>LC</td>
 </tr>
 <tr>
+<td>EE</td>
+<td>Meta</td>
+<td></td>
+</tr>
+<tr>
 <td>EG</td>
 <td>Evolution Gaming</td>
 <td>LC</td>
@@ -2240,27 +2424,12 @@ a) <keyOrdate=date> mode模式<br>
 <td>ES</td>
 </tr>
 <tr>
-<td>EL</td>
-<td>EVOLUTION GAMING</td>
-<td></td>
-</tr>
-<tr>
 <td>EM</td>
 <td>euwin GS Minigame</td>
 <td></td>
 </tr>
 <tr>
 <td>EP</td>
-<td>EVOPLAY</td>
-<td>SL</td>
-</tr>
-<tr>
-<td>EU</td>
-<td>EZUGI</td>
-<td></td>
-</tr>
-<tr>
-<td>EV</td>
 <td>EVOPLAY</td>
 <td>SL</td>
 </tr>
@@ -2275,6 +2444,31 @@ a) <keyOrdate=date> mode模式<br>
 <td>LC</td>
 </tr>
 <tr>
+<td>F2</td>
+<td>FLOWGAMING_PLAYSON</td>
+<td></td>
+</tr>
+<tr>
+<td>F3</td>
+<td>FLOWGAMING_QUICKSPIN</td>
+<td></td>
+</tr>
+<tr>
+<td>F4</td>
+<td>FLOWGAMING_NETENT</td>
+<td></td>
+</tr>
+<tr>
+<td>F5</td>
+<td>FLOWGAMING_MAVERICK</td>
+<td></td>
+</tr>
+<tr>
+<td>F6</td>
+<td>FLOWGAMING_OTHER</td>
+<td></td>
+</tr>
+<tr>
 <td>F7</td>
 <td>FLOWGAMING_BLUEPRINT</td>
 <td></td>
@@ -2282,7 +2476,7 @@ a) <keyOrdate=date> mode模式<br>
 <tr>
 <td>FG</td>
 <td>FUN GAMING</td>
-<td>SL, PK</td>
+<td>SLPK</td>
 </tr>
 <tr>
 <td>FI</td>
@@ -2290,39 +2484,9 @@ a) <keyOrdate=date> mode模式<br>
 <td>SL</td>
 </tr>
 <tr>
-<td>FN</td>
-<td>FUN GAMING</td>
-<td></td>
-</tr>
-<tr>
-<td>FT</td>
-<td>FUNTA GAMING</td>
-<td></td>
-</tr>
-<tr>
-<td>FW</td>
-<td>FLOW GAMING</td>
-<td></td>
-</tr>
-<tr>
-<td>FX</td>
-<td>FELIX GAMING</td>
-<td></td>
-</tr>
-<tr>
-<td>FY</td>
-<td>FUNKY GAMES</td>
-<td></td>
-</tr>
-<tr>
-<td>FZ</td>
-<td>FAZI</td>
-<td></td>
-</tr>
-<tr>
-<td>G0</td>
-<td>GAMEPLAY</td>
-<td>LC</td>
+<td>FK</td>
+<td>FUNKYGAME</td>
+<td>SL</td>
 </tr>
 <tr>
 <td>G2</td>
@@ -2330,14 +2494,9 @@ a) <keyOrdate=date> mode模式<br>
 <td>APP</td>
 </tr>
 <tr>
-<td>G3</td>
-<td>GSS</td>
-<td>SL</td>
-</tr>
-<tr>
 <td>G8</td>
 <td>GAMINGSOFT GAMEPLAY</td>
-<td>LC, SL, LK, APP</td>
+<td>SL,LK,APP,LC</td>
 </tr>
 <tr>
 <td>G9</td>
@@ -2347,12 +2506,12 @@ a) <keyOrdate=date> mode模式<br>
 <tr>
 <td>GA</td>
 <td>GAMINGSOFT ASIAGAMING</td>
-<td>LC, SL, SB, FH</td>
+<td>SL,SB,FH,LC</td>
 </tr>
 <tr>
 <td>GB</td>
 <td>GAMINGSOFT BBIN</td>
-<td>LC, SL, SB, LK, FH, APP</td>
+<td>SL,SB,LK,FH,APP,LC</td>
 </tr>
 <tr>
 <td>GE</td>
@@ -2368,6 +2527,11 @@ a) <keyOrdate=date> mode模式<br>
 <td>GH</td>
 <td>GAMINGSOFT 7E PLAYGIRL</td>
 <td>APP</td>
+</tr>
+<tr>
+<td>GI</td>
+<td>GAMEINTACT</td>
+<td>SL,FH,CB</td>
 </tr>
 <tr>
 <td>GJ</td>
@@ -2392,7 +2556,7 @@ a) <keyOrdate=date> mode模式<br>
 <tr>
 <td>GP</td>
 <td>GAMEPLAY</td>
-<td>LC, SL, LK, CB, APP</td>
+<td>SL,LK,CB,APP,LC</td>
 </tr>
 <tr>
 <td>GQ</td>
@@ -2402,7 +2566,7 @@ a) <keyOrdate=date> mode模式<br>
 <tr>
 <td>GS</td>
 <td>GAMINGSOFTSLOT</td>
-<td>SL, APP</td>
+<td>SL,APP</td>
 </tr>
 <tr>
 <td>GU</td>
@@ -2420,11 +2584,6 @@ a) <keyOrdate=date> mode模式<br>
 <td>APP</td>
 </tr>
 <tr>
-<td>GX</td>
-<td>Golden Race(V2G)</td>
-<td>SB</td>
-</tr>
-<tr>
 <td>GY</td>
 <td>GAMINGSOFT 7E PLAYBOY</td>
 <td>APP</td>
@@ -2433,6 +2592,16 @@ a) <keyOrdate=date> mode模式<br>
 <td>GZ</td>
 <td>GAMINGSOFT 7E NEWTOWN</td>
 <td>APP</td>
+</tr>
+<tr>
+<td>H0</td>
+<td>HBO</td>
+<td></td>
+</tr>
+<tr>
+<td>H1</td>
+<td>H1_no1using</td>
+<td></td>
 </tr>
 <tr>
 <td>HB</td>
@@ -2455,6 +2624,11 @@ a) <keyOrdate=date> mode模式<br>
 <td>CB</td>
 </tr>
 <tr>
+<td>HR</td>
+<td>Happy Race Rummy</td>
+<td></td>
+</tr>
+<tr>
 <td>HS</td>
 <td>HS4D</td>
 <td>LK</td>
@@ -2470,19 +2644,24 @@ a) <keyOrdate=date> mode模式<br>
 <td>SL</td>
 </tr>
 <tr>
+<td>i8</td>
+<td>i8Games</td>
+<td></td>
+</tr>
+<tr>
 <td>IA</td>
 <td>小艾电竞 IA ESPORT</td>
 <td>ES</td>
 </tr>
 <tr>
 <td>IB</td>
-<td>GAMINGSOFT IBC SPORTSBOOK (onework)</td>
-<td>SL, SB, ES</td>
+<td>GAMINGSOFT IBC SPORTSBOOK (onework/saba)</td>
+<td>SL,SB,ES</td>
 </tr>
 <tr>
 <td>IC</td>
 <td>iconic(ICG必贏電子)</td>
-<td>SL, FH</td>
+<td>SL,FH,</td>
 </tr>
 <tr>
 <td>ID</td>
@@ -2495,24 +2674,24 @@ a) <keyOrdate=date> mode模式<br>
 <td>ES</td>
 </tr>
 <tr>
-<td>IF</td>
-<td>ISOFTBET</td>
-<td></td>
-</tr>
-<tr>
 <td>IG</td>
 <td>IGLOTTO</td>
 <td>LK</td>
 </tr>
 <tr>
-<td>IL</td>
-<td>IDN LIVE</td>
-<td>LC</td>
+<td>II</td>
+<td>Infinity Gaming</td>
+<td></td>
 </tr>
 <tr>
 <td>IM</td>
 <td>IM SPORTBOOK</td>
 <td>SB</td>
+</tr>
+<tr>
+<td>IN</td>
+<td>Incentive Game</td>
+<td></td>
 </tr>
 <tr>
 <td>IS</td>
@@ -2525,34 +2704,74 @@ a) <keyOrdate=date> mode模式<br>
 <td>SL</td>
 </tr>
 <tr>
+<td>J1</td>
+<td>MD998_M8sport</td>
+<td>SB</td>
+</tr>
+<tr>
+<td>J2</td>
+<td>MD998_ALLBET</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>J3</td>
+<td>MD998_DT</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>J4</td>
+<td>MD998_IAESPORT</td>
+<td>SB</td>
+</tr>
+<tr>
+<td>J5</td>
+<td>MD998_MAXBET</td>
+<td>SB</td>
+</tr>
+<tr>
+<td>J6</td>
+<td>MD998_SBO</td>
+<td>SB</td>
+</tr>
+<tr>
+<td>J7</td>
+<td>MD998_SBOVS</td>
+<td>SB</td>
+</tr>
+<tr>
+<td>J8</td>
+<td>MD998_SSPORT</td>
+<td>SB</td>
+</tr>
+<tr>
+<td>J9</td>
+<td>MD998_AG</td>
+<td>LC</td>
+</tr>
+<tr>
 <td>JB</td>
 <td>金霸</td>
 <td>OT</td>
 </tr>
 <tr>
+<td>JC</td>
+<td>Jclub777</td>
+<td></td>
+</tr>
+<tr>
 <td>JD</td>
 <td>JDB - JUST DO THE BEST</td>
-<td>SL, FH</td>
+<td>SL,FH</td>
 </tr>
 <tr>
 <td>JK</td>
 <td>JOKER</td>
-<td>SL, FH, APP</td>
+<td>SL,FH,APP</td>
 </tr>
 <tr>
 <td>JL</td>
 <td>JiLi</td>
-<td>SL, FH, CB</td>
-</tr>
-<tr>
-<td>JR</td>
-<td>JOKER</td>
-<td></td>
-</tr>
-<tr>
-<td>K8</td>
-<td>KING855/CT855</td>
-<td>LC</td>
+<td>SL,FH,CB</td>
 </tr>
 <tr>
 <td>K9</td>
@@ -2560,8 +2779,13 @@ a) <keyOrdate=date> mode模式<br>
 <td>LC</td>
 </tr>
 <tr>
-<td>KI</td>
-<td>KA GAMING</td>
+<td>KA</td>
+<td>KK Gaming</td>
+<td></td>
+</tr>
+<tr>
+<td>KG</td>
+<td>KG 棋牌</td>
 <td></td>
 </tr>
 <tr>
@@ -2573,11 +2797,6 @@ a) <keyOrdate=date> mode模式<br>
 <td>KM</td>
 <td>KMG - Keep More G</td>
 <td>SL</td>
-</tr>
-<tr>
-<td>KR</td>
-<td>KIRON</td>
-<td>SB</td>
 </tr>
 <tr>
 <td>KS</td>
@@ -2597,7 +2816,7 @@ a) <keyOrdate=date> mode模式<br>
 <tr>
 <td>L4</td>
 <td>LIVE22NEW</td>
-<td>LC, SL, APP</td>
+<td>SL,APP,LC</td>
 </tr>
 <tr>
 <td>L9</td>
@@ -2610,11 +2829,6 @@ a) <keyOrdate=date> mode模式<br>
 <td>CB</td>
 </tr>
 <tr>
-<td>LE</td>
-<td>LEGAMING</td>
-<td></td>
-</tr>
-<tr>
 <td>LG</td>
 <td>Legaming 乐游棋牌</td>
 <td>CB</td>
@@ -2625,8 +2839,8 @@ a) <keyOrdate=date> mode模式<br>
 <td></td>
 </tr>
 <tr>
-<td>LK</td>
-<td>LUCKYSTREAK</td>
+<td>LL</td>
+<td>LPE</td>
 <td></td>
 </tr>
 <tr>
@@ -2635,9 +2849,29 @@ a) <keyOrdate=date> mode模式<br>
 <td>LK</td>
 </tr>
 <tr>
+<td>LP</td>
+<td>LUCKY PALACE</td>
+<td></td>
+</tr>
+<tr>
+<td>LS</td>
+<td>LuckyStreak</td>
+<td>LC</td>
+</tr>
+<tr>
 <td>LV</td>
 <td>LIVE VIDEO</td>
 <td>OT</td>
+</tr>
+<tr>
+<td>LW</td>
+<td>Lotto Instant Win</td>
+<td></td>
+</tr>
+<tr>
+<td>M3</td>
+<td>Mio Seamless Main</td>
+<td></td>
 </tr>
 <tr>
 <td>M8</td>
@@ -2662,17 +2896,17 @@ a) <keyOrdate=date> mode模式<br>
 <tr>
 <td>MG</td>
 <td>MICRO GAMING</td>
-<td>LC, SL</td>
+<td>SL,LC</td>
 </tr>
 <tr>
-<td>MK</td>
-<td>MIKIWORLD</td>
-<td>LC</td>
+<td>ML</td>
+<td>slotmill</td>
+<td></td>
 </tr>
 <tr>
 <td>MN</td>
 <td>DREAMLAND</td>
-<td>MG, OT</td>
+<td>MG,OT</td>
 </tr>
 <tr>
 <td>MO</td>
@@ -2682,7 +2916,7 @@ a) <keyOrdate=date> mode模式<br>
 <tr>
 <td>MP</td>
 <td>MICRO GAMING PLUS</td>
-<td>LC, SL</td>
+<td>SLLC</td>
 </tr>
 <tr>
 <td>MQ</td>
@@ -2690,14 +2924,14 @@ a) <keyOrdate=date> mode模式<br>
 <td>CB</td>
 </tr>
 <tr>
-<td>MS</td>
-<td>Mr Slotty</td>
-<td>SL, PK, LK, OT</td>
+<td>MT</td>
+<td>MuayThai2 FT</td>
+<td>SB</td>
 </tr>
 <tr>
 <td>MX</td>
 <td>maxproMG</td>
-<td>LC, SL, PK, LK, FH, CB, OT</td>
+<td>SL,LK,PK,FH,CB,OT,LC</td>
 </tr>
 <tr>
 <td>N2</td>
@@ -2710,8 +2944,8 @@ a) <keyOrdate=date> mode模式<br>
 <td>LK</td>
 </tr>
 <tr>
-<td>NG</td>
-<td>NETGAME</td>
+<td>NN</td>
+<td>NEWTOWN</td>
 <td></td>
 </tr>
 <tr>
@@ -2720,13 +2954,13 @@ a) <keyOrdate=date> mode模式<br>
 <td>SL</td>
 </tr>
 <tr>
-<td>OB</td>
-<td>ALLBET</td>
-<td></td>
+<td>OP</td>
+<td>OPUS GAMING</td>
+<td>SL</td>
 </tr>
 <tr>
-<td>ON</td>
-<td>BOOONGO_ONEGOOD</td>
+<td>OS</td>
+<td>ONESLOT</td>
 <td></td>
 </tr>
 <tr>
@@ -2735,8 +2969,13 @@ a) <keyOrdate=date> mode模式<br>
 <td>SL</td>
 </tr>
 <tr>
-<td>OW</td>
-<td>IBC</td>
+<td>P1</td>
+<td>ONEPOKER</td>
+<td></td>
+</tr>
+<tr>
+<td>P2</td>
+<td>PLAYTECH SKYWIN</td>
 <td></td>
 </tr>
 <tr>
@@ -2750,6 +2989,16 @@ a) <keyOrdate=date> mode模式<br>
 <td>PK</td>
 </tr>
 <tr>
+<td>P9</td>
+<td>918PLUS(CREDITLINE)</td>
+<td></td>
+</tr>
+<tr>
+<td>PA</td>
+<td>APOLLO</td>
+<td></td>
+</tr>
+<tr>
 <td>PB</td>
 <td>PLAY8OY</td>
 <td>APP</td>
@@ -2757,12 +3006,7 @@ a) <keyOrdate=date> mode模式<br>
 <tr>
 <td>PD</td>
 <td>PlayTechDirect</td>
-<td>LC, SL, APP</td>
-</tr>
-<tr>
-<td>PE</td>
-<td>PLAY PEARLS</td>
-<td></td>
+<td>SL,APP,LC</td>
 </tr>
 <tr>
 <td>PG</td>
@@ -2770,8 +3014,8 @@ a) <keyOrdate=date> mode模式<br>
 <td>SL</td>
 </tr>
 <tr>
-<td>PK</td>
-<td>PGSOFT</td>
+<td>PL</td>
+<td>100Plus</td>
 <td></td>
 </tr>
 <tr>
@@ -2785,14 +3029,9 @@ a) <keyOrdate=date> mode模式<br>
 <td>SL</td>
 </tr>
 <tr>
-<td>PP</td>
-<td>PRAGMATIC PLAY</td>
-<td>LC, SL</td>
-</tr>
-<tr>
 <td>PR</td>
 <td>PRAGMATIC</td>
-<td>LC, SL, FH, CB</td>
+<td>SL,FH,CB,LC</td>
 </tr>
 <tr>
 <td>PS</td>
@@ -2807,17 +3046,12 @@ a) <keyOrdate=date> mode模式<br>
 <tr>
 <td>PX</td>
 <td>PlayTechTCG</td>
-<td>LC, SL</td>
+<td>SL,LC</td>
 </tr>
 <tr>
-<td>PY</td>
-<td>PRETTY GAMING</td>
-<td>LC</td>
-</tr>
-<tr>
-<td>QH</td>
-<td>QTECH</td>
-<td></td>
+<td>PZ</td>
+<td>playtechTCL</td>
+<td>SL,LC</td>
 </tr>
 <tr>
 <td>QK</td>
@@ -2830,8 +3064,8 @@ a) <keyOrdate=date> mode模式<br>
 <td>SL</td>
 </tr>
 <tr>
-<td>R2</td>
-<td>RTG</td>
+<td>R1</td>
+<td>ROLLEX11</td>
 <td></td>
 </tr>
 <tr>
@@ -2845,14 +3079,9 @@ a) <keyOrdate=date> mode模式<br>
 <td>SL</td>
 </tr>
 <tr>
-<td>RK</td>
-<td>RED RAKE</td>
-<td></td>
-</tr>
-<tr>
 <td>S2</td>
 <td>AWC68 SEXY</td>
-<td>LC, OT</td>
+<td>OT,LC</td>
 </tr>
 <tr>
 <td>S5</td>
@@ -2867,7 +3096,7 @@ a) <keyOrdate=date> mode模式<br>
 <tr>
 <td>SA</td>
 <td>SAGAMING</td>
-<td>LC, APP</td>
+<td>APP,LC</td>
 </tr>
 <tr>
 <td>SB</td>
@@ -2875,14 +3104,9 @@ a) <keyOrdate=date> mode模式<br>
 <td>SB</td>
 </tr>
 <tr>
-<td>SD</td>
-<td>SPADEGAMING</td>
-<td></td>
-</tr>
-<tr>
 <td>SG</td>
 <td>SPADE GAMING</td>
-<td>SL, FH</td>
+<td>SL,FH</td>
 </tr>
 <tr>
 <td>SL</td>
@@ -2890,9 +3114,9 @@ a) <keyOrdate=date> mode模式<br>
 <td>LK</td>
 </tr>
 <tr>
-<td>SM</td>
-<td>SA Gaming</td>
-<td>LC</td>
+<td>SN</td>
+<td>Sabong Network</td>
+<td></td>
 </tr>
 <tr>
 <td>SO</td>
@@ -2905,19 +3129,34 @@ a) <keyOrdate=date> mode模式<br>
 <td>SB</td>
 </tr>
 <tr>
+<td>SQ</td>
+<td>SUPERLOTTO</td>
+<td>LK</td>
+</tr>
+<tr>
 <td>ST</td>
 <td>NEW THREE STAR</td>
 <td>SB</td>
 </tr>
 <tr>
+<td>SU</td>
+<td>Super Spade Games</td>
+<td></td>
+</tr>
+<tr>
+<td>SX</td>
+<td>SEXY BACCARAT</td>
+<td>LC</td>
+</tr>
+<tr>
 <td>SY</td>
 <td>SIMPLE PLAY</td>
-<td>SL, FH</td>
+<td>SL,FH</td>
 </tr>
 <tr>
 <td>TB</td>
 <td>TBS SPORT</td>
-<td>SB, LK</td>
+<td>SB,LK</td>
 </tr>
 <tr>
 <td>TC</td>
@@ -2940,28 +3179,13 @@ a) <keyOrdate=date> mode模式<br>
 <td>CB</td>
 </tr>
 <tr>
-<td>TI</td>
-<td>TF GAMING</td>
-<td></td>
-</tr>
-<tr>
 <td>TL</td>
 <td>THAI LOTTO</td>
 <td>LK</td>
 </tr>
 <tr>
-<td>TN</td>
-<td>TANGKAS</td>
-<td></td>
-</tr>
-<tr>
-<td>TO</td>
-<td>TCG LOTTO</td>
-<td></td>
-</tr>
-<tr>
-<td>TR</td>
-<td>TRUELAB</td>
+<td>TP</td>
+<td>TOP PLAYER SLOT</td>
 <td></td>
 </tr>
 <tr>
@@ -2985,13 +3209,13 @@ a) <keyOrdate=date> mode模式<br>
 <td>CB</td>
 </tr>
 <tr>
-<td>VM</td>
-<td>Vivo Gaming</td>
-<td>LC</td>
+<td>VP</td>
+<td>Vpower</td>
+<td></td>
 </tr>
 <tr>
 <td>VR</td>
-<td>VIDEO RACING</td>
+<td>VIDEO RACING / VR LOTTO</td>
 <td>LK</td>
 </tr>
 <tr>
@@ -3002,7 +3226,17 @@ a) <keyOrdate=date> mode模式<br>
 <tr>
 <td>VV</td>
 <td>VIVO GAMING</td>
-<td>LC, SL</td>
+<td>SL,LC</td>
+</tr>
+<tr>
+<td>W2</td>
+<td>TWOWIN</td>
+<td>SL,FH</td>
+</tr>
+<tr>
+<td>W3</td>
+<td>3WIN8</td>
+<td></td>
 </tr>
 <tr>
 <td>WB</td>
@@ -3015,11 +3249,6 @@ a) <keyOrdate=date> mode模式<br>
 <td>LC</td>
 </tr>
 <tr>
-<td>WD</td>
-<td>GAMING WORLD</td>
-<td></td>
-</tr>
-<tr>
 <td>WF</td>
 <td>WINNINGFT</td>
 <td>SB</td>
@@ -3030,34 +3259,14 @@ a) <keyOrdate=date> mode模式<br>
 <td></td>
 </tr>
 <tr>
+<td>WI</td>
+<td>9wickets</td>
+<td></td>
+</tr>
+<tr>
 <td>WM</td>
 <td>WORLDMATCH</td>
 <td>SL</td>
-</tr>
-<tr>
-<td>WO</td>
-<td>WMCASINO</td>
-<td></td>
-</tr>
-<tr>
-<td>WR</td>
-<td>WEARECASINO</td>
-<td></td>
-</tr>
-<tr>
-<td>WT</td>
-<td>WBET</td>
-<td></td>
-</tr>
-<tr>
-<td>WY</td>
-<td>ALLWAYSPIN</td>
-<td></td>
-</tr>
-<tr>
-<td>WZ</td>
-<td>WAZDAN</td>
-<td></td>
 </tr>
 <tr>
 <td>XA</td>
@@ -3077,7 +3286,12 @@ a) <keyOrdate=date> mode模式<br>
 <tr>
 <td>XP</td>
 <td>XPRO (betsoft)</td>
-<td>LC, SL</td>
+<td>SL,LC</td>
+</tr>
+<tr>
+<td>XY</td>
+<td>Xin Xing SportBook</td>
+<td></td>
 </tr>
 <tr>
 <td>YB</td>
@@ -3097,22 +3311,32 @@ a) <keyOrdate=date> mode模式<br>
 <tr>
 <td>YL</td>
 <td>YLGaming</td>
-<td>SL, FH</td>
+<td>SL,FH</td>
 </tr>
 <tr>
-<td>YP</td>
-<td>PLAYNGO</td>
+<td>Z7</td>
+<td>joseph_test_product</td>
 <td></td>
 </tr>
 <tr>
-<td>YS</td>
-<td>GAMSHY</td>
+<td>Z8</td>
+<td>yeoh_test_product</td>
 <td></td>
 </tr>
 <tr>
 <td>Z9</td>
 <td>demo GSS for API client</td>
 <td>SL</td>
+</tr>
+<tr>
+<td>ZB</td>
+<td>FGG</td>
+<td></td>
+</tr>
+<tr>
+<td>ZS</td>
+<td>ZEUS</td>
+<td>SL,OT</td>
 </tr>
 </tbody></table>
 <h1 id='error-code'>Error Code 报错码列表</h1>
@@ -3467,6 +3691,8 @@ Currently the below provider are advised to prepare this method.<br>
 <li>SA</li>
 <li>L4</li>
 <li>VT</li>
+<li>GS</li>
+<li>SG</li>
 </ul>
 <h2 id='c-standardized-betting-history-attribute'>C - Standardized betting history attribute / 固定式投注历史记录回传参数</h2>
 <aside class="notice">
