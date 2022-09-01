@@ -1124,6 +1124,7 @@ Currently the below provider are advised to prepare this method.
 * L4
 * VT
 * GS
+* SG
 
 ## C - Standardized betting history attribute / 固定式投注历史记录回传参数
 
