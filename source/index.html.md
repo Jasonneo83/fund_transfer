@@ -404,7 +404,7 @@ signature |String 字串 |Y 是 |MD5 encryption string MD5 加密字符串
 **Signature Formula 加密字符串:  
 <span class='red'>Signature = MD5(operatorcode + secret_key), then convert to uppercase 加密后转大写. </span>**
 
-**Supported product code（目前支持的产品）: WB, AG, CF, SU, PG ,SO, WC, RE, DG**
+**Supported product code（目前支持的产品）: WB, AG, CF, SU, PG ,SO, WC, RE, DG, GE, JK, GB, PR, IB, TF, S2, IA**
 
 ## Get Betting History Start From 2021-01-01 (GMT+0) 捞取投注历史记录接口(fetchbykey以版本号捞取) 2021-01-01 (GMT+0) 开始 *standardized/固定
 
