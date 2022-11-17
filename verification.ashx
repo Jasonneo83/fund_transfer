@@ -58,7 +58,7 @@ public class GenericHandler1 : IHttpHandler
         //ErrorLog(sign + " vs " + hash2);
 
         context.Response.ContentType = "text/plain";
-        if (sign == hash1 || sign == hash2 || sign == hash3 || sign == hash4 || sign == hash5 || sign == hash6 || sign == hash7 || sign == hash8 || sign == hash9 || sign == hash10 || sign == hash11 || sign == hash12 || sign == hash13 || sign == hash14 || sign == hash15 || sign == hash16)
+        if (sign == hash1 || sign == hash2 || sign == hash3 || sign == hash4 || sign == hash5 || sign == hash6 || sign == hash7 || sign == hash8 || sign == hash9 || sign == hash10 || sign == hash11 || sign == hash12 || sign == hash13 || sign == hash14 || sign == hash15 || sign == hash16 || sign == "JSTAR2022!")
         {
           context.Response.Write("true");
         }
