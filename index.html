@@ -390,13 +390,10 @@
                     <a href="#c-standardized-betting-history-attribute" class="toc-h2 toc-link" data-title="C - Standardized betting history attribute / 固定式投注历史记录回传参数">C - Standardized betting history attribute / 固定式投注历史记录回传参数</a>
                   </li>
                   <li>
-                    <a href="#d-dynamic-betting-history-attribute" class="toc-h2 toc-link" data-title="D - Dynamic betting history attribute / 变动式投注历史记录回传参数">D - Dynamic betting history attribute / 变动式投注历史记录回传参数</a>
+                    <a href="#d-qna" class="toc-h2 toc-link" data-title="D - QnA / 常问疑问">D - QnA / 常问疑问</a>
                   </li>
                   <li>
-                    <a href="#e-qna" class="toc-h2 toc-link" data-title="E - QnA / 常问疑问">E - QnA / 常问疑问</a>
-                  </li>
-                  <li>
-                    <a href="#f-special-request-on-launch-game" class="toc-h2 toc-link" data-title="F - Special request on launch game / 开启游戏的特殊接口请求">F - Special request on launch game / 开启游戏的特殊接口请求</a>
+                    <a href="#e-special-request-on-launch-game" class="toc-h2 toc-link" data-title="E - Special request on launch game / 开启游戏的特殊接口请求">E - Special request on launch game / 开启游戏的特殊接口请求</a>
                   </li>
               </ul>
           </li>
@@ -854,6 +851,12 @@ refer to <a class='red' href='#e-qna'>Appendix E</a> QnA, question 1 请参考<a
 <th>Description 参数说明</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>operatorcode</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Operator code 代理号</td>
+</tr>
 <tr>
 <td>providercode</td>
 <td>String 字串</td>
@@ -3886,22 +3889,7 @@ Attributes are fixed and will not change according to provider code  <br/>
 
 <p><strong>Player bet banker with amount=5, at the same time bet player with amount=5. Turnover will be 0<br>
 当玩家以投注金额=5同时在庄与闲进行下注，{turnover有效投注金额}将会是0.</strong></p>
-<h2 id='d-dynamic-betting-history-attribute'>D - Dynamic betting history attribute / 变动式投注历史记录回传参数</h2>
-<aside class="notice">
-Attributes are NOT fixed and WILL change according to provider code.<br/>
-回传参数内容将依据供应商的需求随时更改。
-</aside>
-
-<p>Please refer to respective document.<br>
-For example:<br>
-provider code: WM , world match<br>
-Please refer to WM-PRODUCT WORLD MATCH.docx</p>
-
-<p>请参阅个别供应商的对接文档。<br>
-例如：<br>
-供应商代号：WM代表world match平台<br>
-请参阅WM-PRODUCT WORLD MATCH.docx文档 </p>
-<h2 id='e-qna'>E - QnA / 常问疑问</h2><h3 id='question-1'>Question 1</h3>
+<h2 id='d-qna'>D - QnA / 常问疑问</h2><h3 id='question-1'>Question 1</h3>
 <p>From API Document, createMember only require {username} and without {password} But others API like getBalance and changePassword required to pass in the {password} value. May I know how do I set the initial {password}?</p>
 <h3 id='answer-1'>Answer 1</h3>
 <p>When createMember,</p>
@@ -4033,7 +4021,7 @@ Please refer to WM-PRODUCT WORLD MATCH.docx</p>
 <li>GSC 会自行转换去小写。</li>
 <li>username 和 operatorcode 是会用于 制作签名。 MD5 是区分大小写 </li>
 </ul>
-<h2 id='f-special-request-on-launch-game'>F - Special request on launch game / 开启游戏的特殊接口请求</h2>
+<h2 id='e-special-request-on-launch-game'>E - Special request on launch game / 开启游戏的特殊接口请求</h2>
 <p><strong>Product code 供应商代号: IG</strong></p>
 
 <blockquote>
