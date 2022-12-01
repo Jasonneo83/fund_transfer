@@ -178,6 +178,7 @@ Response 回传格式: | `application/json`
 
 Fields 参数 |	Type 资料型态 | Req 必要 | Description 参数说明
 ------------|--------------|----------|---------------------
+operatorcode |String 字串 |Y 是 |Operator code 代理号
 providercode |String 字串 |Y 是 |Provider code 供应商号
 type |String 字串 |Y 是 |Please refer to Game Type Code Below<br/>请参考附录{游戏类型}列表
 gameid |String 字串 |N 否 |Game ID<br/>游戏代号<br/><br/>Ignore this field/0 will go to game lobby<br/>可以忽略此参数，预设为‘0’即可直接进入相关游戏厅
@@ -1174,24 +1175,7 @@ status |Int 整数字 |Y是 |Status of this record 注单状态<br/>1 (valid bet
 **Player bet banker with amount=5, at the same time bet player with amount=5. Turnover will be 0  
 当玩家以投注金额=5同时在庄与闲进行下注，{turnover有效投注金额}将会是0.**
 
-## D - Dynamic betting history attribute / 变动式投注历史记录回传参数
-
-<aside class="notice">
-Attributes are NOT fixed and WILL change according to provider code.<br/>
-回传参数内容将依据供应商的需求随时更改。
-</aside>
-
-Please refer to respective document.  
-For example:  
-provider code: WM , world match  
-Please refer to WM-PRODUCT WORLD MATCH.docx
-
-请参阅个别供应商的对接文档。  
-例如：  
-供应商代号：WM代表world match平台  
-请参阅WM-PRODUCT WORLD MATCH.docx文档 
-
-## E - QnA / 常问疑问
+## D - QnA / 常问疑问
 
 ### Question 1
 
@@ -1333,7 +1317,7 @@ What will happen if i do not convert username and operatorcode to small letter b
 * username 和 operatorcode 是会用于 制作签名。 MD5 是区分大小写 
 
 
-## F - Special request on launch game / 开启游戏的特殊接口请求
+## E - Special request on launch game / 开启游戏的特殊接口请求
 
 **Product code 供应商代号: IG**
 
