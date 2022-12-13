@@ -991,7 +991,7 @@ Error Code 报错码 | Description 报错说明
 9999 |UNKNOWN_ERROR 未知错误
 -987 |RECORD_NOT_FOUND 交易单号不存在；产品不支持
 -997 |SYS_EXCEPTION, Please contact CS. 系统错误，请联络客服。
--998 |API_KIOSK_INSUFFICIENT_BALANCE 集成系统接口余额不足
+-998 |INSUFFICIENT_APIKIOSK_BALANCE 集成系统接口余额不足
 -999 |API_ERROR 接口错误
 
 
