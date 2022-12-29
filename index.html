@@ -358,9 +358,6 @@
                     <a href="#mark-betting-history_archieve-mark" class="toc-h2 toc-link" data-title="Mark Betting History_Archieve 标记投注历史记录接口(mark标记)">Mark Betting History_Archieve 标记投注历史记录接口(mark标记)</a>
                   </li>
                   <li>
-                    <a href="#get-betting-history-datetime-versionkey-dynamic" class="toc-h2 toc-link" data-title="Get Betting History 获取投注历史记录接口(datetime或versionkey) *dynamic/变动">Get Betting History 获取投注历史记录接口(datetime或versionkey) *dynamic/变动</a>
-                  </li>
-                  <li>
                     <a href="#get-game-list" class="toc-h2 toc-link" data-title="Get Game List 获取游戏列表">Get Game List 获取游戏列表</a>
                   </li>
               </ul>
@@ -1767,132 +1764,53 @@ Body:</p>
 
 <p><strong>Signature Formula 加密字符串:<br>
 <span class='red'>Signature = MD5(operatorcode + secret_key), then convert to uppercase 加密后转大写. </span></strong></p>
-<h2 id='get-betting-history-datetime-versionkey-dynamic'>Get Betting History 获取投注历史记录接口(datetime或versionkey) *dynamic/变动</h2>
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Function Class 接口:</td>
-<td><code>repullBettingHistoryApiClient.ashx</code></td>
-</tr>
-<tr>
-<td>Request 请求类型:</td>
-<td><code>GET</code></td>
-</tr>
-<tr>
-<td>Response 回传格式:</td>
-<td><code>application/json</code></td>
-</tr>
-</tbody></table>
 
-<p><strong>Input Data Type 请求资料型态</strong></p>
+<!--## Get Betting History 获取投注历史记录接口(datetime或versionkey) *dynamic/变动
 
-<blockquote>
-<p>Example 范例:<br>
-a) <keyOrdate=date> mode模式<br>
-<code>&lt;LOG_URL&gt;/repullBettingHistoryApiClient.ashx?providercode=WM&amp;keyOrdate=date&amp;from=2019-05-16T11:00:00&amp;to=2019-05-16T22:00:00&amp;operatorcode=dcmm&amp;signature=6749F170C968A7B76681C0B6EEDA8052</code></p>
+ | | 
+-|-|-
+Function Class 接口: | `repullBettingHistoryApiClient.ashx`
+Request 请求类型: | `GET`
+Response 回传格式: | `application/json`
 
-<p>b) <keyOrdate=key> mode模式<br>
-<code>&lt;LOG_URL&gt;/repullBettingHistoryApiClient.ashx?providercode=MP&amp;keyOrdate=key&amp;versionkey=0&amp;operatorcode=dcmm&amp;signature=6749F170C968A7B76681C0B6EEDA8052</code></p>
-</blockquote>
+**Input Data Type 请求资料型态**
 
-<table><thead>
-<tr>
-<th>Fields 参数</th>
-<th>Type 资料型态</th>
-<th>Req 必要</th>
-<th>Description 参数说明</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>providercode</td>
-<td>String 字串</td>
-<td>Y 是</td>
-<td>Provider code 供应商代号</td>
-</tr>
-<tr>
-<td>from</td>
-<td>String 字串</td>
-<td>N 否</td>
-<td>Start from 开始时间<br/><br/>Format: <code>yyyy-MM-ddTHH:mm:ss</code><br/>时间格式：<code>yyyy-MM-ddTHH:mm:ss</code><br/><br/>Use when {keyOrdate}=date only<br/>当 {keyOrdate}=date 才会生效</td>
-</tr>
-<tr>
-<td>to</td>
-<td>String 字串</td>
-<td>N 否</td>
-<td>End from 结束时间<br/><br/>Format: <code>yyyy-MM-ddTHH:mm:ss</code><br/>时间格式：<code>yyyy-MM-ddTHH:mm:ss</code><br/><br/>Use when {keyOrdate}=date only<br/>当 {keyOrdate}=date 才会生效</td>
-</tr>
-<tr>
-<td>versionkey</td>
-<td>String 字串</td>
-<td>N 否</td>
-<td>Version key 版本号<br/><br/>Use when {keyOrdate}= key only<br/>当 {keyOrdate}= key 才会生效<br/><em>for provider code PG, refer <a  class='red' href='#a-special-request-on-bet-history'>Appendix A</a><br/></em>当供应商为PG时，请参阅 <a class='red' href='#a-special-request-on-bet-history'>附件A</a></td>
-</tr>
-<tr>
-<td>type</td>
-<td>String 字串</td>
-<td>Y 是</td>
-<td><em>for provider code BI,FG, refer <a class='red' href='#a-special-request-on-bet-history'>Appendix A</a><br/></em>当供应商为BI,FG,IG时，请参阅 <a class='red' href='#a-special-request-on-bet-history'>附件A</a></td>
-</tr>
-<tr>
-<td>operatorcode</td>
-<td>String 字串</td>
-<td>Y 是</td>
-<td>Operator code 代理号</td>
-</tr>
-<tr>
-<td>keyOrdate</td>
-<td>String 字串</td>
-<td>Y 是</td>
-<td>Enquiry by key Or date<br/>查询方式: key 或 date<br/><br/>Possible value: 有效值:<br/><br/>a) keyOrdate=date<br/>b) keyOrdate=key</td>
-</tr>
-<tr>
-<td>signature</td>
-<td>String 字串</td>
-<td>Y 是</td>
-<td>MD5 encryption string MD5 加密字符串</td>
-</tr>
-</tbody></table>
+> Example 范例:  
+> a) <keyOrdate=date> mode模式  
+> `<LOG_URL>/repullBettingHistoryApiClient.ashx?providercode=WM&keyOrdate=date&from=2019-05-16T11:00:00&to=2019-05-16T22:00:00&operatorcode=dcmm&signature=6749F170C968A7B76681C0B6EEDA8052`
 
-<p><strong>Response Data Type 回传资料型态</strong></p>
+> b) <keyOrdate=key> mode模式  
+> `<LOG_URL>/repullBettingHistoryApiClient.ashx?providercode=MP&keyOrdate=key&versionkey=0&operatorcode=dcmm&signature=6749F170C968A7B76681C0B6EEDA8052`
 
-<table><thead>
-<tr>
-<th>Fields 参数</th>
-<th>Type 资料型态</th>
-<th>Description 参数说明</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>errCode</td>
-<td>String 字串</td>
-<td>Error Code 报错码</td>
-</tr>
-<tr>
-<td>record</td>
-<td>String 字串</td>
-<td>IF have data : string (betting history record)<br/>有投注记录时，会返回投注记录串<br/><br/>IF no data: string “0”<br/>无投注记录时，会返回“0”<br/><br/>refer <a class='red' href='#d-dynamic-betting-history-attribute'>Appendix D</a> for attribute<br/>详细的回传参数说明请参阅 <a class='red' href='#d-dynamic-betting-history-attribute'>Appendix附件D</a></td>
-</tr>
-<tr>
-<td>errMsg</td>
-<td>String 字串</td>
-<td>Error Message 报错内容</td>
-</tr>
-</tbody></table>
+Fields 参数 | Type 资料型态 | Req 必要 | Description 参数说明
+------------|--------------|----------|---------------------
+providercode |String 字串 |Y 是 |Provider code 供应商代号
+from |String 字串 |N 否 |Start from 开始时间<br/><br/>Format: <code>yyyy-MM-ddTHH:mm:ss</code><br/>时间格式：<code>yyyy-MM-ddTHH:mm:ss</code><br/><br/>Use when {keyOrdate}=date only<br/>当 {keyOrdate}=date 才会生效
+to |String 字串 |N 否 |End from 结束时间<br/><br/>Format: <code>yyyy-MM-ddTHH:mm:ss</code><br/>时间格式：<code>yyyy-MM-ddTHH:mm:ss</code><br/><br/>Use when {keyOrdate}=date only<br/>当 {keyOrdate}=date 才会生效
+versionkey |String 字串 |N 否 |Version key 版本号<br/><br/>Use when {keyOrdate}= key only<br/>当 {keyOrdate}= key 才会生效<br/>*for provider code PG, refer <a  class='red' href='#a-special-request-on-bet-history'>Appendix A</a><br/>*当供应商为PG时，请参阅 <a class='red' href='#a-special-request-on-bet-history'>附件A</a>
+type |String 字串 |Y 是 |*for provider code BI,FG, refer <a class='red' href='#a-special-request-on-bet-history'>Appendix A</a><br/>*当供应商为BI,FG,IG时，请参阅 <a class='red' href='#a-special-request-on-bet-history'>附件A</a>
+operatorcode |String 字串 |Y 是 |Operator code 代理号
+keyOrdate |String 字串 |Y 是 |Enquiry by key Or date<br/>查询方式: key 或 date<br/><br/>Possible value: 有效值:<br/><br/>a) keyOrdate=date<br/>b) keyOrdate=key
+signature |String 字串 |Y 是 |MD5 encryption string MD5 加密字符串
 
-<p><strong>Signature Formula 加密字符串:<br>
-<span class='red'>Signature = MD5(providercode + operatorcode + keyOrDate + secret_key), then convert to uppercase 加密后转大写. </span></strong></p>
+**Response Data Type 回传资料型态**
 
-<p><strong>Remark 1 备注 1:<br>
-<span class='red'>As of 15 August 2019, only this provider code CANNOT use this function: DG , WF , UF<br>
-即2019年8月15日起，仅这几个供应商不支持调用此接口：DG , WF , UF。</span></strong></p>
+Fields 参数  |    Type 资料型态   | Description 参数说明
+------------|--------------|---------------------
+errCode |String 字串 |Error Code 报错码
+record |String 字串 |IF have data : string (betting history record)<br/>有投注记录时，会返回投注记录串<br/><br/>IF no data: string “0”<br/>无投注记录时，会返回“0”<br/><br/>refer <a class='red' href='#d-dynamic-betting-history-attribute'>Appendix D</a> for attribute<br/>详细的回传参数说明请参阅 <a class='red' href='#d-dynamic-betting-history-attribute'>Appendix附件D</a>
+errMsg |String 字串 |Error Message 报错内容
 
-<p><strong>Remark 2 备注 2:<br>
-<span class='red'>This API will return the un-process raw data from game provider, the content include bet and winlose amount will be based on game provider ratio (eg: 1:1 or 1:1000)<br>
-此API接口将返回游戏商未经处理的原始数据，内容包括投注和输赢金额将根据游戏商的比例 (例如 1:1或1:1000) </span></strong></p>
+**Signature Formula 加密字符串:  
+<span class='red'>Signature = MD5(providercode + operatorcode + keyOrDate + secret_key), then convert to uppercase 加密后转大写. </span>**
+
+**Remark 1 备注 1:  
+<span class='red'>As of 15 August 2019, only this provider code CANNOT use this function: DG , WF , UF  
+即2019年8月15日起，仅这几个供应商不支持调用此接口：DG , WF , UF。</span>**
+
+**Remark 2 备注 2:  
+<span class='red'>This API will return the un-process raw data from game provider, the content include bet and winlose amount will be based on game provider ratio (eg: 1:1 or 1:1000)  
+此API接口将返回游戏商未经处理的原始数据，内容包括投注和输赢金额将根据游戏商的比例 (例如 1:1或1:1000) </span>**-->
 <h2 id='get-game-list'>Get Game List 获取游戏列表</h2>
 <table><thead>
 <tr>
@@ -3552,7 +3470,7 @@ a) <keyOrdate=date> mode模式<br>
 </tr>
 <tr>
 <td>-998</td>
-<td>API_KIOSK_INSUFFICIENT_BALANCE 集成系统接口余额不足</td>
+<td>INSUFFICIENT_APIKIOSK_BALANCE 集成系统接口余额不足</td>
 </tr>
 <tr>
 <td>-999</td>
