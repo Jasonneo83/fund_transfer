@@ -582,7 +582,7 @@ errMsg |String 字串 |Error Message 报错内容
 <span class='red'>Signature = MD5(operatorcode + secret_key), then convert to uppercase 加密后转大写. </span>**
 
 
-## Get Betting History 获取投注历史记录接口(datetime或versionkey) *dynamic/变动
+<!--## Get Betting History 获取投注历史记录接口(datetime或versionkey) *dynamic/变动
 
  | | 
 -|-|-
@@ -627,7 +627,7 @@ errMsg |String 字串 |Error Message 报错内容
 
 **Remark 2 备注 2:  
 <span class='red'>This API will return the un-process raw data from game provider, the content include bet and winlose amount will be based on game provider ratio (eg: 1:1 or 1:1000)  
-此API接口将返回游戏商未经处理的原始数据，内容包括投注和输赢金额将根据游戏商的比例 (例如 1:1或1:1000) </span>**
+此API接口将返回游戏商未经处理的原始数据，内容包括投注和输赢金额将根据游戏商的比例 (例如 1:1或1:1000) </span>**-->
 
 
 ## Get Game List 获取游戏列表
