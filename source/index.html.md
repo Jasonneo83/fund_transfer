@@ -807,7 +807,7 @@ HW|HUAWEI88(GrandDragonLotto)|LK
 HY|HYDAKO|SL
 i8|i8Games|
 IA|小艾电竞 IA ESPORT |ES
-IB|GAMINGSOFT IBC SPORTSBOOK (onework/saba)|SL,SB,ES
+IB|GAMINGSOFT IBC SPORTSBOOK (onework/saba)|SB,ES
 IC|iconic(ICG必贏電子)|SL,FH,
 ID|IDN POKER|PK
 IE|小艾电竞 IA ESPORT[Common Wallet] |ES
@@ -1129,7 +1129,6 @@ Currently the below provider are advised to prepare this method.
 若有申请以下供应商的游戏平台，请按照步骤并开发这个程序
 
 * CS
-* EB
 * GP
 * ME
 * N2
