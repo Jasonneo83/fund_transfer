@@ -1140,6 +1140,7 @@ Currently the below provider are advised to prepare this method.
 * GS
 * SG
 * AC
+* NS
 
 ## C - Standardized betting history attribute / 固定式投注历史记录回传参数
 
