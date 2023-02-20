@@ -3496,10 +3496,8 @@ errMsg |String 字串 |Error Message 报错内容
 <h1 id='appendix'>Appendix 附件</h1><h2 id='a-special-request-on-bet-history'>A - Special request on bet history / 投注记录的特殊接口请求</h2>
 <p><strong>Product code 供应商代号: PG</strong></p>
 
-<blockquote>
-<p>Example 例子:<br>
-<code>&lt;LOG_URL&gt;/repullBettingHistoryApiClient.ashx?providercode=PG&amp;keyOrdate=key&amp;versionkey=C_0&amp;operatorcode=DEMO</code></p>
-</blockquote>
+<!-- Example 例子:  
+ `<LOG_URL>/repullBettingHistoryApiClient.ashx?providercode=PG&keyOrdate=key&versionkey=C_0&operatorcode=DEMO`-->
 
 <table><thead>
 <tr>
@@ -3521,10 +3519,8 @@ errMsg |String 字串 |Error Message 报错内容
 
 <p><strong>Product code 供应商代号: FG</strong></p>
 
-<blockquote>
-<p>Example 例子:<br>
-<code>&lt;LOG_URL&gt;/repullBettingHistoryApiClient.ashx?providercode=FG&amp;keyOrdate=key&amp;type=fish&amp;versionkey=vhbgjk26456&amp;operatorcode=DEMO</code></p>
-</blockquote>
+<!-- Example 例子:  
+ `<LOG_URL>/repullBettingHistoryApiClient.ashx?providercode=FG&keyOrdate=key&type=fish&versionkey=vhbgjk26456&operatorcode=DEMO`-->
 
 <table><thead>
 <tr>
@@ -3546,10 +3542,8 @@ errMsg |String 字串 |Error Message 报错内容
 
 <p><strong>Product code 供应商代号: BI</strong></p>
 
-<blockquote>
-<p>Example 例子:<br>
-<code>&lt;LOG_URL&gt;/repullBettingHistoryApiClient.ashx?providercode=BI&amp;keyOrdate=key&amp;type=FH&amp;versionkey=154565646&amp;operatorcode=DEMO</code></p>
-</blockquote>
+<!-- Example 例子:  
+ `<LOG_URL>/repullBettingHistoryApiClient.ashx?providercode=BI&keyOrdate=key&type=FH&versionkey=154565646&operatorcode=DEMO`-->
 
 <table><thead>
 <tr>
@@ -3571,10 +3565,8 @@ errMsg |String 字串 |Error Message 报错内容
 
 <p><strong>Product code 供应商代号: IG</strong></p>
 
-<blockquote>
-<p>Example 例子:<br>
-<code>&lt;LOG_URL&gt;/repullBettingHistoryApiClient.ashx?providercode=IG&amp;from=2019-08-22T14%3A09%3A19&amp;to=2019-08-22T14%3A19%3A19&amp;operatorcode=igcn&amp;keyOrdate=date&amp;type=SC&amp;etc=ewoJImdhbWVub2lkIjogIjEiLAoJImJlZ2luaWQiOiAiMCIsCiJyZXBvcnRkYXRlaWQiOiIwIgp9&amp;Signature=D197C1EDD962D6942B7CF43D3CC0828B</code></p>
-</blockquote>
+<!-- Example 例子:  
+ `<LOG_URL>/repullBettingHistoryApiClient.ashx?providercode=IG&from=2019-08-22T14%3A09%3A19&to=2019-08-22T14%3A19%3A19&operatorcode=igcn&keyOrdate=date&type=SC&etc=ewoJImdhbWVub2lkIjogIjEiLAoJImJlZ2luaWQiOiAiMCIsCiJyZXBvcnRkYXRlaWQiOiIwIgp9&Signature=D197C1EDD962D6942B7CF43D3CC0828B`-->
 <div class="highlight"><pre class="highlight csharp tab-csharp"><code><span class="c1">//Remark 备注:</span>
 <span class="c1">//How to generate value for etc 如何制作etc参数?</span>
 <span class="c1">//Answer 答案:</span>
@@ -3847,51 +3839,56 @@ Attributes are fixed and will not change according to provider code  <br/>
 </ul>
 
 <p><hr class="solid"></p>
+
+<!--### Question 2
+
+What is the difference between repullBettingHistoryApiClient and fetchbykey?
+
+### Answer 2
+
+repullBettingHistoryApiClient
+
+* pro1: EXACT data from provider (apiclient can self-customize the data according to their own.
+
+* con1: datetime's timezone in api request and api response is dependent on provider
+* con2: since bet data is dependent on provider, apiclient need to do extra coding to handle every provider differently.
+
+fetchbykey
+
+* pro1: integrate code once, able to get all providercode's bet data
+* pro2: standardized bet data across all providercode's bet record (which mean all bet data will be in GMT +0)
+* pro3: does not need to handle timezone in api request (since it is using key).
+
+* con1: possibly some bet details in a bet record is removed/ignored by AIO, which deem to be useless.
+* con2: possibly missing bet record due to network between AIO and provider is unstable (AIO will repull data from provider again every 12 hour to resolve this).
+
+
+### 疑问 2
+
+repullBettingHistoryApiClient 和 fetchbykey 有什么区别
+
+### 答案 2
+
+repullBettingHistoryApiClient
+
+* pro1: 来自提供商的确切数据 (apiclient 可以根据自己的需要自定义数据.
+
+* con1: api 请求和 api 响应中的 datetime 时区取决于提供者
+* con2: 由于下注数据取决于提供商，因此 apiclient 需要做额外的编码才能以不同方式处理每个提供商.
+
+fetchbykey
+
+* pro1: 一次集成代码，能够获取所有 providercode 的下注数据
+* pro2: 所有提供商代码的赌注记录中的标准化赌注数据（这意味着所有赌注数据将在 GMT +0 中）
+* pro3: 不需要在api请求中处理时区（因为它使用的是键.
+
+* con1: AIO 可能删除/忽略了投注记录中的某些投注详细信息，这被认为是无用的.
+* con2: 由于 AIO 和提供商之间的网络不稳定，可能会丢失投注记录（AIO 将每12小时重新刷新提供商的数据以解决此问题）.
+
+<hr class="solid">-->
 <h3 id='question-2'>Question 2</h3>
-<p>What is the difference between repullBettingHistoryApiClient and fetchbykey?</p>
-<h3 id='answer-2'>Answer 2</h3>
-<p>repullBettingHistoryApiClient</p>
-
-<ul>
-<li><p>pro1: EXACT data from provider (apiclient can self-customize the data according to their own.</p></li>
-<li><p>con1: datetime&#39;s timezone in api request and api response is dependent on provider</p></li>
-<li><p>con2: since bet data is dependent on provider, apiclient need to do extra coding to handle every provider differently.</p></li>
-</ul>
-
-<p>fetchbykey</p>
-
-<ul>
-<li>pro1: integrate code once, able to get all providercode&#39;s bet data</li>
-<li>pro2: standardized bet data across all providercode&#39;s bet record (which mean all bet data will be in GMT +0)</li>
-<li><p>pro3: does not need to handle timezone in api request (since it is using key).</p></li>
-<li><p>con1: possibly some bet details in a bet record is removed/ignored by AIO, which deem to be useless.</p></li>
-<li><p>con2: possibly missing bet record due to network between AIO and provider is unstable (AIO will repull data from provider again every 12 hour to resolve this).</p></li>
-</ul>
-<h3 id='2'>疑问 2</h3>
-<p>repullBettingHistoryApiClient 和 fetchbykey 有什么区别</p>
-<h3 id='2-2'>答案 2</h3>
-<p>repullBettingHistoryApiClient</p>
-
-<ul>
-<li><p>pro1: 来自提供商的确切数据 (apiclient 可以根据自己的需要自定义数据.</p></li>
-<li><p>con1: api 请求和 api 响应中的 datetime 时区取决于提供者</p></li>
-<li><p>con2: 由于下注数据取决于提供商，因此 apiclient 需要做额外的编码才能以不同方式处理每个提供商.</p></li>
-</ul>
-
-<p>fetchbykey</p>
-
-<ul>
-<li>pro1: 一次集成代码，能够获取所有 providercode 的下注数据</li>
-<li>pro2: 所有提供商代码的赌注记录中的标准化赌注数据（这意味着所有赌注数据将在 GMT +0 中）</li>
-<li><p>pro3: 不需要在api请求中处理时区（因为它使用的是键.</p></li>
-<li><p>con1: AIO 可能删除/忽略了投注记录中的某些投注详细信息，这被认为是无用的.</p></li>
-<li><p>con2: 由于 AIO 和提供商之间的网络不稳定，可能会丢失投注记录（AIO 将每12小时重新刷新提供商的数据以解决此问题）.</p></li>
-</ul>
-
-<p><hr class="solid"></p>
-<h3 id='question-3'>Question 3</h3>
 <p>Any suggestion on password?</p>
-<h3 id='answer-3'>Answer 3</h3>
+<h3 id='answer-2'>Answer 2</h3>
 <ul>
 <li>at least one big letter.</li>
 <li>at least one small letter.</li>
@@ -3906,9 +3903,9 @@ Attributes are fixed and will not change according to provider code  <br/>
 </ul>
 
 <p>if did not utilize this suggestion, you might facing password issue if you took PU,KS.</p>
-<h3 id='3'>疑问 3</h3>
+<h3 id='2'>疑问 2</h3>
 <p>密码格式推荐</p>
-<h3 id='3-2'>答案 3</h3>
+<h3 id='2-2'>答案 2</h3>
 <ul>
 <li>至少一个大写.</li>
 <li>至少一个小写.</li>
@@ -3925,16 +3922,16 @@ Attributes are fixed and will not change according to provider code  <br/>
 <p>若选择不根据要求，可能在KS,PU 会发生密码api问题.</p>
 
 <p><hr class="solid"></p>
-<h3 id='question-4'>Question 4</h3>
+<h3 id='question-3'>Question 3</h3>
 <p>What will happen if i do not convert username and operatorcode to small letter before sending API request to GSC ?</p>
-<h3 id='answer-4'>Answer 4</h3>
+<h3 id='answer-3'>Answer 3</h3>
 <ul>
 <li>GSC system will convert username and operatorcode to small letter.</li>
 <li>Please remember that some of the API is using username and operatorcode to create signature. MD5 is case sensitive.</li>
 </ul>
-<h3 id='4'>疑问 4</h3>
+<h3 id='3'>疑问 3</h3>
 <p>若没把operatorcode和username转换成小写就 发送API请求给GSC，会发生什么事。</p>
-<h3 id='4-2'>答案 4</h3>
+<h3 id='3-2'>答案 3</h3>
 <ul>
 <li>GSC 会自行转换去小写。</li>
 <li>username 和 operatorcode 是会用于 制作签名。 MD5 是区分大小写 </li>
