@@ -1009,8 +1009,8 @@ For Report/betting history related<br/>捞取投历史记录端: | `<LOG_URL>`
 
 **Product code 供应商代号: PG**
 
-> Example 例子:  
-> `<LOG_URL>/repullBettingHistoryApiClient.ashx?providercode=PG&keyOrdate=key&versionkey=C_0&operatorcode=DEMO`
+<!-- Example 例子:  
+ `<LOG_URL>/repullBettingHistoryApiClient.ashx?providercode=PG&keyOrdate=key&versionkey=C_0&operatorcode=DEMO`-->
 
 Fields 参数 | Type 资料型态 | Req 必要 | Description 参数说明
 ------------|--------------|---------------|--------------------
@@ -1020,8 +1020,8 @@ versionkey | String 字串 | N 否 | For pgsoft, there are two type<br/>PGSoft�
 
 **Product code 供应商代号: FG**
 
-> Example 例子:  
-> `<LOG_URL>/repullBettingHistoryApiClient.ashx?providercode=FG&keyOrdate=key&type=fish&versionkey=vhbgjk26456&operatorcode=DEMO`
+<!-- Example 例子:  
+ `<LOG_URL>/repullBettingHistoryApiClient.ashx?providercode=FG&keyOrdate=key&type=fish&versionkey=vhbgjk26456&operatorcode=DEMO`-->
 
 Fields 参数 | Type 资料型态 | Req 必要 | Description 参数说明
 ------------|--------------|---------------|--------------------
@@ -1031,8 +1031,8 @@ type | String 字串 | N 否 | For fungaming, there are four type<br/>Fun Gaming
 
 **Product code 供应商代号: BI**
 
-> Example 例子:  
-> `<LOG_URL>/repullBettingHistoryApiClient.ashx?providercode=BI&keyOrdate=key&type=FH&versionkey=154565646&operatorcode=DEMO`
+<!-- Example 例子:  
+ `<LOG_URL>/repullBettingHistoryApiClient.ashx?providercode=BI&keyOrdate=key&type=FH&versionkey=154565646&operatorcode=DEMO`-->
 
 Fields 参数 | Type 资料型态 | Req 必要 | Description 参数说明
 ------------|--------------|---------------|--------------------
@@ -1042,8 +1042,8 @@ type | String 字串 | N 否 | For Big Gaming, there are four type<br/>Big Gamin
 
 **Product code 供应商代号: IG**
 
-> Example 例子:  
-> `<LOG_URL>/repullBettingHistoryApiClient.ashx?providercode=IG&from=2019-08-22T14%3A09%3A19&to=2019-08-22T14%3A19%3A19&operatorcode=igcn&keyOrdate=date&type=SC&etc=ewoJImdhbWVub2lkIjogIjEiLAoJImJlZ2luaWQiOiAiMCIsCiJyZXBvcnRkYXRlaWQiOiIwIgp9&Signature=D197C1EDD962D6942B7CF43D3CC0828B`
+<!-- Example 例子:  
+ `<LOG_URL>/repullBettingHistoryApiClient.ashx?providercode=IG&from=2019-08-22T14%3A09%3A19&to=2019-08-22T14%3A19%3A19&operatorcode=igcn&keyOrdate=date&type=SC&etc=ewoJImdhbWVub2lkIjogIjEiLAoJImJlZ2luaWQiOiAiMCIsCiJyZXBvcnRkYXRlaWQiOiIwIgp9&Signature=D197C1EDD962D6942B7CF43D3CC0828B`-->
 
 ```csharp
 //Remark 备注:
@@ -1217,7 +1217,7 @@ API 文件中, createMember 只需要提供 {username} , 不需要密码{passwor
 
 <hr class="solid">
 
-### Question 2
+<!--### Question 2
 
 What is the difference between repullBettingHistoryApiClient and fetchbykey?
 
@@ -1262,12 +1262,12 @@ fetchbykey
 * con1: AIO 可能删除/忽略了投注记录中的某些投注详细信息，这被认为是无用的.
 * con2: 由于 AIO 和提供商之间的网络不稳定，可能会丢失投注记录（AIO 将每12小时重新刷新提供商的数据以解决此问题）.
 
-<hr class="solid">
+<hr class="solid">-->
 
-### Question 3
+### Question 2
 Any suggestion on password?
 
-### Answer 3
+### Answer 2
 
 * at least one big letter.
 * at least one small letter.
@@ -1280,10 +1280,10 @@ Example:
 
 if did not utilize this suggestion, you might facing password issue if you took PU,KS.
 
-### 疑问 3
+### 疑问 2
 密码格式推荐
 
-### 答案 3
+### 答案 2
 
 * 至少一个大写.
 * 至少一个小写.
@@ -1298,20 +1298,20 @@ if did not utilize this suggestion, you might facing password issue if you took 
 
 <hr class="solid">
 
-### Question 4
+### Question 3
 
 What will happen if i do not convert username and operatorcode to small letter before sending API request to GSC ?
 
-### Answer 4
+### Answer 3
 
 * GSC system will convert username and operatorcode to small letter.
 * Please remember that some of the API is using username and operatorcode to create signature. MD5 is case sensitive.
 
-### 疑问 4
+### 疑问 3
 
 若没把operatorcode和username转换成小写就 发送API请求给GSC，会发生什么事。
 
-### 答案 4 
+### 答案 3 
 
 * GSC 会自行转换去小写。
 * username 和 operatorcode 是会用于 制作签名。 MD5 是区分大小写 
