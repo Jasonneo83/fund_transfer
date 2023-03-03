@@ -480,7 +480,7 @@
 <span class='red'>Signature = MD5(operatorcode + username +secret_key), then convert to uppercase 加密后转大写.</span></strong></p>
 
 <p><strong>Remark 备注:
-refer to <a class='red' href='#e-qna'>Appendix E</a> QnA, question 1 请参考<a class='red' href='#e-qna'>Appendix附件 E</a> 常见疑问, 问题 1</strong></p>
+refer to <a class='red' href='#e-special-request-on-launch-game'>Appendix E</a> QnA, question 1 请参考<a class='red' href='#e-special-request-on-launch-game'>Appendix附件 E</a> 常见疑问, 问题 1</strong></p>
 <h2 id='get-balance'>Get Balance 获取余额接口</h2>
 <table><thead>
 <tr>
@@ -732,18 +732,57 @@ refer to <a class='red' href='#e-qna'>Appendix E</a> QnA, question 1 请参考<a
 <td>providercode</td>
 <td>String 字串</td>
 <td>Y 是</td>
-<td>Provider code 供应商号<br/>* Provider Code below please refer Appendix E<br/>1) S2<br/>2) P3</td>
+<td>Provider code 供应商号<br/><br/><b>* Provider Code below please refer to </b><a class='red' href='#e-special-request-on-launch-game'>Appendix E</a><br/>1) S2<br/>2) P3</td>
+</tr>
+<tr>
+<td>username<br/><span class='red'><b>* Use lowercase<br/>* 小写</b></span></td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Player user name 会员账号<br/><br/>Min Length : 3 character 最短长度：3位<br/>Max Length : 12 character 最大长度：12位</td>
+</tr>
+<tr>
+<td>password</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>User password 账号密码<br/><br/>Max Length : 12 character 最大长度：12位</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>Please refer to<br/>1. Game Type Code for the categories<br/>For example: SL = slot<br/><br/>and<br/>2. SUPPORTED GAME TYPE CODE in Provider Code table 各自供应商所支持的游戏类型<br/>For example: GS only support SL games</td>
+</tr>
+<tr>
+<td>gameid</td>
+<td>String 字串</td>
+<td>N 否</td>
+<td>Game ID<br/>游戏代号<br/><br/>Ignore this field/0 will go to game lobby<br/>可以忽略此参数，预设为‘0’即可直接进入相关游戏厅</td>
+</tr>
+<tr>
+<td>lang</td>
+<td>String 字串</td>
+<td>N 否</td>
+<td>ISO 639-1, default language en-US<br/>ISO 639-1, 默认语言为en-US</td>
+</tr>
+<tr>
+<td>html5</td>
+<td>String 字串</td>
+<td>N 否</td>
+<td>html5=0, for flash(not mobile friendly)<br/>html5=1, for html5(mobile friendly)<br/>html5=0, 使用flash;<br/>html5=1, 使用html5(手机优化页面)</td>
+</tr>
+<tr>
+<td>signature</td>
+<td>String 字串</td>
+<td>Y 是</td>
+<td>MD5 encryption string MD5 加密字符串</td>
+</tr>
+<tr>
+<td>blimit</td>
+<td>String 字串</td>
+<td>N 否</td>
+<td>Bet limit id/group (currently only support product/provider code GA,AG,GE)<br/>投注限额 id/group (目前只有GA,AG,GE 供应商号能使用)</td>
 </tr>
 </tbody></table>
-
-<p>username<br/><span class='red'><b>* Use lowercase<br/>* 小写</b></span> |String 字串 |Y 是 |Player user name 会员账号<br/><br/>Min Length : 3 character 最短长度：3位<br/>Max Length : 12 character 最大长度：12位
-password |String 字串 |Y 是 |User password 账号密码<br/><br/>Max Length : 12 character 最大长度：12位
-type |String 字串 |Y 是 |Please refer to<br/>1. Game Type Code for the categories<br/>For example: SL = slot<br/><br/>and<br/>2. SUPPORTED GAME TYPE CODE in Provider Code table 各自供应商所支持的游戏类型<br/>For example: GS only support SL games
-gameid |String 字串 |N 否 |Game ID<br/>游戏代号<br/><br/>Ignore this field/0 will go to game lobby<br/>可以忽略此参数，预设为‘0’即可直接进入相关游戏厅
-lang |String 字串 |N 否 |ISO 639-1, default language en-US<br/>ISO 639-1, 默认语言为en-US
-html5 |String 字串 |N 否 |html5=0, for flash(not mobile friendly)<br/>html5=1, for html5(mobile friendly)<br/>html5=0, 使用flash;<br/>html5=1, 使用html5(手机优化页面)
-signature |String 字串 |Y 是 |MD5 encryption string MD5 加密字符串
-blimit |String 字串 |N 否 |Bet limit id/group (currently only support product/provider code GA,AG,GE)<br/>投注限额 id/group (目前只有GA,AG,GE 供应商号能使用)</p>
 
 <p><strong>Response Data Type 回传资料型态</strong></p>
 
@@ -3925,7 +3964,9 @@ fetchbykey
 
 <blockquote>
 <p>Example 例子:<br>
-<code>&lt;API_URL&gt;/launchGames.aspx?operatorcode=d8kr&amp;providercode=S2&amp;username=dv69000XXX&amp;password=kJiCDDX7&amp;type=SL&amp;lang=ko-KR&amp;gameid=S2_FC&amp;signature=1281A073C04822BB5838DD861EC15C40</code></p>
+<code>&lt;API_URL&gt;/launchGames.aspx?operatorcode=d8kr&amp;providercode=S2&amp;username=dv69000XXX&amp;password=kJiCDDX7&amp;type=SL&amp;lang=ko-KR&amp;gameid=S2_FC&amp;signature=1281A073C04822BB5838DD861EC15C40</code>  </p>
+
+<p><code>&lt;API_URL&gt;/launchGames.aspx?operatorcode=d8kr&amp;providercode=S2&amp;username=dv69000XXX&amp;password=kJiCDDX7&amp;type=LC&amp;lang=ko-KR&amp;gameid=S2_VENUS&amp;signature=1281A073C04822BB5838DD861EC15C40</code></p>
 </blockquote>
 
 <table><thead>
@@ -3940,7 +3981,7 @@ fetchbykey
 <td>type</td>
 <td>String 字串</td>
 <td>Y 是</td>
-<td><b>SL</b> – Slot<br/><b>LC<b/> – Live Casino<br/><b>FH</b> – Fishing Game<br/>OT- Other</td>
+<td><b>SL</b> – Slot<br/><b>LC</b> – Live Casino<br/><b>FH</b> – Fishing Game<br/><b>OT</b> - Other</td>
 </tr>
 <tr>
 <td>gameid</td>
