@@ -140,7 +140,8 @@ Response 回传格式: | `application/json`
 Fields 参数 |	Type 资料型态 | Req 必要 | Description 参数说明
 ------------|--------------|----------|---------------------
 operatorcode |String 字串 |Y 是 |Operator code 代理号
-providercode |String 字串 |Y 是 |Provider code 供应商号
+providercode |String 字串 |Y 是 |Provider code 供应商号<br/>* Provider Code below please refer Appendix E<br/>1) S2<br/>2) P3
+
 username<br/><span class='red'><b>\* Use lowercase<br/>\* 小写</b></span> |String 字串 |Y 是 |Player user name 会员账号<br/><br/>Min Length : 3 character 最短长度：3位<br/>Max Length : 12 character 最大长度：12位
 password |String 字串 |Y 是 |User password 账号密码<br/><br/>Max Length : 12 character 最大长度：12位
 type |String 字串 |Y 是 |Please refer to<br/>1. Game Type Code for the categories<br/>For example: SL = slot<br/><br/>and<br/>2. SUPPORTED GAME TYPE CODE in Provider Code table 各自供应商所支持的游戏类型<br/>For example: GS only support SL games
@@ -1328,8 +1329,25 @@ Fields 参数 | Type 资料型态 | Required 必要 | Description 参数说明
 ------------|--------------|---------------|--------------------
 gameid | String 字串 ||1 - HK 香港彩<br/>2 - SSC 时时彩 
 
+**Product code 供应商代号: S2**
 
+> Example 例子:  
+> `<API_URL>/launchGames.aspx?operatorcode=d8kr&providercode=S2&username=dv69000XXX&password=kJiCDDX7&type=SL&lang=ko-KR&gameid=S2_FC&signature=1281A073C04822BB5838DD861EC15C40`
 
+Fields 参数 | Type 资料型态 | Required 必要 | Description 参数说明
+------------|--------------|---------------|--------------------
+type | String 字串 | Y 是| <b>SL</b> – Slot<br/><b>LC<b/> – Live Casino<br/><b>FH</b> – Fishing Game<br/>OT- Other 
+gameid | String 字串 | Y 是 | Type <b>SL</b> Supported Game ID<br/>1.) <b>S2_FC</b> : Fa Chai <br/><br/>Type <b>LC</b> Supported Game ID<br/>1.) <b>S2_VENUS</b> : Venus<br/>2.) <b>0</b> : Sexy Baccarat<br/><br/>Type <b>FH</b> Supported Game ID<br/>1.) <b>S2_FC</b> : Fa Chai<br/><br/>Type <b>OT</b> Supported Game ID<br/>1.) <b>0</b> : SV388
+
+**Product code 供应商代号: P3**
+
+> Example 例子:  
+> `<API_URL>/launchGames.aspx?operatorcode=d8kr&providercode=P3&username=dv69000XXX&password=kJiCDDX7&type=LC&lang=ko-KR&gameid=1_0&signature=1281A073C04822BB5838DD861EC15C40`
+
+Fields 参数 | Type 资料型态 | Required 必要 | Description 参数说明
+------------|--------------|---------------|--------------------
+type | String 字串 | Y 是| <b>SL</b> – Slot<br/><b>LC</b> – Live Casino 
+gameid | String 字串 | Y 是 | Type <b>SL</b> Supported Game ID<br/>1.) <b>0</b><br/><br/>Type <b>LC</b> Supported Game ID<br/>1.) <b>1_0</b> : Evolution
 
 
 
