@@ -809,7 +809,6 @@ i8|i8Games|
 IA|小艾电竞 IA ESPORT |ES
 IB|GAMINGSOFT IBC SPORTSBOOK (onework/saba)|SB,ES
 IC|iconic(ICG必贏電子)|SL,FH,
-ID|IDN POKER|PK
 IE|小艾电竞 IA ESPORT[Common Wallet] |ES
 IG|IGLOTTO|LK
 II|Infinity Gaming|
