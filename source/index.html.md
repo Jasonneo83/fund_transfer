@@ -407,7 +407,7 @@ signature |String 字串 |Y 是 |MD5 encryption string MD5 加密字符串
 
 **Supported product code（目前支持的产品）: WB, AG, CF, SU, PG ,SO, WC, RE, DG, GE, JK, GB, PR, IB, TF, S2, IA, MP, HB, AT**
 
-## Get Betting History Start From 2021-01-01 (GMT+0) 捞取投注历史记录接口(fetchbykey以版本号捞取) 2021-01-01 (GMT+0) 开始 *standardized/固定
+## Get Betting History *standardized/固定
 
  | | 
 -|-|-
