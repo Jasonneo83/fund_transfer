@@ -301,7 +301,7 @@ errMsg |String 字串 |Error Message 报错内容
 
  | | 
 -|-|-
-Function Class 接口: | `launchAPP.aspx`
+Function Class 接口: | `launchAPP.ashx`
 Request 请求类型: | `GET`
 Response 回传格式: | `application/json`
 
